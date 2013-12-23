@@ -8,47 +8,70 @@
 
 #import "SCMasterViewController.h"
 
+#import "SCAPIClient.h"
 #import "SCDetailViewController.h"
+#import "SCServiceStatus.h"
+#import "SCServiceStatusCell.h"
 
-@interface SCMasterViewController () {
-    NSMutableArray *_objects;
-}
+@interface SCMasterViewController ()
+
+@property (nonatomic, strong) NSArray *serviceStatuses;
+@property (nonatomic, strong) NSArray *filteredServiceStatuses;
+
 @end
 
 @implementation SCMasterViewController
 
-- (void)awakeFromNib
+- (id)init
 {
-    [super awakeFromNib];
+    self = [super init];
+    if (self) {
+        self.filteredServiceStatuses = [[NSArray alloc] init];
+    }
+    return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+    
+    [self refresh:nil];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender
-{
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
+    [super viewWillAppear:animated];
+    
+    // make sure to deselect rows
+    NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+    if (selectedRowIndexPath) {
+        [self.tableView deselectRowAtIndexPath:selectedRowIndexPath animated:YES];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-#pragma mark - Table View
+#pragma mark - Refreshing
+
+- (void)refresh:(UIRefreshControl *)sender
+{
+    [[SCAPIClient sharedInstance] fetchFerryServiceStatusesWithCompletion:^(NSArray *serviceStatuses, NSError *error) {
+        
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Oops" message:@"There was a problem fetching the ferry details. Please check your connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        }
+        else {
+            self.serviceStatuses = serviceStatuses;
+            [self.tableView reloadData];
+        }
+        
+        [sender endRefreshing];
+    }];
+}
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -57,56 +80,62 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.filteredServiceStatuses count];
+    }
+    else {
+        return [self.serviceStatuses count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    SCServiceStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    SCServiceStatus *serviceStatus;
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        serviceStatus = self.filteredServiceStatuses[indexPath.row];
+    }
+    else {
+        serviceStatus = self.serviceStatuses[indexPath.row];
+    }
+    
+    cell.labelTitle.text = serviceStatus.area;
+    cell.labelSubtitle.text = serviceStatus.route;
+    
+    switch (serviceStatus.disruptionStatus) {
+        case SCDisruptionStatusNormal:
+            cell.viewServiceStatus.backgroundColor = [UIColor greenColor];
+            break;
+        case SCDisruptionStatusSailingsAffected:
+            cell.viewServiceStatus.backgroundColor = [UIColor orangeColor];
+            break;
+        case SCDisruptionStatusSailingsCancelled:
+            cell.viewServiceStatus.backgroundColor = [UIColor redColor];
+            break;
+        default:
+            cell.viewServiceStatus.backgroundColor = [UIColor clearColor];
+            NSLog(@"Unrecognised disruption status!");
+            break;
+    }
+    
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - UISearchDisplayController
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    // Return NO if you do not want the specified item to be editable.
+    self.filteredServiceStatuses = [self.serviceStatuses filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.area contains[c] %@", searchString]];
     return YES;
 }
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        SCServiceStatus *serviceStatus = self.serviceStatuses[indexPath.row];
+        [[segue destinationViewController] setServiceStatus:serviceStatus];
     }
 }
 

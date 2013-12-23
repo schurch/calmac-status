@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SCServiceStatus;
+
 @interface SCDetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) SCServiceStatus *serviceStatus;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

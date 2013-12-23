@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09284BF949044AA8A12A97F9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */; };
 		FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6796186891F50034EF00 /* Foundation.framework */; };
 		FD7B6799186891F50034EF00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6798186891F50034EF00 /* CoreGraphics.framework */; };
 		FD7B679B186891F50034EF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B679A186891F50034EF00 /* UIKit.framework */; };
@@ -22,6 +23,11 @@
 		FD7B67BB186891F50034EF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B679A186891F50034EF00 /* UIKit.framework */; };
 		FD7B67C3186891F50034EF00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD7B67C1186891F50034EF00 /* InfoPlist.strings */; };
 		FD7B67C5186891F50034EF00 /* CalMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67C4186891F50034EF00 /* CalMacTests.m */; };
+		FD7B67D71868952B0034EF00 /* SCAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67D61868952B0034EF00 /* SCAPIClient.m */; };
+		FD7B67DA186897F70034EF00 /* SCServiceStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67D9186897F70034EF00 /* SCServiceStatus.m */; };
+		FD7B67DD1868980B0034EF00 /* SCDisruptionDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67DC1868980B0034EF00 /* SCDisruptionDetails.m */; };
+		FD7B67E01868983D0034EF00 /* SCRouteDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67DF1868983D0034EF00 /* SCRouteDetails.m */; };
+		FD7B67E31868C4F00034EF00 /* SCServiceStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5844D1C60DC4C5DB77DC4BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		FD7B6793186891F50034EF00 /* CalMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B6796186891F50034EF00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7B6798186891F50034EF00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +64,17 @@
 		FD7B67C0186891F50034EF00 /* CalMacTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CalMacTests-Info.plist"; sourceTree = "<group>"; };
 		FD7B67C2186891F50034EF00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD7B67C4186891F50034EF00 /* CalMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalMacTests.m; sourceTree = "<group>"; };
+		FD7B67D51868952B0034EF00 /* SCAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAPIClient.h; sourceTree = "<group>"; };
+		FD7B67D61868952B0034EF00 /* SCAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAPIClient.m; sourceTree = "<group>"; };
+		FD7B67D8186897F70034EF00 /* SCServiceStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCServiceStatus.h; sourceTree = "<group>"; };
+		FD7B67D9186897F70034EF00 /* SCServiceStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCServiceStatus.m; sourceTree = "<group>"; };
+		FD7B67DB1868980B0034EF00 /* SCDisruptionDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDisruptionDetails.h; sourceTree = "<group>"; };
+		FD7B67DC1868980B0034EF00 /* SCDisruptionDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDisruptionDetails.m; sourceTree = "<group>"; };
+		FD7B67DE1868983D0034EF00 /* SCRouteDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRouteDetails.h; sourceTree = "<group>"; };
+		FD7B67DF1868983D0034EF00 /* SCRouteDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRouteDetails.m; sourceTree = "<group>"; };
+		FD7B67E11868C4F00034EF00 /* SCServiceStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCServiceStatusCell.h; sourceTree = "<group>"; };
+		FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCServiceStatusCell.m; sourceTree = "<group>"; };
+		FD7B67E41868CD5E0034EF00 /* SCDisruptionStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDisruptionStatus.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +85,7 @@
 				FD7B6799186891F50034EF00 /* CoreGraphics.framework in Frameworks */,
 				FD7B679B186891F50034EF00 /* UIKit.framework in Frameworks */,
 				FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */,
+				09284BF949044AA8A12A97F9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +109,7 @@
 				FD7B67BE186891F50034EF00 /* CalMacTests */,
 				FD7B6795186891F50034EF00 /* Frameworks */,
 				FD7B6794186891F50034EF00 /* Products */,
+				D5844D1C60DC4C5DB77DC4BE /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +129,7 @@
 				FD7B6798186891F50034EF00 /* CoreGraphics.framework */,
 				FD7B679A186891F50034EF00 /* UIKit.framework */,
 				FD7B67B8186891F50034EF00 /* XCTest.framework */,
+				66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,10 +140,9 @@
 				FD7B67A5186891F50034EF00 /* SCAppDelegate.h */,
 				FD7B67A6186891F50034EF00 /* SCAppDelegate.m */,
 				FD7B67A8186891F50034EF00 /* Main.storyboard */,
-				FD7B67AB186891F50034EF00 /* SCMasterViewController.h */,
-				FD7B67AC186891F50034EF00 /* SCMasterViewController.m */,
-				FD7B67AE186891F50034EF00 /* SCDetailViewController.h */,
-				FD7B67AF186891F50034EF00 /* SCDetailViewController.m */,
+				FD7B67E51868D3E80034EF00 /* ServicesViewController */,
+				FD7B67E61868D3F50034EF00 /* ServiceDetailsViewController */,
+				FD7B67D1186894C10034EF00 /* API Client */,
 				FD7B67B1186891F50034EF00 /* Images.xcassets */,
 				FD7B679D186891F50034EF00 /* Supporting Files */,
 			);
@@ -157,6 +178,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FD7B67D1186894C10034EF00 /* API Client */ = {
+			isa = PBXGroup;
+			children = (
+				FD7B67D51868952B0034EF00 /* SCAPIClient.h */,
+				FD7B67D61868952B0034EF00 /* SCAPIClient.m */,
+				FD7B67D8186897F70034EF00 /* SCServiceStatus.h */,
+				FD7B67D9186897F70034EF00 /* SCServiceStatus.m */,
+				FD7B67DB1868980B0034EF00 /* SCDisruptionDetails.h */,
+				FD7B67DC1868980B0034EF00 /* SCDisruptionDetails.m */,
+				FD7B67DE1868983D0034EF00 /* SCRouteDetails.h */,
+				FD7B67DF1868983D0034EF00 /* SCRouteDetails.m */,
+				FD7B67E41868CD5E0034EF00 /* SCDisruptionStatus.h */,
+			);
+			name = "API Client";
+			sourceTree = "<group>";
+		};
+		FD7B67E51868D3E80034EF00 /* ServicesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FD7B67AB186891F50034EF00 /* SCMasterViewController.h */,
+				FD7B67AC186891F50034EF00 /* SCMasterViewController.m */,
+				FD7B67E11868C4F00034EF00 /* SCServiceStatusCell.h */,
+				FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */,
+			);
+			name = ServicesViewController;
+			sourceTree = "<group>";
+		};
+		FD7B67E61868D3F50034EF00 /* ServiceDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FD7B67AE186891F50034EF00 /* SCDetailViewController.h */,
+				FD7B67AF186891F50034EF00 /* SCDetailViewController.m */,
+			);
+			name = ServiceDetailsViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD7B67C8186891F50034EF00 /* Build configuration list for PBXNativeTarget "CalMac" */;
 			buildPhases = (
+				7015662A42F34E188EB56EA4 /* Check Pods Manifest.lock */,
 				FD7B678F186891F50034EF00 /* Sources */,
 				FD7B6790186891F50034EF00 /* Frameworks */,
 				FD7B6791186891F50034EF00 /* Resources */,
+				6F293D85723A4DBA9F242DC8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,6 +264,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Stefan Church";
 				TargetAttributes = {
+					FD7B6792186891F50034EF00 = {
+						DevelopmentTeam = L832SX5MC4;
+					};
 					FD7B67B6186891F50034EF00 = {
 						TestTargetID = FD7B6792186891F50034EF00;
 					};
@@ -250,14 +312,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F293D85723A4DBA9F242DC8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7015662A42F34E188EB56EA4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FD7B678F186891F50034EF00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FD7B67AD186891F50034EF00 /* SCMasterViewController.m in Sources */,
+				FD7B67DA186897F70034EF00 /* SCServiceStatus.m in Sources */,
+				FD7B67E31868C4F00034EF00 /* SCServiceStatusCell.m in Sources */,
 				FD7B67A7186891F50034EF00 /* SCAppDelegate.m in Sources */,
+				FD7B67DD1868980B0034EF00 /* SCDisruptionDetails.m in Sources */,
+				FD7B67D71868952B0034EF00 /* SCAPIClient.m in Sources */,
 				FD7B67A3186891F50034EF00 /* main.m in Sources */,
+				FD7B67E01868983D0034EF00 /* SCRouteDetails.m in Sources */,
 				FD7B67B0186891F50034EF00 /* SCDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,26 +482,34 @@
 		};
 		FD7B67C9186891F50034EF00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5844D1C60DC4C5DB77DC4BE /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CalMac/CalMac-Prefix.pch";
 				INFOPLIST_FILE = "CalMac/CalMac-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		FD7B67CA186891F50034EF00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5844D1C60DC4C5DB77DC4BE /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CalMac/CalMac-Prefix.pch";
 				INFOPLIST_FILE = "CalMac/CalMac-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -467,6 +575,7 @@
 				FD7B67CA186891F50034EF00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD7B67CB186891F50034EF00 /* Build configuration list for PBXNativeTarget "CalMacTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +584,7 @@
 				FD7B67CD186891F50034EF00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

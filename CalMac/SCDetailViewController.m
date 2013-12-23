@@ -8,44 +8,48 @@
 
 #import "SCDetailViewController.h"
 
+#import "SCAPIClient.h"
+#import "SCDisruptionDetails.h"
+#import "SCRouteDetails.h"
+#import "SCServiceStatus.h"
+
 @interface SCDetailViewController ()
+
+@property (nonatomic, strong) SCDisruptionDetails *disruptionDetails;
+
 - (void)configureView;
+
 @end
 
 @implementation SCDetailViewController
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setServiceStatus:(SCServiceStatus *)serviceStatus
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
+    if (_serviceStatus != serviceStatus) {
+        _serviceStatus = serviceStatus;
         [self configureView];
     }
 }
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    if (self.serviceStatus) {
+        self.title = self.serviceStatus.area;
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self configureView];
+    
+    
+    [[SCAPIClient sharedInstance] fetchDisruptionDetailsForFerryServiceId:self.serviceStatus.routeId completion:^(SCDisruptionDetails *disruptionDetails, SCRouteDetails *routeDetails, NSError *error) {
+        NSLog(@"");
+    }];
 }
 
 @end

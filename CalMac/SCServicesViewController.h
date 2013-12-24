@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCMasterViewController : UITableViewController
+@interface SCServicesViewController : UITableViewController
 
 @end

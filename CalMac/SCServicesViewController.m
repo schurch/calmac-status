@@ -6,21 +6,21 @@
 //  Copyright (c) 2013 Stefan Church. All rights reserved.
 //
 
-#import "SCMasterViewController.h"
+#import "SCServicesViewController.h"
 
 #import "SCAPIClient.h"
-#import "SCDetailViewController.h"
+#import "SCServiceDetailViewController.h"
 #import "SCServiceStatus.h"
 #import "SCServiceStatusCell.h"
 
-@interface SCMasterViewController ()
+@interface SCServicesViewController ()
 
 @property (nonatomic, strong) NSArray *serviceStatuses;
 @property (nonatomic, strong) NSArray *filteredServiceStatuses;
 
 @end
 
-@implementation SCMasterViewController
+@implementation SCServicesViewController
 
 - (id)init
 {
@@ -31,9 +31,16 @@
     return self;
 }
 
+#pragma mark - View lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    self.navigationController.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName: [UIColor whiteColor] };
+//    self.navigationController.navigationBar.tintColor = [UIColor yellowColor];
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:30.0/255.0 blue:115.0/255.0 alpha:1.0];
+//    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
@@ -53,14 +60,14 @@
     }
 }
 
-#pragma mark - Refreshing
+#pragma mark - UIRefreshControl
 
 - (void)refresh:(UIRefreshControl *)sender
 {
     [[SCAPIClient sharedInstance] fetchFerryServiceStatusesWithCompletion:^(NSArray *serviceStatuses, NSError *error) {
         
         if (error) {
-            [[[UIAlertView alloc] initWithTitle:@"Oops" message:@"There was a problem fetching the ferry details. Please check your connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"Oops" message:@"There was an error. Please check your connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
         else {
             self.serviceStatuses = serviceStatuses;
@@ -106,16 +113,16 @@
     
     switch (serviceStatus.disruptionStatus) {
         case SCDisruptionStatusNormal:
-            cell.viewServiceStatus.backgroundColor = [UIColor greenColor];
+            cell.imageViewStatus.image = [UIImage imageNamed:@"green_tick.png"];
             break;
         case SCDisruptionStatusSailingsAffected:
-            cell.viewServiceStatus.backgroundColor = [UIColor orangeColor];
+            cell.imageViewStatus.image = [UIImage imageNamed:@"orange_exclamation.png"];
             break;
         case SCDisruptionStatusSailingsCancelled:
-            cell.viewServiceStatus.backgroundColor = [UIColor redColor];
+            cell.imageViewStatus.image = [UIImage imageNamed:@"red_cross.png"];
             break;
         default:
-            cell.viewServiceStatus.backgroundColor = [UIColor clearColor];
+            cell.imageViewStatus.image = nil;
             NSLog(@"Unrecognised disruption status!");
             break;
     }
@@ -124,11 +131,14 @@
 }
 
 #pragma mark - UISearchDisplayController
+
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     self.filteredServiceStatuses = [self.serviceStatuses filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.area contains[c] %@", searchString]];
     return YES;
 }
+
+#pragma mark - Storyboard
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		09284BF949044AA8A12A97F9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */; };
+		FD1E2BC818698B6300B33431 /* green_tick.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC218698B6300B33431 /* green_tick.png */; };
+		FD1E2BC918698B6300B33431 /* green_tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC318698B6300B33431 /* green_tick@2x.png */; };
+		FD1E2BCA18698B6300B33431 /* orange_exclamation.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC418698B6300B33431 /* orange_exclamation.png */; };
+		FD1E2BCB18698B6300B33431 /* orange_exclamation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC518698B6300B33431 /* orange_exclamation@2x.png */; };
+		FD1E2BCC18698B6300B33431 /* red_cross.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC618698B6300B33431 /* red_cross.png */; };
+		FD1E2BCD18698B6300B33431 /* red_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC718698B6300B33431 /* red_cross@2x.png */; };
 		FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6796186891F50034EF00 /* Foundation.framework */; };
 		FD7B6799186891F50034EF00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6798186891F50034EF00 /* CoreGraphics.framework */; };
 		FD7B679B186891F50034EF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B679A186891F50034EF00 /* UIKit.framework */; };
@@ -15,8 +21,8 @@
 		FD7B67A3186891F50034EF00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67A2186891F50034EF00 /* main.m */; };
 		FD7B67A7186891F50034EF00 /* SCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67A6186891F50034EF00 /* SCAppDelegate.m */; };
 		FD7B67AA186891F50034EF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD7B67A8186891F50034EF00 /* Main.storyboard */; };
-		FD7B67AD186891F50034EF00 /* SCMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67AC186891F50034EF00 /* SCMasterViewController.m */; };
-		FD7B67B0186891F50034EF00 /* SCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67AF186891F50034EF00 /* SCDetailViewController.m */; };
+		FD7B67AD186891F50034EF00 /* SCServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67AC186891F50034EF00 /* SCServicesViewController.m */; };
+		FD7B67B0186891F50034EF00 /* SCServiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67AF186891F50034EF00 /* SCServiceDetailViewController.m */; };
 		FD7B67B2186891F50034EF00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7B67B1186891F50034EF00 /* Images.xcassets */; };
 		FD7B67B9186891F50034EF00 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B67B8186891F50034EF00 /* XCTest.framework */; };
 		FD7B67BA186891F50034EF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6796186891F50034EF00 /* Foundation.framework */; };
@@ -43,6 +49,12 @@
 /* Begin PBXFileReference section */
 		66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5844D1C60DC4C5DB77DC4BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FD1E2BC218698B6300B33431 /* green_tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_tick.png; sourceTree = "<group>"; };
+		FD1E2BC318698B6300B33431 /* green_tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_tick@2x.png"; sourceTree = "<group>"; };
+		FD1E2BC418698B6300B33431 /* orange_exclamation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_exclamation.png; sourceTree = "<group>"; };
+		FD1E2BC518698B6300B33431 /* orange_exclamation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_exclamation@2x.png"; sourceTree = "<group>"; };
+		FD1E2BC618698B6300B33431 /* red_cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_cross.png; sourceTree = "<group>"; };
+		FD1E2BC718698B6300B33431 /* red_cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_cross@2x.png"; sourceTree = "<group>"; };
 		FD7B6793186891F50034EF00 /* CalMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B6796186891F50034EF00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7B6798186891F50034EF00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -54,10 +66,10 @@
 		FD7B67A5186891F50034EF00 /* SCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAppDelegate.h; sourceTree = "<group>"; };
 		FD7B67A6186891F50034EF00 /* SCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; };
 		FD7B67A9186891F50034EF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FD7B67AB186891F50034EF00 /* SCMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMasterViewController.h; sourceTree = "<group>"; };
-		FD7B67AC186891F50034EF00 /* SCMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMasterViewController.m; sourceTree = "<group>"; };
-		FD7B67AE186891F50034EF00 /* SCDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDetailViewController.h; sourceTree = "<group>"; };
-		FD7B67AF186891F50034EF00 /* SCDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDetailViewController.m; sourceTree = "<group>"; };
+		FD7B67AB186891F50034EF00 /* SCServicesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCServicesViewController.h; sourceTree = "<group>"; };
+		FD7B67AC186891F50034EF00 /* SCServicesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCServicesViewController.m; sourceTree = "<group>"; };
+		FD7B67AE186891F50034EF00 /* SCServiceDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCServiceDetailViewController.h; sourceTree = "<group>"; };
+		FD7B67AF186891F50034EF00 /* SCServiceDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCServiceDetailViewController.m; sourceTree = "<group>"; };
 		FD7B67B1186891F50034EF00 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FD7B67B7186891F50034EF00 /* CalMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B67B8186891F50034EF00 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -102,10 +114,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD1E2BC118698B6300B33431 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FD1E2BC218698B6300B33431 /* green_tick.png */,
+				FD1E2BC318698B6300B33431 /* green_tick@2x.png */,
+				FD1E2BC418698B6300B33431 /* orange_exclamation.png */,
+				FD1E2BC518698B6300B33431 /* orange_exclamation@2x.png */,
+				FD1E2BC618698B6300B33431 /* red_cross.png */,
+				FD1E2BC718698B6300B33431 /* red_cross@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FD7B678A186891F40034EF00 = {
 			isa = PBXGroup;
 			children = (
 				FD7B679C186891F50034EF00 /* CalMac */,
+				FD1E2BC118698B6300B33431 /* Resources */,
 				FD7B67BE186891F50034EF00 /* CalMacTests */,
 				FD7B6795186891F50034EF00 /* Frameworks */,
 				FD7B6794186891F50034EF00 /* Products */,
@@ -197,8 +223,8 @@
 		FD7B67E51868D3E80034EF00 /* ServicesViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FD7B67AB186891F50034EF00 /* SCMasterViewController.h */,
-				FD7B67AC186891F50034EF00 /* SCMasterViewController.m */,
+				FD7B67AB186891F50034EF00 /* SCServicesViewController.h */,
+				FD7B67AC186891F50034EF00 /* SCServicesViewController.m */,
 				FD7B67E11868C4F00034EF00 /* SCServiceStatusCell.h */,
 				FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */,
 			);
@@ -208,8 +234,8 @@
 		FD7B67E61868D3F50034EF00 /* ServiceDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FD7B67AE186891F50034EF00 /* SCDetailViewController.h */,
-				FD7B67AF186891F50034EF00 /* SCDetailViewController.m */,
+				FD7B67AE186891F50034EF00 /* SCServiceDetailViewController.h */,
+				FD7B67AF186891F50034EF00 /* SCServiceDetailViewController.m */,
 			);
 			name = ServiceDetailsViewController;
 			sourceTree = "<group>";
@@ -296,9 +322,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1E2BC818698B6300B33431 /* green_tick.png in Resources */,
 				FD7B67B2186891F50034EF00 /* Images.xcassets in Resources */,
 				FD7B67A1186891F50034EF00 /* InfoPlist.strings in Resources */,
+				FD1E2BCA18698B6300B33431 /* orange_exclamation.png in Resources */,
+				FD1E2BCC18698B6300B33431 /* red_cross.png in Resources */,
+				FD1E2BCB18698B6300B33431 /* orange_exclamation@2x.png in Resources */,
 				FD7B67AA186891F50034EF00 /* Main.storyboard in Resources */,
+				FD1E2BC918698B6300B33431 /* green_tick@2x.png in Resources */,
+				FD1E2BCD18698B6300B33431 /* red_cross@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD7B67AD186891F50034EF00 /* SCMasterViewController.m in Sources */,
+				FD7B67AD186891F50034EF00 /* SCServicesViewController.m in Sources */,
 				FD7B67DA186897F70034EF00 /* SCServiceStatus.m in Sources */,
 				FD7B67E31868C4F00034EF00 /* SCServiceStatusCell.m in Sources */,
 				FD7B67A7186891F50034EF00 /* SCAppDelegate.m in Sources */,
@@ -358,7 +390,7 @@
 				FD7B67D71868952B0034EF00 /* SCAPIClient.m in Sources */,
 				FD7B67A3186891F50034EF00 /* main.m in Sources */,
 				FD7B67E01868983D0034EF00 /* SCRouteDetails.m in Sources */,
-				FD7B67B0186891F50034EF00 /* SCDetailViewController.m in Sources */,
+				FD7B67B0186891F50034EF00 /* SCServiceDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

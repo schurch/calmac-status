@@ -10,8 +10,8 @@
 
 @interface SCServiceStatusCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UIImageView *imageViewStatus;
-@property (nonatomic, weak) IBOutlet UILabel *labelSubtitle;
-@property (nonatomic, weak) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewStatus;
+@property (weak, nonatomic) IBOutlet UILabel *labelSubtitle;
+@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 
 @end

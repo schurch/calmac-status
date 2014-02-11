@@ -10,8 +10,8 @@
 
 @interface SCRouteDetails : NSObject
 
-@property (nonatomic, strong) NSString *area;
-@property (nonatomic, strong) NSString *route;
+@property (strong, nonatomic) NSString *area;
+@property (strong, nonatomic) NSString *route;
 
 @property (nonatomic) NSInteger routeId;
 

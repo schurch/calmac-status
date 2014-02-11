@@ -15,4 +15,10 @@ typedef NS_ENUM(NSInteger, SCDisruptionStatus) {
     SCDisruptionStatusSailingsCancelled = 2
 };
 
+typedef NS_ENUM(NSInteger, SCDisruptionDetailsStatus) {
+    SCDisruptionDetailsStatusNormal = 0,
+    SCDisruptionDetailsStatusSailingsAffected = 1,
+    SCDisruptionDetailsStatusSailingsCancelled = 2
+};
+
 #endif

@@ -8,19 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+#import <MapKit/MapKit.h>
+
 @class SCServiceStatus;
 
-@interface SCServiceDetailViewController : UIViewController
+@interface SCServiceDetailViewController : UITableViewController<MKMapViewDelegate>
 
-@property (nonatomic, strong) SCServiceStatus *serviceStatus;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityViewLoadingDisruptions;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewDisruption;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTopSpaceImageViewDisruption;
+@property (weak, nonatomic) IBOutlet UILabel *labelDisruptionDetails;
+@property (weak, nonatomic) IBOutlet UILabel *labelEndTime;
+@property (weak, nonatomic) IBOutlet UILabel *labelEndTimeTitle;
+@property (weak, nonatomic) IBOutlet UILabel *labelLastUpdated;
+@property (weak, nonatomic) IBOutlet UILabel *labelNoDisruptions;
+@property (weak, nonatomic) IBOutlet UILabel *labelReason;
+@property (weak, nonatomic) IBOutlet UILabel *labelReasonTitle;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-@property (nonatomic, weak) IBOutlet UIImageView *imageViewDisruptionStatus;
-@property (nonatomic, weak) IBOutlet UILabel *labelDisruptionDetails;
-@property (nonatomic, weak) IBOutlet UILabel *labelEndTime;
-@property (nonatomic, weak) IBOutlet UILabel *labelEndTimeTitle;
-@property (nonatomic, weak) IBOutlet UILabel *labelLastUpdated;
-@property (nonatomic, weak) IBOutlet UILabel *labelReason;
-@property (nonatomic, weak) IBOutlet UILabel *labelReasonTitle;
-@property (nonatomic, weak) IBOutlet UILabel *labelRoute;
+@property (strong, nonatomic) SCServiceStatus *serviceStatus;
 
 @end

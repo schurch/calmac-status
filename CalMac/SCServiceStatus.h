@@ -12,9 +12,9 @@
 
 @interface SCServiceStatus : NSObject
 
-@property (nonatomic, strong) NSString *area;
-@property (nonatomic, strong) NSString *ferryProvider;
-@property (nonatomic, strong) NSString *route;
+@property (strong, nonatomic) NSString *area;
+@property (strong, nonatomic) NSString *ferryProvider;
+@property (strong, nonatomic) NSString *route;
 
 @property (nonatomic) SCDisruptionStatus disruptionStatus;
 @property (nonatomic) NSInteger routeId;

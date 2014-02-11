@@ -37,11 +37,6 @@
 {
     [super viewDidLoad];
     
-//    self.navigationController.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName: [UIColor whiteColor] };
-//    self.navigationController.navigationBar.tintColor = [UIColor yellowColor];
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:30.0/255.0 blue:115.0/255.0 alpha:1.0];
-//    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
-    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
@@ -143,8 +138,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        SCServiceStatus *serviceStatus = self.serviceStatuses[indexPath.row];
+        SCServiceStatus *serviceStatus;
+        
+        if (self.searchDisplayController.isActive) {
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            serviceStatus = self.filteredServiceStatuses[indexPath.row];
+        }
+        else {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            serviceStatus = self.serviceStatuses[indexPath.row];
+        }
+        
         [[segue destinationViewController] setServiceStatus:serviceStatus];
     }
 }

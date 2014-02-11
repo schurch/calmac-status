@@ -19,7 +19,7 @@ extern NSString * const SCAPIClientErrorDomain;
 @interface SCAPIClient : NSObject
 
 /**
- Singleton instance of the Warmshowers API Client.
+ Singleton instance of the CalMac API Client.
  */
 + (instancetype)sharedInstance;
 

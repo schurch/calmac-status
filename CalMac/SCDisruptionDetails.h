@@ -14,15 +14,15 @@
 
 @interface SCDisruptionDetails : NSObject
 
-@property (nonatomic, strong) NSString *addedBy;
-@property (nonatomic, strong) NSDate *addedDate;
-@property (nonatomic, strong) NSString *details;
-@property (nonatomic, strong) NSDate *disruptionEndDate;
-@property (nonatomic, strong) NSString *lastUpdatedBy;
-@property (nonatomic, strong) NSString *reason;
-@property (nonatomic, strong) NSDate *updatedDate;
+@property (strong, nonatomic) NSString *addedBy;
+@property (strong, nonatomic) NSDate *addedDate;
+@property (strong, nonatomic) NSString *details;
+@property (strong, nonatomic) NSDate *disruptionEndDate;
+@property (strong, nonatomic) NSString *lastUpdatedBy;
+@property (strong, nonatomic) NSString *reason;
+@property (strong, nonatomic) NSDate *updatedDate;
 
-@property (nonatomic) SCDisruptionStatus disruptionStatus;
+@property (nonatomic) SCDisruptionDetailsStatus disruptionStatus;
 
 - (id)initWithData:(NSDictionary *)data;
 

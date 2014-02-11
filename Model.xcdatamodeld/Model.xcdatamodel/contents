@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Arrival" representedClassName="Arrival" syncable="YES">
+        <attribute name="arrivalTime" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="arrivals" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="Departure" representedClassName="Departure" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="depatureTime" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="destination" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="departures" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lng" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="locationType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="routeId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="arrivals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Arrival" inverseName="source" inverseEntity="Arrival" syncable="YES"/>
+        <relationship name="departures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Departure" inverseName="destination" inverseEntity="Departure" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Location" positionX="151" positionY="234" width="128" height="163"/>
+        <element name="Departure" positionX="295" positionY="72" width="128" height="103"/>
+        <element name="Arrival" positionX="7" positionY="72" width="128" height="103"/>
+    </elements>
+</model>

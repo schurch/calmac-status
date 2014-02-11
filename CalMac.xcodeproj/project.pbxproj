@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		09284BF949044AA8A12A97F9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */; };
+		FD135B51186DCB3700E5E900 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD135B50186DCB3700E5E900 /* MapKit.framework */; };
 		FD1E2BC818698B6300B33431 /* green_tick.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC218698B6300B33431 /* green_tick.png */; };
 		FD1E2BC918698B6300B33431 /* green_tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC318698B6300B33431 /* green_tick@2x.png */; };
 		FD1E2BCA18698B6300B33431 /* orange_exclamation.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC418698B6300B33431 /* orange_exclamation.png */; };
 		FD1E2BCB18698B6300B33431 /* orange_exclamation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC518698B6300B33431 /* orange_exclamation@2x.png */; };
 		FD1E2BCC18698B6300B33431 /* red_cross.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC618698B6300B33431 /* red_cross.png */; };
 		FD1E2BCD18698B6300B33431 /* red_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC718698B6300B33431 /* red_cross@2x.png */; };
+		FD2EBB8D18703EBE00AFE016 /* SCServiceTimetableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB8C18703EBE00AFE016 /* SCServiceTimetableViewController.m */; };
+		FD2EBB941870A5F300AFE016 /* SCTimetableHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB931870A5F300AFE016 /* SCTimetableHeaderCell.m */; };
+		FD2EBB971870A63600AFE016 /* SCTimetableDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB961870A63600AFE016 /* SCTimetableDateCell.m */; };
+		FD2EBB9A1870A64B00AFE016 /* SCTimetableTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB991870A64B00AFE016 /* SCTimetableTimeCell.m */; };
+		FD42C948186F3F3900A4E883 /* Departure.m in Sources */ = {isa = PBXBuildFile; fileRef = FD42C947186F3F3900A4E883 /* Departure.m */; };
+		FD42C94B186F3F3A00A4E883 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = FD42C94A186F3F3A00A4E883 /* Location.m */; };
+		FD42C94E186F3F3A00A4E883 /* Arrival.m in Sources */ = {isa = PBXBuildFile; fileRef = FD42C94D186F3F3A00A4E883 /* Arrival.m */; };
 		FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6796186891F50034EF00 /* Foundation.framework */; };
 		FD7B6799186891F50034EF00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6798186891F50034EF00 /* CoreGraphics.framework */; };
 		FD7B679B186891F50034EF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B679A186891F50034EF00 /* UIKit.framework */; };
@@ -34,6 +42,8 @@
 		FD7B67DD1868980B0034EF00 /* SCDisruptionDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67DC1868980B0034EF00 /* SCDisruptionDetails.m */; };
 		FD7B67E01868983D0034EF00 /* SCRouteDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67DF1868983D0034EF00 /* SCRouteDetails.m */; };
 		FD7B67E31868C4F00034EF00 /* SCServiceStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */; };
+		FDA91E14186F0B5800306B45 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDA91E12186F0B5800306B45 /* Model.xcdatamodeld */; };
+		FDA91E7E186F2B6600306B45 /* NSManagedObjectContext+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA91E7D186F2B6600306B45 /* NSManagedObjectContext+Extras.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,12 +59,27 @@
 /* Begin PBXFileReference section */
 		66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5844D1C60DC4C5DB77DC4BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FD135B50186DCB3700E5E900 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FD1E2BC218698B6300B33431 /* green_tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_tick.png; sourceTree = "<group>"; };
 		FD1E2BC318698B6300B33431 /* green_tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_tick@2x.png"; sourceTree = "<group>"; };
 		FD1E2BC418698B6300B33431 /* orange_exclamation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_exclamation.png; sourceTree = "<group>"; };
 		FD1E2BC518698B6300B33431 /* orange_exclamation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_exclamation@2x.png"; sourceTree = "<group>"; };
 		FD1E2BC618698B6300B33431 /* red_cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_cross.png; sourceTree = "<group>"; };
 		FD1E2BC718698B6300B33431 /* red_cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_cross@2x.png"; sourceTree = "<group>"; };
+		FD2EBB8B18703EBE00AFE016 /* SCServiceTimetableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCServiceTimetableViewController.h; sourceTree = "<group>"; };
+		FD2EBB8C18703EBE00AFE016 /* SCServiceTimetableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCServiceTimetableViewController.m; sourceTree = "<group>"; };
+		FD2EBB921870A5F300AFE016 /* SCTimetableHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTimetableHeaderCell.h; sourceTree = "<group>"; };
+		FD2EBB931870A5F300AFE016 /* SCTimetableHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTimetableHeaderCell.m; sourceTree = "<group>"; };
+		FD2EBB951870A63600AFE016 /* SCTimetableDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTimetableDateCell.h; sourceTree = "<group>"; };
+		FD2EBB961870A63600AFE016 /* SCTimetableDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTimetableDateCell.m; sourceTree = "<group>"; };
+		FD2EBB981870A64B00AFE016 /* SCTimetableTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTimetableTimeCell.h; sourceTree = "<group>"; };
+		FD2EBB991870A64B00AFE016 /* SCTimetableTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTimetableTimeCell.m; sourceTree = "<group>"; };
+		FD42C946186F3F3900A4E883 /* Departure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Departure.h; sourceTree = "<group>"; };
+		FD42C947186F3F3900A4E883 /* Departure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Departure.m; sourceTree = "<group>"; };
+		FD42C949186F3F3A00A4E883 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		FD42C94A186F3F3A00A4E883 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		FD42C94C186F3F3A00A4E883 /* Arrival.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrival.h; sourceTree = "<group>"; };
+		FD42C94D186F3F3A00A4E883 /* Arrival.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrival.m; sourceTree = "<group>"; };
 		FD7B6793186891F50034EF00 /* CalMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B6796186891F50034EF00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7B6798186891F50034EF00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,6 +112,9 @@
 		FD7B67E11868C4F00034EF00 /* SCServiceStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCServiceStatusCell.h; sourceTree = "<group>"; };
 		FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCServiceStatusCell.m; sourceTree = "<group>"; };
 		FD7B67E41868CD5E0034EF00 /* SCDisruptionStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDisruptionStatus.h; sourceTree = "<group>"; };
+		FDA91E13186F0B5800306B45 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		FDA91E7C186F2B6600306B45 /* NSManagedObjectContext+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Extras.h"; sourceTree = "<group>"; };
+		FDA91E7D186F2B6600306B45 /* NSManagedObjectContext+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Extras.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +124,7 @@
 			files = (
 				FD7B6799186891F50034EF00 /* CoreGraphics.framework in Frameworks */,
 				FD7B679B186891F50034EF00 /* UIKit.framework in Frameworks */,
+				FD135B51186DCB3700E5E900 /* MapKit.framework in Frameworks */,
 				FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */,
 				09284BF949044AA8A12A97F9 /* libPods.a in Frameworks */,
 			);
@@ -127,9 +156,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FD2EBB8A187036B600AFE016 /* ServiceTimetableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FD2EBB8B18703EBE00AFE016 /* SCServiceTimetableViewController.h */,
+				FD2EBB8C18703EBE00AFE016 /* SCServiceTimetableViewController.m */,
+				FD2EBB951870A63600AFE016 /* SCTimetableDateCell.h */,
+				FD2EBB961870A63600AFE016 /* SCTimetableDateCell.m */,
+				FD2EBB921870A5F300AFE016 /* SCTimetableHeaderCell.h */,
+				FD2EBB931870A5F300AFE016 /* SCTimetableHeaderCell.m */,
+				FD2EBB981870A64B00AFE016 /* SCTimetableTimeCell.h */,
+				FD2EBB991870A64B00AFE016 /* SCTimetableTimeCell.m */,
+			);
+			name = ServiceTimetableViewController;
+			sourceTree = "<group>";
+		};
 		FD7B678A186891F40034EF00 = {
 			isa = PBXGroup;
 			children = (
+				FDA91E12186F0B5800306B45 /* Model.xcdatamodeld */,
 				FD7B679C186891F50034EF00 /* CalMac */,
 				FD1E2BC118698B6300B33431 /* Resources */,
 				FD7B67BE186891F50034EF00 /* CalMacTests */,
@@ -151,6 +196,7 @@
 		FD7B6795186891F50034EF00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD135B50186DCB3700E5E900 /* MapKit.framework */,
 				FD7B6796186891F50034EF00 /* Foundation.framework */,
 				FD7B6798186891F50034EF00 /* CoreGraphics.framework */,
 				FD7B679A186891F50034EF00 /* UIKit.framework */,
@@ -163,11 +209,13 @@
 		FD7B679C186891F50034EF00 /* CalMac */ = {
 			isa = PBXGroup;
 			children = (
+				FDA91E16186F23C400306B45 /* Model */,
 				FD7B67A5186891F50034EF00 /* SCAppDelegate.h */,
 				FD7B67A6186891F50034EF00 /* SCAppDelegate.m */,
 				FD7B67A8186891F50034EF00 /* Main.storyboard */,
 				FD7B67E51868D3E80034EF00 /* ServicesViewController */,
 				FD7B67E61868D3F50034EF00 /* ServiceDetailsViewController */,
+				FD2EBB8A187036B600AFE016 /* ServiceTimetableViewController */,
 				FD7B67D1186894C10034EF00 /* API Client */,
 				FD7B67B1186891F50034EF00 /* Images.xcassets */,
 				FD7B679D186891F50034EF00 /* Supporting Files */,
@@ -240,6 +288,21 @@
 			name = ServiceDetailsViewController;
 			sourceTree = "<group>";
 		};
+		FDA91E16186F23C400306B45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD42C94C186F3F3A00A4E883 /* Arrival.h */,
+				FD42C94D186F3F3A00A4E883 /* Arrival.m */,
+				FD42C949186F3F3A00A4E883 /* Location.h */,
+				FD42C94A186F3F3A00A4E883 /* Location.m */,
+				FD42C946186F3F3900A4E883 /* Departure.h */,
+				FD42C947186F3F3900A4E883 /* Departure.m */,
+				FDA91E7C186F2B6600306B45 /* NSManagedObjectContext+Extras.h */,
+				FDA91E7D186F2B6600306B45 /* NSManagedObjectContext+Extras.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,6 +355,11 @@
 				TargetAttributes = {
 					FD7B6792186891F50034EF00 = {
 						DevelopmentTeam = L832SX5MC4;
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					FD7B67B6186891F50034EF00 = {
 						TestTargetID = FD7B6792186891F50034EF00;
@@ -382,15 +450,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA91E7E186F2B6600306B45 /* NSManagedObjectContext+Extras.m in Sources */,
+				FD42C94B186F3F3A00A4E883 /* Location.m in Sources */,
 				FD7B67AD186891F50034EF00 /* SCServicesViewController.m in Sources */,
+				FD2EBB971870A63600AFE016 /* SCTimetableDateCell.m in Sources */,
+				FD2EBB941870A5F300AFE016 /* SCTimetableHeaderCell.m in Sources */,
+				FD2EBB8D18703EBE00AFE016 /* SCServiceTimetableViewController.m in Sources */,
 				FD7B67DA186897F70034EF00 /* SCServiceStatus.m in Sources */,
 				FD7B67E31868C4F00034EF00 /* SCServiceStatusCell.m in Sources */,
 				FD7B67A7186891F50034EF00 /* SCAppDelegate.m in Sources */,
 				FD7B67DD1868980B0034EF00 /* SCDisruptionDetails.m in Sources */,
+				FD2EBB9A1870A64B00AFE016 /* SCTimetableTimeCell.m in Sources */,
 				FD7B67D71868952B0034EF00 /* SCAPIClient.m in Sources */,
 				FD7B67A3186891F50034EF00 /* main.m in Sources */,
+				FDA91E14186F0B5800306B45 /* Model.xcdatamodeld in Sources */,
 				FD7B67E01868983D0034EF00 /* SCRouteDetails.m in Sources */,
+				FD42C948186F3F3900A4E883 /* Departure.m in Sources */,
 				FD7B67B0186891F50034EF00 /* SCServiceDetailViewController.m in Sources */,
+				FD42C94E186F3F3A00A4E883 /* Arrival.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +696,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FDA91E12186F0B5800306B45 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FDA91E13186F0B5800306B45 /* Model.xcdatamodel */,
+			);
+			currentVersion = FDA91E13186F0B5800306B45 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FD7B678B186891F40034EF00 /* Project object */;
 }

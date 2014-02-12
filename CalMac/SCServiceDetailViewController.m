@@ -131,7 +131,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
 
 - (void)refresh:(UIRefreshControl *)sender
 {
-    NSLog(@"Refreshing data for route ID: %d", self.serviceStatus.routeId);
+    NSLog(@"Refreshing data for route ID: %ld", (long)self.serviceStatus.routeId);
     
     [self toggleDisruptionHidden:YES];
     self.labelNoDisruptions.hidden = YES;
@@ -184,11 +184,11 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
                 NSString *updatedValue;
                 
                 if (components.day > 0) {
-                    updatedValue = [NSString stringWithFormat:@"%d days ago", components.day];
+                    updatedValue = [NSString stringWithFormat:@"%ld days ago", (long)components.day];
                 } else if (components.hour > 0) {
-                    updatedValue = [NSString stringWithFormat:@"%d hours ago", components.hour];
+                    updatedValue = [NSString stringWithFormat:@"%ld hours ago", (long)components.hour];
                 } else {
-                    updatedValue = [NSString stringWithFormat:@"%d minutes ago", components.minute];
+                    updatedValue = [NSString stringWithFormat:@"%ld minutes ago", (long)components.minute];
                 }
                 
                 self.labelLastUpdated.text = [NSString stringWithFormat:@"Last updated %@", updatedValue];

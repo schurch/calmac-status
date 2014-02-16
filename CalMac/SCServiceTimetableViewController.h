@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCServiceTimetableViewController : UIViewController
+@interface SCServiceTimetableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlArrivalDeparture;

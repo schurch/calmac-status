@@ -14,9 +14,8 @@
 #import "SCServiceStatus.h"
 #import "SCServiceTimetableViewController.h"
 
-#import "Arrival.h"
-#import "Departure.h"
 #import "Location.h"
+#import "Route.h"
 
 #define IMAGE_VIEW_TOP_SPACE 29
 #define IMAGE_VIEW_TOP_SPACE_REDUCED 17
@@ -71,15 +70,25 @@
 
 - (void)configureMap
 {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
+    NSEntityDescription *routeEntityDescription = [NSEntityDescription entityForName:@"Route" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
+    NSFetchRequest *routesRequest = [[NSFetchRequest alloc] init];
+    [routesRequest setEntity:routeEntityDescription];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"routeId == %d AND locationType == 0", self.serviceStatus.routeId];
-    [request setPredicate:predicate];
+    NSPredicate *routePredicate = [NSPredicate predicateWithFormat:@"routeId == %d", self.serviceStatus.routeId];
+    [routesRequest setPredicate:routePredicate];
     
-    NSArray *locations = [[NSManagedObjectContext sharedInstance] executeFetchRequest:request error:nil];
+    NSArray *routes = [[NSManagedObjectContext sharedInstance] executeFetchRequest:routesRequest error:nil];
+    
+    NSMutableArray *locations = [[NSMutableArray alloc] init];
+    [routes enumerateObjectsUsingBlock:^(Route *route, NSUInteger idx, BOOL *stop) {
+        if (![locations containsObject:route.source]) {
+            [locations addObject:route.source];
+        }
+        if (![locations containsObject:route.destination]) {
+            [locations addObject:route.destination];
+        }
+    }];
     
     if ([locations count] > 0) {
         NSMutableArray *annotations = [[NSMutableArray alloc] init];
@@ -97,11 +106,14 @@
         [self.mapView addAnnotations:annotations];
         
         MKCoordinateRegion region = coordinateRegionForCoordinates(coordinates, [locations count]);
-        region.span = MKCoordinateSpanMake(region.span.latitudeDelta + 0.1, region.span.longitudeDelta);
+        
+        // make slightly larger and offset center so we can see the pins completely
+        region.span = MKCoordinateSpanMake(region.span.latitudeDelta + 0.12, region.span.longitudeDelta);
+        region.center = CLLocationCoordinate2DMake(region.center.latitude + 0.045, region.center.longitude);
+        
         [self.mapView setRegion:region animated:NO];
     }
 }
-
 
 #pragma mark - Private
 

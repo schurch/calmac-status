@@ -10,11 +10,14 @@
 
 #import "SCTimetableDateCell.h"
 #import "SCTimetableHeaderCell.h"
+#import "SCTimetableRoute.h"
 #import "SCTimetableTimeCell.h"
+#import "SCTimetableTrip.h"
 
-#import "Arrival.h"
-#import "Departure.h"
 #import "Location.h"
+#import "Calendar.h"
+#import "Route.h"
+#import "Trip.h"
 
 #define kDatePickerTag              99     // view tag identifiying the date picker view
 #define kDateRow                    0
@@ -30,13 +33,30 @@ static NSString *TimeCellIdentifier = @"TimeCell";
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSIndexPath *datePickerIndexPath;
-@property (strong, nonatomic) NSArray *locations;
+@property (strong, nonatomic) NSArray *routes; // array of SCTimetableRoute objects
 
 @property (assign) NSInteger pickerCellRowHeight;
 
 @end
 
 @implementation SCServiceTimetableViewController
+
+#pragma mark - Properties
+
+- (void)setDate:(NSDate *)date
+{
+    if (_date != date) {
+        // strip time part of date
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:date];
+        
+        [components setHour:0];
+        [components setMinute:0];
+        [components setSecond:0];
+        
+        _date = [calendar dateFromComponents:components];
+    }
+}
 
 #pragma mark - View lifecycle
 
@@ -46,25 +66,16 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     
     self.title = @"Timetable";
     
-    // obtain the picker view cell's height, works because the cell was pre-defined in our storyboard
-    UITableViewCell *pickerViewCellToCheck = [self.tableView dequeueReusableCellWithIdentifier:DatePickerCellIdentifier];
-    self.pickerCellRowHeight = pickerViewCellToCheck.frame.size.height;
-    
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"routeId == %d", self.routeId];
-    [request setPredicate:predicate];
-    
-    self.locations = [[NSManagedObjectContext sharedInstance] executeFetchRequest:request error:nil];
-    
+    UITableViewCell *pickerViewCell = [self.tableView dequeueReusableCellWithIdentifier:DatePickerCellIdentifier];
+    self.pickerCellRowHeight = pickerViewCell.frame.size.height;
+
     self.date = [NSDate date];
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateStyle:NSDateFormatterLongStyle];    // show short-style date format
+    [self.dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    [self buildDataModel];
     
     [self.tableView reloadData];
 }
@@ -82,9 +93,36 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     {
         self.date = sender.date;
         
-        NSIndexPath *dateCellIndexPath = [NSIndexPath indexPathForRow:self.datePickerIndexPath.row - 1 inSection:0];
-        [self.tableView reloadRowsAtIndexPaths:@[dateCellIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self buildDataModel];
+        [self.tableView reloadData];
     }
+}
+
+
+#pragma mark - Data model utility methods
+
+- (void)buildDataModel
+{
+    // fetch routes
+    NSEntityDescription *routeEntityDescription = [NSEntityDescription entityForName:@"Route" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
+    
+    NSFetchRequest *routeRequest = [[NSFetchRequest alloc] init];
+    [routeRequest setEntity:routeEntityDescription];
+    
+    NSPredicate *routePredicate = [NSPredicate predicateWithFormat:@"routeId == %d", self.routeId];
+    [routeRequest setPredicate:routePredicate];
+    
+    NSArray *routes = [[NSManagedObjectContext sharedInstance] executeFetchRequest:routeRequest error:nil];
+    
+    // create our own deep copied model objects for the view
+    NSMutableArray *timetableRoutes = [[NSMutableArray alloc] init];
+    [routes enumerateObjectsUsingBlock:^(Route *route, NSUInteger idx, BOOL *stop) {
+        // will filter trips based on date passed in
+        SCTimetableRoute *timetableRoute = [[SCTimetableRoute alloc] initWithRoute:route date:self.date];
+        [timetableRoutes addObject:timetableRoute];
+    }];
+
+    self.routes = [NSArray arrayWithArray:timetableRoutes];
 }
 
 #pragma mark - Inline date picker utility methods
@@ -119,7 +157,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
 
 - (BOOL)indexPathHasPicker:(NSIndexPath *)indexPath
 {
-    return ([self hasInlineDatePicker] && self.datePickerIndexPath.row == indexPath.row);
+    return ([self hasInlineDatePicker] && self.datePickerIndexPath.section == indexPath.section && self.datePickerIndexPath.row == indexPath.row);
 }
 
 - (BOOL)indexPathHasDate:(NSIndexPath *)indexPath
@@ -186,7 +224,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.locations count] + 1;
+    return [self.routes count] + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -195,14 +233,8 @@ static NSString *TimeCellIdentifier = @"TimeCell";
         return [self hasInlineDatePicker] ? 2 : 1;
     }
     else {
-        Location *location = self.locations[section - 1];
-        
-        if (self.segmentedControlArrivalDeparture.selectedSegmentIndex == 0) {
-            return [location.departures count];
-        }
-        else {
-            return [location.arrivals count];
-        }
+        Route *route = self.routes[section - 1];
+        return [route.trips count] + 1; // 1 row for route description and rest for trips
     }
 }
 
@@ -226,18 +258,36 @@ static NSString *TimeCellIdentifier = @"TimeCell";
         }
     }
     else {
-        Location *location = self.locations[indexPath.section - 1];
+        SCTimetableRoute *route = self.routes[indexPath.section - 1];
         
         if (indexPath.row == 0) {
-            // Header cell
-            SCTimetableHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:HeaderCellIdentifier forIndexPath:indexPath];
-            cell.labelHeader.text = [NSString stringWithFormat:@"%@ to %@", location.name, @""];
-            return cell;
+            SCTimetableHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:HeaderCellIdentifier];
+            headerCell.labelHeader.text = [route routeDescription];
+            
+            if (route.type == 0) {
+                headerCell.imageViewTransportType.backgroundColor = [UIColor redColor];
+            }
+            else {
+                headerCell.imageViewTransportType.backgroundColor = [UIColor blueColor];
+            }
+            
+            return headerCell;
         }
         else {
-            // Time cell
-            SCTimetableTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:TimeCellIdentifier forIndexPath:indexPath];
-            return cell;
+            SCTimetableTrip *trip = route.trips[indexPath.row - 1];
+            
+            SCTimetableTimeCell *timeCell = [tableView dequeueReusableCellWithIdentifier:TimeCellIdentifier];
+            
+            if (self.segmentedControlArrivalDeparture.selectedSegmentIndex == 0) {
+                timeCell.labelTime.text = [trip departureTime];
+                timeCell.labelTimeCounterpart.text = [NSString stringWithFormat:@"arriving at %@", [trip arrivalTime]];
+            }
+            else {
+                timeCell.labelTime.text = [trip arrivalTime];
+                timeCell.labelTimeCounterpart.text = [NSString stringWithFormat:@"departed at %@", [trip departureTime]];
+            }
+            
+            return timeCell;
         }
     }
 }

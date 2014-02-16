@@ -19,9 +19,6 @@
 		FD2EBB941870A5F300AFE016 /* SCTimetableHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB931870A5F300AFE016 /* SCTimetableHeaderCell.m */; };
 		FD2EBB971870A63600AFE016 /* SCTimetableDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB961870A63600AFE016 /* SCTimetableDateCell.m */; };
 		FD2EBB9A1870A64B00AFE016 /* SCTimetableTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB991870A64B00AFE016 /* SCTimetableTimeCell.m */; };
-		FD42C948186F3F3900A4E883 /* Departure.m in Sources */ = {isa = PBXBuildFile; fileRef = FD42C947186F3F3900A4E883 /* Departure.m */; };
-		FD42C94B186F3F3A00A4E883 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = FD42C94A186F3F3A00A4E883 /* Location.m */; };
-		FD42C94E186F3F3A00A4E883 /* Arrival.m in Sources */ = {isa = PBXBuildFile; fileRef = FD42C94D186F3F3A00A4E883 /* Arrival.m */; };
 		FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6796186891F50034EF00 /* Foundation.framework */; };
 		FD7B6799186891F50034EF00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6798186891F50034EF00 /* CoreGraphics.framework */; };
 		FD7B679B186891F50034EF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B679A186891F50034EF00 /* UIKit.framework */; };
@@ -42,6 +39,12 @@
 		FD7B67DD1868980B0034EF00 /* SCDisruptionDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67DC1868980B0034EF00 /* SCDisruptionDetails.m */; };
 		FD7B67E01868983D0034EF00 /* SCRouteDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67DF1868983D0034EF00 /* SCRouteDetails.m */; };
 		FD7B67E31868C4F00034EF00 /* SCServiceStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */; };
+		FD999F4018B0343300FB658F /* SCTimetableRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FD999F3F18B0343300FB658F /* SCTimetableRoute.m */; };
+		FD999F4318B0343E00FB658F /* SCTimetableTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = FD999F4218B0343E00FB658F /* SCTimetableTrip.m */; };
+		FD9CB85118AEB2C500A08FC4 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9CB85018AEB2C500A08FC4 /* Calendar.m */; };
+		FD9CB85418AEB2C600A08FC4 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9CB85318AEB2C600A08FC4 /* Route.m */; };
+		FD9CB85A18AEB2C600A08FC4 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9CB85918AEB2C600A08FC4 /* Location.m */; };
+		FD9CB8A418AEF32B00A08FC4 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9CB8A318AEF32B00A08FC4 /* Trip.m */; };
 		FDA91E14186F0B5800306B45 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDA91E12186F0B5800306B45 /* Model.xcdatamodeld */; };
 		FDA91E7E186F2B6600306B45 /* NSManagedObjectContext+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA91E7D186F2B6600306B45 /* NSManagedObjectContext+Extras.m */; };
 /* End PBXBuildFile section */
@@ -74,12 +77,6 @@
 		FD2EBB961870A63600AFE016 /* SCTimetableDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTimetableDateCell.m; sourceTree = "<group>"; };
 		FD2EBB981870A64B00AFE016 /* SCTimetableTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTimetableTimeCell.h; sourceTree = "<group>"; };
 		FD2EBB991870A64B00AFE016 /* SCTimetableTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTimetableTimeCell.m; sourceTree = "<group>"; };
-		FD42C946186F3F3900A4E883 /* Departure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Departure.h; sourceTree = "<group>"; };
-		FD42C947186F3F3900A4E883 /* Departure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Departure.m; sourceTree = "<group>"; };
-		FD42C949186F3F3A00A4E883 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		FD42C94A186F3F3A00A4E883 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		FD42C94C186F3F3A00A4E883 /* Arrival.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrival.h; sourceTree = "<group>"; };
-		FD42C94D186F3F3A00A4E883 /* Arrival.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrival.m; sourceTree = "<group>"; };
 		FD7B6793186891F50034EF00 /* CalMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B6796186891F50034EF00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7B6798186891F50034EF00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,6 +109,18 @@
 		FD7B67E11868C4F00034EF00 /* SCServiceStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCServiceStatusCell.h; sourceTree = "<group>"; };
 		FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCServiceStatusCell.m; sourceTree = "<group>"; };
 		FD7B67E41868CD5E0034EF00 /* SCDisruptionStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDisruptionStatus.h; sourceTree = "<group>"; };
+		FD999F3E18B0343300FB658F /* SCTimetableRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTimetableRoute.h; sourceTree = "<group>"; };
+		FD999F3F18B0343300FB658F /* SCTimetableRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTimetableRoute.m; sourceTree = "<group>"; };
+		FD999F4118B0343E00FB658F /* SCTimetableTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTimetableTrip.h; sourceTree = "<group>"; };
+		FD999F4218B0343E00FB658F /* SCTimetableTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTimetableTrip.m; sourceTree = "<group>"; };
+		FD9CB84F18AEB2C500A08FC4 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
+		FD9CB85018AEB2C500A08FC4 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
+		FD9CB85218AEB2C600A08FC4 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		FD9CB85318AEB2C600A08FC4 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		FD9CB85818AEB2C600A08FC4 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		FD9CB85918AEB2C600A08FC4 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		FD9CB8A218AEF32B00A08FC4 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
+		FD9CB8A318AEF32B00A08FC4 /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
 		FDA91E13186F0B5800306B45 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		FDA91E7C186F2B6600306B45 /* NSManagedObjectContext+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Extras.h"; sourceTree = "<group>"; };
 		FDA91E7D186F2B6600306B45 /* NSManagedObjectContext+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Extras.m"; sourceTree = "<group>"; };
@@ -167,6 +176,10 @@
 				FD2EBB931870A5F300AFE016 /* SCTimetableHeaderCell.m */,
 				FD2EBB981870A64B00AFE016 /* SCTimetableTimeCell.h */,
 				FD2EBB991870A64B00AFE016 /* SCTimetableTimeCell.m */,
+				FD999F3E18B0343300FB658F /* SCTimetableRoute.h */,
+				FD999F3F18B0343300FB658F /* SCTimetableRoute.m */,
+				FD999F4118B0343E00FB658F /* SCTimetableTrip.h */,
+				FD999F4218B0343E00FB658F /* SCTimetableTrip.m */,
 			);
 			name = ServiceTimetableViewController;
 			sourceTree = "<group>";
@@ -291,14 +304,16 @@
 		FDA91E16186F23C400306B45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FD42C94C186F3F3A00A4E883 /* Arrival.h */,
-				FD42C94D186F3F3A00A4E883 /* Arrival.m */,
-				FD42C949186F3F3A00A4E883 /* Location.h */,
-				FD42C94A186F3F3A00A4E883 /* Location.m */,
-				FD42C946186F3F3900A4E883 /* Departure.h */,
-				FD42C947186F3F3900A4E883 /* Departure.m */,
 				FDA91E7C186F2B6600306B45 /* NSManagedObjectContext+Extras.h */,
 				FDA91E7D186F2B6600306B45 /* NSManagedObjectContext+Extras.m */,
+				FD9CB85818AEB2C600A08FC4 /* Location.h */,
+				FD9CB85918AEB2C600A08FC4 /* Location.m */,
+				FD9CB85218AEB2C600A08FC4 /* Route.h */,
+				FD9CB85318AEB2C600A08FC4 /* Route.m */,
+				FD9CB84F18AEB2C500A08FC4 /* Calendar.h */,
+				FD9CB85018AEB2C500A08FC4 /* Calendar.m */,
+				FD9CB8A218AEF32B00A08FC4 /* Trip.h */,
+				FD9CB8A318AEF32B00A08FC4 /* Trip.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -450,8 +465,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9CB8A418AEF32B00A08FC4 /* Trip.m in Sources */,
 				FDA91E7E186F2B6600306B45 /* NSManagedObjectContext+Extras.m in Sources */,
-				FD42C94B186F3F3A00A4E883 /* Location.m in Sources */,
 				FD7B67AD186891F50034EF00 /* SCServicesViewController.m in Sources */,
 				FD2EBB971870A63600AFE016 /* SCTimetableDateCell.m in Sources */,
 				FD2EBB941870A5F300AFE016 /* SCTimetableHeaderCell.m in Sources */,
@@ -460,14 +475,17 @@
 				FD7B67E31868C4F00034EF00 /* SCServiceStatusCell.m in Sources */,
 				FD7B67A7186891F50034EF00 /* SCAppDelegate.m in Sources */,
 				FD7B67DD1868980B0034EF00 /* SCDisruptionDetails.m in Sources */,
+				FD9CB85418AEB2C600A08FC4 /* Route.m in Sources */,
 				FD2EBB9A1870A64B00AFE016 /* SCTimetableTimeCell.m in Sources */,
 				FD7B67D71868952B0034EF00 /* SCAPIClient.m in Sources */,
+				FD999F4018B0343300FB658F /* SCTimetableRoute.m in Sources */,
 				FD7B67A3186891F50034EF00 /* main.m in Sources */,
 				FDA91E14186F0B5800306B45 /* Model.xcdatamodeld in Sources */,
+				FD9CB85A18AEB2C600A08FC4 /* Location.m in Sources */,
 				FD7B67E01868983D0034EF00 /* SCRouteDetails.m in Sources */,
-				FD42C948186F3F3900A4E883 /* Departure.m in Sources */,
 				FD7B67B0186891F50034EF00 /* SCServiceDetailViewController.m in Sources */,
-				FD42C94E186F3F3A00A4E883 /* Arrival.m in Sources */,
+				FD9CB85118AEB2C500A08FC4 /* Calendar.m in Sources */,
+				FD999F4318B0343E00FB658F /* SCTimetableTrip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

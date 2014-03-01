@@ -12,6 +12,9 @@
 #import "SCTimetableHeaderCell.h"
 #import "SCTimetableTimeCell.h"
 
+#import "SCRoute.h"
+#import "SCTrip.h"
+
 #define kDatePickerTag              99     // view tag identifiying the date picker view
 #define kDateRow                    0
 #define kPickerAnimationDuration    0.40   // duration for the animation to slide the date picker into view
@@ -67,6 +70,8 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    self.routes = [SCRoute fetchRoutesForServiceId:self.routeId onDate:self.date];
     
     [self buildDataModel];
     

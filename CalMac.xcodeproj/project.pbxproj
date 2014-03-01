@@ -19,6 +19,10 @@
 		FD2EBB941870A5F300AFE016 /* SCTimetableHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB931870A5F300AFE016 /* SCTimetableHeaderCell.m */; };
 		FD2EBB971870A63600AFE016 /* SCTimetableDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB961870A63600AFE016 /* SCTimetableDateCell.m */; };
 		FD2EBB9A1870A64B00AFE016 /* SCTimetableTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB991870A64B00AFE016 /* SCTimetableTimeCell.m */; };
+		FD49915F18C177AD0061D661 /* timetables.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FD49915E18C177AD0061D661 /* timetables.sqlite */; };
+		FD49916518C185370061D661 /* SCRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FD49916418C185370061D661 /* SCRoute.m */; };
+		FD49916818C185440061D661 /* SCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = FD49916718C185440061D661 /* SCLocation.m */; };
+		FD49916B18C1856C0061D661 /* SCTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = FD49916A18C1856C0061D661 /* SCTrip.m */; };
 		FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6796186891F50034EF00 /* Foundation.framework */; };
 		FD7B6799186891F50034EF00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6798186891F50034EF00 /* CoreGraphics.framework */; };
 		FD7B679B186891F50034EF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B679A186891F50034EF00 /* UIKit.framework */; };
@@ -69,6 +73,13 @@
 		FD2EBB961870A63600AFE016 /* SCTimetableDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTimetableDateCell.m; sourceTree = "<group>"; };
 		FD2EBB981870A64B00AFE016 /* SCTimetableTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTimetableTimeCell.h; sourceTree = "<group>"; };
 		FD2EBB991870A64B00AFE016 /* SCTimetableTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTimetableTimeCell.m; sourceTree = "<group>"; };
+		FD49915E18C177AD0061D661 /* timetables.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = timetables.sqlite; sourceTree = SOURCE_ROOT; };
+		FD49916318C185370061D661 /* SCRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRoute.h; sourceTree = "<group>"; };
+		FD49916418C185370061D661 /* SCRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRoute.m; sourceTree = "<group>"; };
+		FD49916618C185440061D661 /* SCLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLocation.h; sourceTree = "<group>"; };
+		FD49916718C185440061D661 /* SCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLocation.m; sourceTree = "<group>"; };
+		FD49916918C1856C0061D661 /* SCTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTrip.h; sourceTree = "<group>"; };
+		FD49916A18C1856C0061D661 /* SCTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTrip.m; sourceTree = "<group>"; };
 		FD7B6793186891F50034EF00 /* CalMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B6796186891F50034EF00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7B6798186891F50034EF00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,6 +171,7 @@
 		FD7B678A186891F40034EF00 = {
 			isa = PBXGroup;
 			children = (
+				FD49915E18C177AD0061D661 /* timetables.sqlite */,
 				FD7B679C186891F50034EF00 /* CalMac */,
 				FD1E2BC118698B6300B33431 /* Resources */,
 				FD7B67BE186891F50034EF00 /* CalMacTests */,
@@ -276,6 +288,12 @@
 		FDA91E16186F23C400306B45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD49916318C185370061D661 /* SCRoute.h */,
+				FD49916418C185370061D661 /* SCRoute.m */,
+				FD49916618C185440061D661 /* SCLocation.h */,
+				FD49916718C185440061D661 /* SCLocation.m */,
+				FD49916918C1856C0061D661 /* SCTrip.h */,
+				FD49916A18C1856C0061D661 /* SCTrip.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -376,6 +394,7 @@
 				FD7B67AA186891F50034EF00 /* Main.storyboard in Resources */,
 				FD1E2BC918698B6300B33431 /* green_tick@2x.png in Resources */,
 				FD1E2BCD18698B6300B33431 /* red_cross@2x.png in Resources */,
+				FD49915F18C177AD0061D661 /* timetables.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,13 +447,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD7B67AD186891F50034EF00 /* SCServicesViewController.m in Sources */,
+				FD49916518C185370061D661 /* SCRoute.m in Sources */,
 				FD2EBB971870A63600AFE016 /* SCTimetableDateCell.m in Sources */,
 				FD2EBB941870A5F300AFE016 /* SCTimetableHeaderCell.m in Sources */,
 				FD2EBB8D18703EBE00AFE016 /* SCServiceTimetableViewController.m in Sources */,
 				FD7B67DA186897F70034EF00 /* SCServiceStatus.m in Sources */,
 				FD7B67E31868C4F00034EF00 /* SCServiceStatusCell.m in Sources */,
 				FD7B67A7186891F50034EF00 /* SCAppDelegate.m in Sources */,
+				FD49916B18C1856C0061D661 /* SCTrip.m in Sources */,
 				FD7B67DD1868980B0034EF00 /* SCDisruptionDetails.m in Sources */,
+				FD49916818C185440061D661 /* SCLocation.m in Sources */,
 				FD2EBB9A1870A64B00AFE016 /* SCTimetableTimeCell.m in Sources */,
 				FD7B67D71868952B0034EF00 /* SCAPIClient.m in Sources */,
 				FD7B67A3186891F50034EF00 /* main.m in Sources */,

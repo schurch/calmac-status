@@ -8,8 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, SCRouteType) {
+    SCRouteTypeFerry = 1,
+    SCRouteTypeTrain = 2
+};
+
+@class SCLocation;
+
 @interface SCRoute : NSObject
 
+@property (strong, nonatomic) SCLocation *destination;
+@property (strong, nonatomic) SCLocation *source;
+@property (strong, nonatomic) NSNumber *serviceId;
+@property (strong, nonatomic) NSArray *trips; // an array of SCTrip objects
+
+@property (nonatomic) SCRouteType routeType;
+
 + (NSArray *)fetchRoutesForServiceId:(NSInteger)serviceId onDate:(NSDate *)date;
+
+- (NSString *)routeDescription;
 
 @end

@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSNumber *longitude;
 
 + (NSArray *)fetchLocationsForServiceId:(NSInteger)serviceId;
++ (SCLocation *)fetchLocationWithId:(NSInteger)locationId;
 
 @end

@@ -48,4 +48,27 @@
     return results;
 }
 
++ (SCLocation *)fetchLocationWithId:(NSInteger)locationId
+{
+    FMDatabase *database = [FMDatabase databaseWithPath:[[NSBundle mainBundle] pathForResource:@"timetables" ofType:@"sqlite"]];
+    
+    if (![database open]) {
+        return nil;
+    }
+    
+    FMResultSet *resultSet = [database executeQuery:@"SELECT l.Name, l.Latitude, l.Longitude FROM Location l WHERE l.LocationId = (?)", [NSNumber numberWithInteger:locationId]];
+    
+    SCLocation *location = nil;
+    if ([resultSet next]) {
+        location = [[SCLocation alloc] init];
+        location.name = [resultSet stringForColumn:@"Name"];
+        location.latitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Latitude"]];
+        location.longitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Longitude"]];
+    }
+    
+    [database close];
+    
+    return location;
+}
+
 @end

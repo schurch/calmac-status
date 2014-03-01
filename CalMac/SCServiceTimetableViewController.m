@@ -10,14 +10,7 @@
 
 #import "SCTimetableDateCell.h"
 #import "SCTimetableHeaderCell.h"
-#import "SCTimetableRoute.h"
 #import "SCTimetableTimeCell.h"
-#import "SCTimetableTrip.h"
-
-#import "Location.h"
-#import "Calendar.h"
-#import "Route.h"
-#import "Trip.h"
 
 #define kDatePickerTag              99     // view tag identifiying the date picker view
 #define kDateRow                    0
@@ -103,26 +96,26 @@ static NSString *TimeCellIdentifier = @"TimeCell";
 
 - (void)buildDataModel
 {
-    // fetch routes
-    NSEntityDescription *routeEntityDescription = [NSEntityDescription entityForName:@"Route" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
-    
-    NSFetchRequest *routeRequest = [[NSFetchRequest alloc] init];
-    [routeRequest setEntity:routeEntityDescription];
-    
-    NSPredicate *routePredicate = [NSPredicate predicateWithFormat:@"routeId == %d", self.routeId];
-    [routeRequest setPredicate:routePredicate];
-    
-    NSArray *routes = [[NSManagedObjectContext sharedInstance] executeFetchRequest:routeRequest error:nil];
-    
-    // create our own deep copied model objects for the view
-    NSMutableArray *timetableRoutes = [[NSMutableArray alloc] init];
-    [routes enumerateObjectsUsingBlock:^(Route *route, NSUInteger idx, BOOL *stop) {
-        // will filter trips based on date passed in
-        SCTimetableRoute *timetableRoute = [[SCTimetableRoute alloc] initWithRoute:route date:self.date];
-        [timetableRoutes addObject:timetableRoute];
-    }];
-
-    self.routes = [NSArray arrayWithArray:timetableRoutes];
+//    // fetch routes
+//    NSEntityDescription *routeEntityDescription = [NSEntityDescription entityForName:@"Route" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
+//    
+//    NSFetchRequest *routeRequest = [[NSFetchRequest alloc] init];
+//    [routeRequest setEntity:routeEntityDescription];
+//    
+//    NSPredicate *routePredicate = [NSPredicate predicateWithFormat:@"routeId == %d", self.routeId];
+//    [routeRequest setPredicate:routePredicate];
+//    
+//    NSArray *routes = [[NSManagedObjectContext sharedInstance] executeFetchRequest:routeRequest error:nil];
+//    
+//    // create our own deep copied model objects for the view
+//    NSMutableArray *timetableRoutes = [[NSMutableArray alloc] init];
+//    [routes enumerateObjectsUsingBlock:^(Route *route, NSUInteger idx, BOOL *stop) {
+//        // will filter trips based on date passed in
+//        SCTimetableRoute *timetableRoute = [[SCTimetableRoute alloc] initWithRoute:route date:self.date];
+//        [timetableRoutes addObject:timetableRoute];
+//    }];
+//
+//    self.routes = [NSArray arrayWithArray:timetableRoutes];
 }
 
 #pragma mark - Inline date picker utility methods
@@ -224,67 +217,70 @@ static NSString *TimeCellIdentifier = @"TimeCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return [self hasInlineDatePicker] ? 2 : 1;
-    }
-    else {
-        Route *route = self.routes[section - 1];
-        return [route.trips count] + 1; // 1 row for route description and rest for trips
-    }
+    return 0;
+    
+//    if (section == 0) {
+//        return [self hasInlineDatePicker] ? 2 : 1;
+//    }
+//    else {
+//        Route *route = self.routes[section - 1];
+//        return [route.trips count] + 1; // 1 row for route description and rest for trips
+//    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            SCTimetableDateCell *cell = [tableView dequeueReusableCellWithIdentifier:DateCellIdentifier forIndexPath:indexPath];
-            
-            if (self.segmentedControlArrivalDeparture.selectedSegmentIndex == 0) {
-                cell.labelSelectedDate.text = [NSString stringWithFormat:@"Departures on %@", [self.dateFormatter stringFromDate:self.date]];
-            }
-            else {
-                cell.labelSelectedDate.text = [NSString stringWithFormat:@"Arrivals on %@", [self.dateFormatter stringFromDate:self.date]];
-            }
-            
-            return cell;
-        }
-        else {
-            return [tableView dequeueReusableCellWithIdentifier:DatePickerCellIdentifier];
-        }
-    }
-    else {
-        SCTimetableRoute *route = self.routes[indexPath.section - 1];
-        
-        if (indexPath.row == 0) {
-            SCTimetableHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:HeaderCellIdentifier];
-            headerCell.labelHeader.text = [route routeDescription];
-            
-            if (route.type == 0) {
-                headerCell.imageViewTransportType.backgroundColor = [UIColor redColor];
-            }
-            else {
-                headerCell.imageViewTransportType.backgroundColor = [UIColor blueColor];
-            }
-            
-            return headerCell;
-        }
-        else {
-            SCTimetableTrip *trip = route.trips[indexPath.row - 1];
-            
-            SCTimetableTimeCell *timeCell = [tableView dequeueReusableCellWithIdentifier:TimeCellIdentifier];
-            
-            if (self.segmentedControlArrivalDeparture.selectedSegmentIndex == 0) {
-                timeCell.labelTime.text = [trip departureTime];
-                timeCell.labelTimeCounterpart.text = [NSString stringWithFormat:@"arriving at %@", [trip arrivalTime]];
-            }
-            else {
-                timeCell.labelTime.text = [trip arrivalTime];
-                timeCell.labelTimeCounterpart.text = [NSString stringWithFormat:@"departed at %@", [trip departureTime]];
-            }
-            
-            return timeCell;
-        }
-    }
+//    if (indexPath.section == 0) {
+//        if (indexPath.row == 0) {
+//            SCTimetableDateCell *cell = [tableView dequeueReusableCellWithIdentifier:DateCellIdentifier forIndexPath:indexPath];
+//            
+//            if (self.segmentedControlArrivalDeparture.selectedSegmentIndex == 0) {
+//                cell.labelSelectedDate.text = [NSString stringWithFormat:@"Departures on %@", [self.dateFormatter stringFromDate:self.date]];
+//            }
+//            else {
+//                cell.labelSelectedDate.text = [NSString stringWithFormat:@"Arrivals on %@", [self.dateFormatter stringFromDate:self.date]];
+//            }
+//            
+//            return cell;
+//        }
+//        else {
+//            return [tableView dequeueReusableCellWithIdentifier:DatePickerCellIdentifier];
+//        }
+//    }
+//    else {
+//        SCTimetableRoute *route = self.routes[indexPath.section - 1];
+//        
+//        if (indexPath.row == 0) {
+//            SCTimetableHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:HeaderCellIdentifier];
+//            headerCell.labelHeader.text = [route routeDescription];
+//            
+//            if (route.type == 0) {
+//                headerCell.imageViewTransportType.backgroundColor = [UIColor redColor];
+//            }
+//            else {
+//                headerCell.imageViewTransportType.backgroundColor = [UIColor blueColor];
+//            }
+//            
+//            return headerCell;
+//        }
+//        else {
+//            SCTimetableTrip *trip = route.trips[indexPath.row - 1];
+//            
+//            SCTimetableTimeCell *timeCell = [tableView dequeueReusableCellWithIdentifier:TimeCellIdentifier];
+//            
+//            if (self.segmentedControlArrivalDeparture.selectedSegmentIndex == 0) {
+//                timeCell.labelTime.text = [trip departureTime];
+//                timeCell.labelTimeCounterpart.text = [NSString stringWithFormat:@"arriving at %@", [trip arrivalTime]];
+//            }
+//            else {
+//                timeCell.labelTime.text = [trip arrivalTime];
+//                timeCell.labelTimeCounterpart.text = [NSString stringWithFormat:@"departed at %@", [trip departureTime]];
+//            }
+//            
+//            return timeCell;
+//        }
+//    }
+    return nil;
 }
 
 #pragma mark - UITableViewDelegate

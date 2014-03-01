@@ -14,9 +14,6 @@
 #import "SCServiceStatus.h"
 #import "SCServiceTimetableViewController.h"
 
-#import "Location.h"
-#import "Route.h"
-
 #define IMAGE_VIEW_TOP_SPACE 29
 #define IMAGE_VIEW_TOP_SPACE_REDUCED 17
 
@@ -70,49 +67,49 @@
 
 - (void)configureMap
 {
-    NSEntityDescription *routeEntityDescription = [NSEntityDescription entityForName:@"Route" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
-    
-    NSFetchRequest *routesRequest = [[NSFetchRequest alloc] init];
-    [routesRequest setEntity:routeEntityDescription];
-    
-    NSPredicate *routePredicate = [NSPredicate predicateWithFormat:@"routeId == %d", self.serviceStatus.routeId];
-    [routesRequest setPredicate:routePredicate];
-    
-    NSArray *routes = [[NSManagedObjectContext sharedInstance] executeFetchRequest:routesRequest error:nil];
-    
-    NSMutableArray *locations = [[NSMutableArray alloc] init];
-    [routes enumerateObjectsUsingBlock:^(Route *route, NSUInteger idx, BOOL *stop) {
-        if (![locations containsObject:route.source]) {
-            [locations addObject:route.source];
-        }
-        if (![locations containsObject:route.destination]) {
-            [locations addObject:route.destination];
-        }
-    }];
-    
-    if ([locations count] > 0) {
-        NSMutableArray *annotations = [[NSMutableArray alloc] init];
-        CLLocationCoordinate2D coordinates[[locations count]];
-        
-        for (NSInteger i = 0; i < [locations count]; i++) {
-            Location *location = [locations objectAtIndex:i];
-            MKPointAnnotation *locationAnnotation = [[MKPointAnnotation alloc] init];
-            locationAnnotation.coordinate = CLLocationCoordinate2DMake([location.lat doubleValue], [location.lng doubleValue]);
-            locationAnnotation.title = location.name;
-            [annotations addObject:locationAnnotation];
-            coordinates[i] = locationAnnotation.coordinate;
-        }
-        
-        [self.mapView addAnnotations:annotations];
-        
-        MKCoordinateRegion region = coordinateRegionForCoordinates(coordinates, [locations count]);
-        
-        // make slightly larger and offset center so we can see the pins completely
-        region.span = MKCoordinateSpanMake(region.span.latitudeDelta + 0.12, region.span.longitudeDelta);
-        region.center = CLLocationCoordinate2DMake(region.center.latitude + 0.045, region.center.longitude);
-        
-        [self.mapView setRegion:region animated:NO];
-    }
+//    NSEntityDescription *routeEntityDescription = [NSEntityDescription entityForName:@"Route" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
+//    
+//    NSFetchRequest *routesRequest = [[NSFetchRequest alloc] init];
+//    [routesRequest setEntity:routeEntityDescription];
+//    
+//    NSPredicate *routePredicate = [NSPredicate predicateWithFormat:@"routeId == %d", self.serviceStatus.routeId];
+//    [routesRequest setPredicate:routePredicate];
+//    
+//    NSArray *routes = [[NSManagedObjectContext sharedInstance] executeFetchRequest:routesRequest error:nil];
+//    
+//    NSMutableArray *locations = [[NSMutableArray alloc] init];
+//    [routes enumerateObjectsUsingBlock:^(Route *route, NSUInteger idx, BOOL *stop) {
+//        if (![locations containsObject:route.source]) {
+//            [locations addObject:route.source];
+//        }
+//        if (![locations containsObject:route.destination]) {
+//            [locations addObject:route.destination];
+//        }
+//    }];
+//    
+//    if ([locations count] > 0) {
+//        NSMutableArray *annotations = [[NSMutableArray alloc] init];
+//        CLLocationCoordinate2D coordinates[[locations count]];
+//        
+//        for (NSInteger i = 0; i < [locations count]; i++) {
+//            Location *location = [locations objectAtIndex:i];
+//            MKPointAnnotation *locationAnnotation = [[MKPointAnnotation alloc] init];
+//            locationAnnotation.coordinate = CLLocationCoordinate2DMake([location.lat doubleValue], [location.lng doubleValue]);
+//            locationAnnotation.title = location.name;
+//            [annotations addObject:locationAnnotation];
+//            coordinates[i] = locationAnnotation.coordinate;
+//        }
+//        
+//        [self.mapView addAnnotations:annotations];
+//        
+//        MKCoordinateRegion region = coordinateRegionForCoordinates(coordinates, [locations count]);
+//        
+//        // make slightly larger and offset center so we can see the pins completely
+//        region.span = MKCoordinateSpanMake(region.span.latitudeDelta + 0.12, region.span.longitudeDelta);
+//        region.center = CLLocationCoordinate2DMake(region.center.latitude + 0.045, region.center.longitude);
+//        
+//        [self.mapView setRegion:region animated:NO];
+//    }
 }
 
 #pragma mark - Private

@@ -160,11 +160,6 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     return ([self hasInlineDatePicker] && self.datePickerIndexPath.section == indexPath.section && self.datePickerIndexPath.row == indexPath.row);
 }
 
-- (BOOL)indexPathHasDate:(NSIndexPath *)indexPath
-{
-    return indexPath.row == kDateRow;
-}
-
 - (void)toggleDatePickerForSelectedIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView beginUpdates];

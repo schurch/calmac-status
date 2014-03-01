@@ -43,7 +43,7 @@
         NSSet *filteredTrips = [route.trips filteredSetUsingPredicate:tripPredicate];
         
         NSMutableArray *trips = [[NSMutableArray alloc] init];
-        [filteredTrips enumerateObjectsUsingBlock:^(Trip *trip, BOOL *stop) {
+        [route.trips enumerateObjectsUsingBlock:^(Trip *trip, BOOL *stop) {
             SCTimetableTrip *timetableTrip = [[SCTimetableTrip alloc] init];
             timetableTrip.departureHour = [trip.departureHour integerValue];
             timetableTrip.departureMinute = [trip.departureMinute integerValue];

@@ -56,7 +56,7 @@
     brodickHarbourFerry.lng = @-5.139172;
     
     //weekday
-    Calendar *winterWeekday = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
+    Calendar *winterWeekday1 = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [[NSDateComponents alloc] init];
@@ -68,41 +68,113 @@
     [components setDay:20];
     [components setMonth:10];
     [components setYear:2013];
-    winterWeekday.startDate = [calendar dateFromComponents:components];
+    winterWeekday1.startDate = [calendar dateFromComponents:components];
+    
+    [components setDay:24];
+    [components setMonth:12];
+    [components setYear:2013];
+    winterWeekday1.endDate = [calendar dateFromComponents:components];
+    
+    winterWeekday1.monday = @YES;
+    winterWeekday1.tuesday = @YES;
+    winterWeekday1.wednesday = @YES;
+    winterWeekday1.thursday = @YES;
+    winterWeekday1.friday = @YES;
+    winterWeekday1.saturday = @NO;
+    winterWeekday1.sunday = @NO;
+    
+    Calendar *winterWeekday2 = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
+    
+    [components setHour:0];
+    [components setMinute:0];
+    [components setSecond:0];
+    
+    [components setDay:26];
+    [components setMonth:12];
+    [components setYear:2013];
+    winterWeekday2.startDate = [calendar dateFromComponents:components];
+    
+    [components setDay:26];
+    [components setMonth:12];
+    [components setYear:2013];
+    winterWeekday2.endDate = [calendar dateFromComponents:components];
+    
+    winterWeekday2.monday = @YES;
+    winterWeekday2.tuesday = @YES;
+    winterWeekday2.wednesday = @YES;
+    winterWeekday2.thursday = @YES;
+    winterWeekday2.friday = @YES;
+    winterWeekday2.saturday = @NO;
+    winterWeekday2.sunday = @NO;
+    
+    Calendar *winterWeekday3 = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
+    
+    [components setHour:0];
+    [components setMinute:0];
+    [components setSecond:0];
+    
+    [components setDay:27];
+    [components setMonth:12];
+    [components setYear:2013];
+    winterWeekday3.startDate = [calendar dateFromComponents:components];
+    
+    [components setDay:31];
+    [components setMonth:12];
+    [components setYear:2013];
+    winterWeekday3.endDate = [calendar dateFromComponents:components];
+    
+    winterWeekday3.monday = @YES;
+    winterWeekday3.tuesday = @YES;
+    winterWeekday3.wednesday = @YES;
+    winterWeekday3.thursday = @YES;
+    winterWeekday3.friday = @YES;
+    winterWeekday3.saturday = @NO;
+    winterWeekday3.sunday = @NO;
+    
+    Calendar *winterWeekday4 = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
+    
+    [components setHour:0];
+    [components setMinute:0];
+    [components setSecond:0];
+    
+    [components setDay:02];
+    [components setMonth:01];
+    [components setYear:2014];
+    winterWeekday4.startDate = [calendar dateFromComponents:components];
     
     [components setDay:03];
     [components setMonth:04];
     [components setYear:2014];
-    winterWeekday.endDate = [calendar dateFromComponents:components];
+    winterWeekday4.endDate = [calendar dateFromComponents:components];
     
-    winterWeekday.monday = @YES;
-    winterWeekday.tuesday = @YES;
-    winterWeekday.wednesday = @YES;
-    winterWeekday.thursday = @YES;
-    winterWeekday.friday = @YES;
-    winterWeekday.saturday = @NO;
-    winterWeekday.sunday = @NO;
+    winterWeekday4.monday = @YES;
+    winterWeekday4.tuesday = @YES;
+    winterWeekday4.wednesday = @YES;
+    winterWeekday4.thursday = @YES;
+    winterWeekday4.friday = @YES;
+    winterWeekday4.saturday = @NO;
+    winterWeekday4.sunday = @NO;
     
     //weekend
-    Calendar *winterWeekdend = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
+    Calendar *winterWeekdend1 = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     
     [components setDay:20];
     [components setMonth:10];
     [components setYear:2013];
-    winterWeekdend.startDate = [calendar dateFromComponents:components];
+    winterWeekdend1.startDate = [calendar dateFromComponents:components];
     
-    [components setDay:03];
-    [components setMonth:04];
-    [components setYear:2014];
-    winterWeekdend.endDate = [calendar dateFromComponents:components];
+    [components setDay:24];
+    [components setMonth:12];
+    [components setYear:2013];
+    winterWeekdend1.endDate = [calendar dateFromComponents:components];
     
-    winterWeekdend.monday = @NO;
-    winterWeekdend.tuesday = @NO;
-    winterWeekdend.wednesday = @NO;
-    winterWeekdend.thursday = @NO;
-    winterWeekdend.friday = @NO;
-    winterWeekdend.saturday = @YES;
-    winterWeekdend.sunday = @YES;
+    winterWeekdend1.monday = @NO;
+    winterWeekdend1.tuesday = @NO;
+    winterWeekdend1.wednesday = @NO;
+    winterWeekdend1.thursday = @NO;
+    winterWeekdend1.friday = @NO;
+    winterWeekdend1.saturday = @YES;
+    winterWeekdend1.sunday = @YES;
     
     /* ---------------------
      Glasgow to Ardrossan
@@ -114,17 +186,17 @@
     glasgowToArdrossan.routeId = @5;
     
     // Trips
+    
     Trip *glasgowToArdrossan1 = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     glasgowToArdrossan1.departureHour = @8;
     glasgowToArdrossan1.departureMinute = @34;
     glasgowToArdrossan1.arrivalHour = @9;
     glasgowToArdrossan1.arrivalMinute = @20;
     
-    [glasgowToArdrossan addTripsObject:glasgowToArdrossan1];
-    glasgowToArdrossan1.route = glasgowToArdrossan;
-    
-    [glasgowToArdrossan1 addCalendarsObject:winterWeekday];
-    [winterWeekday addTripsObject:glasgowToArdrossan1];
+    [self addTrip:glasgowToArdrossan1 toRoute:glasgowToArdrossan];
+    [self addCalendar:winterWeekday1 toTrip:glasgowToArdrossan1];
+    [self addCalendar:winterWeekday3 toTrip:glasgowToArdrossan1];
+    [self addCalendar:winterWeekday4 toTrip:glasgowToArdrossan1];
     
     Trip *glasgowToArdrossan2 = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     glasgowToArdrossan2.departureHour = @11;
@@ -132,33 +204,32 @@
     glasgowToArdrossan2.arrivalHour = @12;
     glasgowToArdrossan2.arrivalMinute = @02;
     
-    [glasgowToArdrossan addTripsObject:glasgowToArdrossan2];
-    glasgowToArdrossan2.route = glasgowToArdrossan;
-    
-    [glasgowToArdrossan2 addCalendarsObject:winterWeekday];
-    [winterWeekday addTripsObject:glasgowToArdrossan2];
+    [self addTrip:glasgowToArdrossan2 toRoute:glasgowToArdrossan];
+    [self addCalendar:winterWeekday1 toTrip:glasgowToArdrossan2];
+    [self addCalendar:winterWeekday3 toTrip:glasgowToArdrossan2];
+    [self addCalendar:winterWeekday4 toTrip:glasgowToArdrossan2];
     
     Trip *glasgowToArdrossan3 = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     glasgowToArdrossan3.departureHour = @14;
     glasgowToArdrossan3.departureMinute = @18;
     glasgowToArdrossan3.arrivalHour = @15;
     glasgowToArdrossan3.arrivalMinute = @02;
-    [glasgowToArdrossan addTripsObject:glasgowToArdrossan3];
-    glasgowToArdrossan3.route = glasgowToArdrossan;
     
-    [glasgowToArdrossan3 addCalendarsObject:winterWeekday];
-    [winterWeekday addTripsObject:glasgowToArdrossan3];
+    [self addTrip:glasgowToArdrossan3 toRoute:glasgowToArdrossan];
+    [self addCalendar:winterWeekday1 toTrip:glasgowToArdrossan3];
+    [self addCalendar:winterWeekday3 toTrip:glasgowToArdrossan3];
+    [self addCalendar:winterWeekday4 toTrip:glasgowToArdrossan3];
     
     Trip *glasgowToArdrossan4 = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     glasgowToArdrossan4.departureHour = @16;
     glasgowToArdrossan4.departureMinute = @50;
     glasgowToArdrossan4.arrivalHour = @17;
     glasgowToArdrossan4.arrivalMinute = @36;
-    [glasgowToArdrossan addTripsObject:glasgowToArdrossan4];
-    glasgowToArdrossan4.route = glasgowToArdrossan;
     
-    [glasgowToArdrossan4 addCalendarsObject:winterWeekday];
-    [winterWeekday addTripsObject:glasgowToArdrossan4];
+    [self addTrip:glasgowToArdrossan4 toRoute:glasgowToArdrossan];
+    [self addCalendar:winterWeekday1 toTrip:glasgowToArdrossan4];
+    [self addCalendar:winterWeekday3 toTrip:glasgowToArdrossan4];
+    [self addCalendar:winterWeekday4 toTrip:glasgowToArdrossan4];
     
     Trip *glasgowToArdrossan5 = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     glasgowToArdrossan5.departureHour = @8;
@@ -166,11 +237,8 @@
     glasgowToArdrossan5.arrivalHour = @9;
     glasgowToArdrossan5.arrivalMinute = @29;
     
-    [glasgowToArdrossan addTripsObject:glasgowToArdrossan5];
-    glasgowToArdrossan5.route = glasgowToArdrossan;
-    
-    [glasgowToArdrossan5 addCalendarsObject:winterWeekdend];
-    [winterWeekdend addTripsObject:glasgowToArdrossan5];
+    [self addTrip:glasgowToArdrossan5 toRoute:glasgowToArdrossan];
+    [self addCalendar:winterWeekdend1 toTrip:glasgowToArdrossan5];
     
     Trip *glasgowToArdrossan6 = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     glasgowToArdrossan6.departureHour = @11;
@@ -178,11 +246,9 @@
     glasgowToArdrossan6.arrivalHour = @12;
     glasgowToArdrossan6.arrivalMinute = @01;
     
-    [glasgowToArdrossan addTripsObject:glasgowToArdrossan6];
-    glasgowToArdrossan6.route = glasgowToArdrossan;
-    
-    [glasgowToArdrossan6 addCalendarsObject:winterWeekdend];
-    [winterWeekdend addTripsObject:glasgowToArdrossan6];
+    [self addTrip:glasgowToArdrossan6 toRoute:glasgowToArdrossan];
+    [self addCalendar:winterWeekdend1 toTrip:glasgowToArdrossan6];
+    [self addCalendar:winterWeekday2 toTrip:glasgowToArdrossan6];
     
     Trip *glasgowToArdrossan7 = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     glasgowToArdrossan7.departureHour = @14;
@@ -190,11 +256,8 @@
     glasgowToArdrossan7.arrivalHour = @14;
     glasgowToArdrossan7.arrivalMinute = @51;
     
-    [glasgowToArdrossan addTripsObject:glasgowToArdrossan7];
-    glasgowToArdrossan7.route = glasgowToArdrossan;
-    
-    [glasgowToArdrossan7 addCalendarsObject:winterWeekdend];
-    [winterWeekdend addTripsObject:glasgowToArdrossan7];
+    [self addTrip:glasgowToArdrossan7 toRoute:glasgowToArdrossan];
+    [self addCalendar:winterWeekdend1 toTrip:glasgowToArdrossan7];
     
     Trip *glasgowToArdrossan8 = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[NSManagedObjectContext sharedInstance]];
     glasgowToArdrossan8.departureHour = @16;
@@ -202,11 +265,8 @@
     glasgowToArdrossan8.arrivalHour = @17;
     glasgowToArdrossan8.arrivalMinute = @41;
     
-    [glasgowToArdrossan addTripsObject:glasgowToArdrossan8];
-    glasgowToArdrossan8.route = glasgowToArdrossan;
-    
-    [glasgowToArdrossan8 addCalendarsObject:winterWeekdend];
-    [winterWeekdend addTripsObject:glasgowToArdrossan8];
+    [self addTrip:glasgowToArdrossan8 toRoute:glasgowToArdrossan];
+    [self addCalendar:winterWeekdend1 toTrip:glasgowToArdrossan8];
     
     /* ---------------------
      Ardrossan to Brodick
@@ -233,6 +293,18 @@
 //    ardrossanToGlasgow.destination = ardrossanHarbourTrain;
     
     [[NSManagedObjectContext sharedInstance] save];
+}
+
+- (void)addTrip:(Trip *)trip toRoute:(Route *)route
+{
+    [route addTripsObject:trip];
+    trip.route = route;
+}
+
+- (void)addCalendar:(Calendar *)calendar toTrip:(Trip *)trip
+{
+    [trip addCalendarsObject:calendar];
+    [calendar addTripsObject:trip];
 }
 
 @end

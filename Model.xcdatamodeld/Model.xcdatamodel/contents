@@ -27,15 +27,16 @@
     <entity name="Trip" representedClassName="Trip" syncable="YES">
         <attribute name="arrivalHour" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
         <attribute name="arrivalMinute" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="departureHour" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="departureHour" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="departureMinute" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="calendars" toMany="YES" deletionRule="Nullify" destinationEntity="Calendar" inverseName="trips" inverseEntity="Calendar" syncable="YES"/>
         <relationship name="route" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Route" inverseName="trips" inverseEntity="Route" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Calendar" positionX="0" positionY="0" width="128" height="193"/>
-        <element name="Location" positionX="-234" positionY="9" width="128" height="88"/>
-        <element name="Route" positionX="-99" positionY="-153" width="128" height="118"/>
-        <element name="Trip" positionX="288" positionY="-117" width="128" height="133"/>
+        <element name="Calendar" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Route" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Trip" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

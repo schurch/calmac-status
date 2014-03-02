@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -62,7 +62,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBU-Rb-ugH">
-                                            <rect key="frame" x="11" y="8" width="25" height="25"/>
+                                            <rect key="frame" x="11" y="10" width="24" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -161,11 +161,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange_exclamation.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uy9-Lo-yrY">
-                                                    <rect key="frame" x="13" y="29" width="25" height="25"/>
+                                                    <rect key="frame" x="13" y="29" width="24" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="prI-nG-aov"/>
-                                                        <constraint firstAttribute="height" constant="25" id="ufW-hs-8Lb"/>
+                                                        <constraint firstAttribute="width" constant="24" id="prI-nG-aov"/>
+                                                        <constraint firstAttribute="height" constant="24" id="ufW-hs-8Lb"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="d90-Oy-DsY">
@@ -250,7 +250,7 @@
                                                 <constraint firstItem="gNC-TV-hd2" firstAttribute="leading" secondItem="1Ok-kA-hr1" secondAttribute="leading" constant="51" id="FIj-qv-WoH"/>
                                                 <constraint firstAttribute="bottom" secondItem="CJB-pG-FEj" secondAttribute="bottom" constant="6" id="GLK-pb-SCG"/>
                                                 <constraint firstAttribute="trailing" secondItem="d90-Oy-DsY" secondAttribute="trailing" constant="20" id="Hh3-Yy-7rL"/>
-                                                <constraint firstItem="d90-Oy-DsY" firstAttribute="leading" secondItem="Uy9-Lo-yrY" secondAttribute="trailing" constant="13" id="Inw-lC-DDK"/>
+                                                <constraint firstItem="d90-Oy-DsY" firstAttribute="leading" secondItem="Uy9-Lo-yrY" secondAttribute="trailing" constant="14" id="Inw-lC-DDK"/>
                                                 <constraint firstItem="Uy9-Lo-yrY" firstAttribute="top" secondItem="1Ok-kA-hr1" secondAttribute="top" constant="29" id="Pqu-12-yWU"/>
                                                 <constraint firstItem="CJB-pG-FEj" firstAttribute="leading" secondItem="1Ok-kA-hr1" secondAttribute="leading" constant="51" id="U0I-id-gLL"/>
                                                 <constraint firstItem="d90-Oy-DsY" firstAttribute="top" secondItem="1Ok-kA-hr1" secondAttribute="top" constant="22" id="hKU-hb-rxx"/>
@@ -260,7 +260,7 @@
                                                 <constraint firstItem="gNC-TV-hd2" firstAttribute="top" secondItem="d90-Oy-DsY" secondAttribute="bottom" constant="-2" id="ldj-l3-bFU"/>
                                                 <constraint firstItem="Bbc-tR-sqs" firstAttribute="leading" secondItem="CJB-pG-FEj" secondAttribute="trailing" constant="8" id="oZ0-cL-S0m"/>
                                                 <constraint firstItem="Bbc-tR-sqs" firstAttribute="centerY" secondItem="CJB-pG-FEj" secondAttribute="centerY" id="peJ-Rc-ByC"/>
-                                                <constraint firstItem="HdJ-zp-C6t" firstAttribute="leading" secondItem="Uy9-Lo-yrY" secondAttribute="trailing" constant="13" id="u4p-Ay-QXD"/>
+                                                <constraint firstItem="HdJ-zp-C6t" firstAttribute="leading" secondItem="Uy9-Lo-yrY" secondAttribute="trailing" constant="14" id="u4p-Ay-QXD"/>
                                                 <constraint firstItem="HdJ-zp-C6t" firstAttribute="top" secondItem="1Ok-kA-hr1" secondAttribute="top" constant="8" id="ySM-2z-cJq"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -347,7 +347,6 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VNd-FE-9yk">
                                                     <rect key="frame" x="14" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -466,7 +465,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
-        <image name="orange_exclamation.png" width="25" height="25"/>
+        <image name="orange_exclamation.png" width="24" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

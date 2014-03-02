@@ -69,8 +69,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     self.date = [NSDate date];
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateStyle:NSDateFormatterLongStyle];
-    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    self.dateFormatter.dateFormat = @"EEEE dd MMM yy";
     
     self.routes = [SCRoute fetchRoutesForServiceId:self.routeId onDate:self.date];
     [self.tableView reloadData];
@@ -188,7 +187,8 @@ static NSString *TimeCellIdentifier = @"TimeCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.routes count] + 1;
+    NSInteger sections = [[self.routes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"trips.@count > 0"]] count] + 1;
+    return  sections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -198,7 +198,12 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     }
     else {
         SCRoute *route = self.routes[section - 1];
-        return [route.trips count] + 1; // 1 row for route description and rest for trips
+        if ([route.trips count] > 0) {
+            return [route.trips count] + 1; // 1 row for route description and rest for trips
+        }
+        else {
+            return 0;
+        }
     }
 }
 
@@ -218,10 +223,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
             return cell;
         }
         else {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DatePickerCellIdentifier];
-            UIDatePicker *datePicker = (UIDatePicker *)[cell viewWithTag:kDatePickerTag];
-            datePicker.calendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
-            return cell;
+            return [tableView dequeueReusableCellWithIdentifier:DatePickerCellIdentifier];
         }
     }
     else {
@@ -232,10 +234,10 @@ static NSString *TimeCellIdentifier = @"TimeCell";
             headerCell.labelHeader.text = [route routeDescription];
             
             if (route.routeType == SCRouteTypeFerry) {
-                headerCell.imageViewTransportType.backgroundColor = [UIColor redColor];
+                headerCell.imageViewTransportType.image = [UIImage imageNamed:@"ferry_icon.png"];
             }
             else {
-                headerCell.imageViewTransportType.backgroundColor = [UIColor blueColor];
+                headerCell.imageViewTransportType.image = [UIImage imageNamed:@"train_icon.png"];
             }
             
             return headerCell;

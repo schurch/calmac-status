@@ -9,11 +9,8 @@
 /* Begin PBXBuildFile section */
 		09284BF949044AA8A12A97F9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */; };
 		FD135B51186DCB3700E5E900 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD135B50186DCB3700E5E900 /* MapKit.framework */; };
-		FD1E2BC818698B6300B33431 /* green_tick.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC218698B6300B33431 /* green_tick.png */; };
 		FD1E2BC918698B6300B33431 /* green_tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC318698B6300B33431 /* green_tick@2x.png */; };
-		FD1E2BCA18698B6300B33431 /* orange_exclamation.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC418698B6300B33431 /* orange_exclamation.png */; };
 		FD1E2BCB18698B6300B33431 /* orange_exclamation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC518698B6300B33431 /* orange_exclamation@2x.png */; };
-		FD1E2BCC18698B6300B33431 /* red_cross.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC618698B6300B33431 /* red_cross.png */; };
 		FD1E2BCD18698B6300B33431 /* red_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1E2BC718698B6300B33431 /* red_cross@2x.png */; };
 		FD2EBB8D18703EBE00AFE016 /* SCServiceTimetableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB8C18703EBE00AFE016 /* SCServiceTimetableViewController.m */; };
 		FD2EBB941870A5F300AFE016 /* SCTimetableHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EBB931870A5F300AFE016 /* SCTimetableHeaderCell.m */; };
@@ -23,6 +20,8 @@
 		FD49916518C185370061D661 /* SCRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FD49916418C185370061D661 /* SCRoute.m */; };
 		FD49916818C185440061D661 /* SCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = FD49916718C185440061D661 /* SCLocation.m */; };
 		FD49916B18C1856C0061D661 /* SCTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = FD49916A18C1856C0061D661 /* SCTrip.m */; };
+		FD6D819818C305DB00856955 /* ferry_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6D819618C305DB00856955 /* ferry_icon@2x.png */; };
+		FD6D819918C305DB00856955 /* train_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6D819718C305DB00856955 /* train_icon@2x.png */; };
 		FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6796186891F50034EF00 /* Foundation.framework */; };
 		FD7B6799186891F50034EF00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6798186891F50034EF00 /* CoreGraphics.framework */; };
 		FD7B679B186891F50034EF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B679A186891F50034EF00 /* UIKit.framework */; };
@@ -59,11 +58,8 @@
 		66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5844D1C60DC4C5DB77DC4BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		FD135B50186DCB3700E5E900 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		FD1E2BC218698B6300B33431 /* green_tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_tick.png; sourceTree = "<group>"; };
 		FD1E2BC318698B6300B33431 /* green_tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_tick@2x.png"; sourceTree = "<group>"; };
-		FD1E2BC418698B6300B33431 /* orange_exclamation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_exclamation.png; sourceTree = "<group>"; };
 		FD1E2BC518698B6300B33431 /* orange_exclamation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_exclamation@2x.png"; sourceTree = "<group>"; };
-		FD1E2BC618698B6300B33431 /* red_cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_cross.png; sourceTree = "<group>"; };
 		FD1E2BC718698B6300B33431 /* red_cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_cross@2x.png"; sourceTree = "<group>"; };
 		FD2EBB8B18703EBE00AFE016 /* SCServiceTimetableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCServiceTimetableViewController.h; sourceTree = "<group>"; };
 		FD2EBB8C18703EBE00AFE016 /* SCServiceTimetableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCServiceTimetableViewController.m; sourceTree = "<group>"; };
@@ -80,6 +76,8 @@
 		FD49916718C185440061D661 /* SCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLocation.m; sourceTree = "<group>"; };
 		FD49916918C1856C0061D661 /* SCTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTrip.h; sourceTree = "<group>"; };
 		FD49916A18C1856C0061D661 /* SCTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTrip.m; sourceTree = "<group>"; };
+		FD6D819618C305DB00856955 /* ferry_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ferry_icon@2x.png"; sourceTree = "<group>"; };
+		FD6D819718C305DB00856955 /* train_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "train_icon@2x.png"; sourceTree = "<group>"; };
 		FD7B6793186891F50034EF00 /* CalMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B6796186891F50034EF00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7B6798186891F50034EF00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,11 +141,10 @@
 		FD1E2BC118698B6300B33431 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FD1E2BC218698B6300B33431 /* green_tick.png */,
+				FD6D819618C305DB00856955 /* ferry_icon@2x.png */,
+				FD6D819718C305DB00856955 /* train_icon@2x.png */,
 				FD1E2BC318698B6300B33431 /* green_tick@2x.png */,
-				FD1E2BC418698B6300B33431 /* orange_exclamation.png */,
 				FD1E2BC518698B6300B33431 /* orange_exclamation@2x.png */,
-				FD1E2BC618698B6300B33431 /* red_cross.png */,
 				FD1E2BC718698B6300B33431 /* red_cross@2x.png */,
 			);
 			path = Resources;
@@ -385,15 +382,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD1E2BC818698B6300B33431 /* green_tick.png in Resources */,
 				FD7B67B2186891F50034EF00 /* Images.xcassets in Resources */,
+				FD6D819918C305DB00856955 /* train_icon@2x.png in Resources */,
 				FD7B67A1186891F50034EF00 /* InfoPlist.strings in Resources */,
-				FD1E2BCA18698B6300B33431 /* orange_exclamation.png in Resources */,
-				FD1E2BCC18698B6300B33431 /* red_cross.png in Resources */,
 				FD1E2BCB18698B6300B33431 /* orange_exclamation@2x.png in Resources */,
 				FD7B67AA186891F50034EF00 /* Main.storyboard in Resources */,
 				FD1E2BC918698B6300B33431 /* green_tick@2x.png in Resources */,
 				FD1E2BCD18698B6300B33431 /* red_cross@2x.png in Resources */,
+				FD6D819818C305DB00856955 /* ferry_icon@2x.png in Resources */,
 				FD49915F18C177AD0061D661 /* timetables.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

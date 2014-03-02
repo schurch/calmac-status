@@ -57,19 +57,32 @@
     [self configureView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // Unselect the selected row if any
+    NSIndexPath *selection = [self.tableView indexPathForSelectedRow];
+    if (selection) {
+        [self.tableView deselectRowAtIndexPath:selection animated:YES];
+    }
+}
+
 - (void)configureView
 {
     if (self.serviceStatus) {
         self.title = self.serviceStatus.area;
-        [self configureMap];
+        NSArray *locations = [SCLocation fetchLocationsForServiceId:self.serviceStatus.routeId];
+        if ([locations count] > 0) {
+            [self configureMapWithLocations:locations];
+        }
+        
         [self refresh:nil];
     }
 }
 
-- (void)configureMap
+- (void)configureMapWithLocations:(NSArray *)locations
 {
-    NSArray *locations = [SCLocation fetchLocationsForServiceId:self.serviceStatus.routeId];
-    
     if ([locations count] > 0) {
         NSMutableArray *annotations = [[NSMutableArray alloc] init];
         CLLocationCoordinate2D coordinates[[locations count]];
@@ -211,8 +224,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
     }
     else if (indexPath.section == 1) {
         // Map
-        return 130;
-        
+        return 130;   
     }
     else {
         // Disruptions section

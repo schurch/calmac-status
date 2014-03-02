@@ -129,7 +129,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    self.filteredServiceStatuses = [self.serviceStatuses filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.area contains[c] %@", searchString]];
+    self.filteredServiceStatuses = [self.serviceStatuses filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"route contains[c] %@ OR area contains[c] %@", searchString, searchString]];
     return YES;
 }
 

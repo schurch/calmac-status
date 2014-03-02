@@ -214,10 +214,12 @@ static NSString *TimeCellIdentifier = @"TimeCell";
             SCTimetableDateCell *cell = [tableView dequeueReusableCellWithIdentifier:DateCellIdentifier forIndexPath:indexPath];
             
             if (self.segmentedControlArrivalDeparture.selectedSegmentIndex == 0) {
-                cell.labelSelectedDate.text = [NSString stringWithFormat:@"Departures on %@", [self.dateFormatter stringFromDate:self.date]];
+                cell.labelDeparturesArrivals.text = @"Departures";
+                cell.labelSelectedDate.text = [NSString stringWithFormat:@"%@", [self.dateFormatter stringFromDate:self.date]];
             }
             else {
-                cell.labelSelectedDate.text = [NSString stringWithFormat:@"Arrivals on %@", [self.dateFormatter stringFromDate:self.date]];
+                cell.labelDeparturesArrivals.text = @"Arrivals";
+                cell.labelSelectedDate.text = [NSString stringWithFormat:@"%@", [self.dateFormatter stringFromDate:self.date]];
             }
             
             return cell;

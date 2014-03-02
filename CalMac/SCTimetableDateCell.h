@@ -11,5 +11,6 @@
 @interface SCTimetableDateCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *labelSelectedDate;
+@property (weak, nonatomic) IBOutlet UILabel *labelDeparturesArrivals;
 
 @end

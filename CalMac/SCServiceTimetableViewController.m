@@ -44,6 +44,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     if (_date != date) {
         // strip time part of date
         NSCalendar *calendar = [NSCalendar currentCalendar];
+        calendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
         NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:date];
         
         [components setHour:0];
@@ -217,7 +218,10 @@ static NSString *TimeCellIdentifier = @"TimeCell";
             return cell;
         }
         else {
-            return [tableView dequeueReusableCellWithIdentifier:DatePickerCellIdentifier];
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DatePickerCellIdentifier];
+            UIDatePicker *datePicker = (UIDatePicker *)[cell viewWithTag:kDatePickerTag];
+            datePicker.calendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+            return cell;
         }
     }
     else {

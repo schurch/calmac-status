@@ -242,7 +242,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    // dont' perform the normal annotation selection
+    // don't perform the normal annotation selection
     [mapView deselectAnnotation:view.annotation animated:NO];
 }
 

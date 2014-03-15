@@ -1,0 +1,525 @@
+-- locations
+# ID, Name, Lat, Lng
+1,Glasgow Central,55.860524,-4.258041
+2,Ardrossan Harbour,55.639868,-4.821088
+3,Ardrossan Harbour,55.640516,-4.823062
+4,Brodick Harbour,55.576606,-5.139172
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+2,1,2,5
+1,3,4,5
+1,4,3,5
+2,2,1,5
+
+#########################################
+############### WINTER ##################
+#########################################
+
+#########################################
+## MON - SAT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2013-10-04,2014-04-03,1,1,1,1,1,1,0
+
+#exlusions
+2013-12-25
+2013-12-26
+2014-01-01
+
+-- trips
+#route lookup
+2,1,2,5
+# Depart, Arrive
+0834,0920
+1118,1202
+1418,1502
+1650,1736
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+0700,0755
+0945,1040
+1230,1325
+1515,1610
+1800,1855
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+0820,0915
+1105,1200
+1350,1445
+1640,1735
+1920,2015
+
+-- trips
+#route lookup
+2,2,1,5
+# Depart, Arrive
+0936,1022
+1236,1322
+1536,1620
+1807,1852
+2031,2125
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2013-10-04,2014-04-03,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+2,1,2,5
+# Depart, Arrive
+0840,0929
+1115,1201
+1405,1451
+1655,1741
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+0945,1040
+1230,1325
+1515,1610
+1800,1855
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+1105,1200
+1350,1445
+1640,1735
+1920,2015
+
+-- trips
+#route lookup
+2,2,1,5
+# Depart, Arrive
+1235,1318
+1503,1546
+1800,1844
+2031,2114
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2013-12-26,2013-12-26,0,0,0,1,0,0,0
+
+-- trips
+#route lookup
+2,1,2,5
+# Depart, Arrive
+1115,1201
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+1230,1325
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+1350,1445
+
+-- trips
+#route lookup
+2,2,1,5
+# Depart, Arrive
+1503,1546
+
+#########################################
+############### SUMMER ##################
+#########################################
+
+#########################################
+## MON - WED
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,1,1,0,0,0,0
+
+-- trips
+#route lookup
+2,1,2,5
+# Depart, Arrive
+0645,0736
+0834,0920
+0918,1002
+1118,1202
+1218,1302
+1418,1503
+1518,1603
+1650,1736
+1818,1903
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+0700,0755
+0945,1040
+1230,1325
+1515,1610
+1800,1855
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+0820,0915
+1105,1200
+1350,1445
+1640,1735
+1920,2015
+
+-- trips
+#route lookup
+2,2,1,5
+# Depart, Arrive
+0819,0910
+0936,1022
+1136,1222
+1236,1322
+1336,1422
+1536,1620
+1636,1722
+1807,1852
+1931,2023
+2031,2125
+
+#########################################
+## MON - WED - Additional sailings from 1 May to 29 September A 2014
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-01,2014-09-29,1,1,1,0,0,0,0
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+0820,0915
+1105,1200
+1350,1445
+1640,1735
+1920,2015
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+0700,0755
+0945,1040
+1230,1325
+1515,1610
+1800,1855
+
+
+#########################################
+## THU
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,1,0,0,0
+
+-- trips
+#route lookup
+2,1,2,5
+# Depart, Arrive
+0645,0736
+0834,0920
+0918,1002
+1118,1202
+1218,1302
+1418,1503
+1650,1736
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+0700,0755
+0945,1040
+1230,1325
+1515,1610
+1800,1855
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+0820,0915
+1105,1200
+1350,1445
+1640,1735
+1920,2015
+
+-- trips
+#route lookup
+2,2,1,5
+# Depart, Arrive
+0819,0910
+0936,1022
+1136,1222
+1236,1322
+1336,1422
+1536,1620
+1636,1722
+1807,1852
+2031,2125
+
+#########################################
+## THU - Additional sailings from 1 May to 29 September A 2014
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-01,2014-09-29,0,0,0,1,0,0,0
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+0820,0915
+1105,1200
+1350,1445
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+0700,0755
+0945,1040
+1230,1325
+1515,1610
+
+#########################################
+## FRI
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,1,0,0
+
+-- trips
+#route lookup
+2,1,2,5
+# Depart, Arrive
+0834,0920
+0918,1002
+1118,1202
+1218,1302
+1418,1503
+1650,1736
+1915,2006
+
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+0700,0755
+0945,1040
+1230,1325
+1515,1610
+1800,1855
+2030,2125
+
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+0820,0915
+1105,1200
+1350,1445
+1640,1735
+1920,2015
+2140,2235
+
+-- trips
+#route lookup
+2,2,1,5
+# Depart, Arrive
+0936,1022
+1236,1322
+1336,1422
+1536,1620
+1636,1722
+1807,1852
+2031,2125
+
+#########################################
+## FRI - Additional sailings from 1 May to 29 September A 2014
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-01,2014-09-29,0,0,0,0,1,0,0
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+1105,1200
+1350,1445
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+1230,1325
+1515,1610
+
+#########################################
+## SAT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+2,1,2,5
+# Depart, Arrive
+0834,0920
+0918,1002
+1118,1202
+1218,1302
+1418,1503
+1518,1603
+1650,1736
+2015,2106
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+0700,0755
+0945,1040
+1230,1325
+1515,1610
+1800,1855
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+0820,0915
+1105,1200
+1350,1445
+1640,1735
+1920,2015
+
+-- trips
+#route lookup
+2,2,1,5
+# Depart, Arrive
+0936,1022
+1136,1222
+1236,1322
+1336,1422
+1536,1620
+1636,1722
+1807,1852
+1931,2023
+2031,2125
+
+#########################################
+## SAT - Additional sailings from 1 May to 29 September A 2014
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-01,2014-09-29,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+1105,1200
+1350,1445
+1640,1735
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+0945,1040
+1230,1325
+1515,1610
+1800,1855
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+2,1,2,5
+# Depart, Arrive
+0840,0929
+1115,1201
+1405,1451
+1655,1741
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+0945,1040
+1230,1325
+1515,1610
+1800,1855
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+1105,1200
+1350,1445
+1640,1735
+1920,2015
+
+-- trips
+#route lookup
+2,2,1,5
+# Depart, Arrive
+1235,1318
+1503,1546
+1800,1844
+2031,2114
+
+#########################################
+## SUN - Additional sailings from 1 May to 29 September A 2014
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-01,2014-09-29,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,3,4,5
+# Depart, Arrive
+1105,1200
+2000,2055
+
+-- trips
+#route lookup
+1,4,3,5
+# Depart, Arrive
+0905,1000
+1230,1325

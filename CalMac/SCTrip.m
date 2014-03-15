@@ -50,7 +50,8 @@
                        "INNER JOIN Trip t ON t.TripId = ct.TripId\n"
                        "INNER JOIN Route r on r.RouteId = t.RouteId\n"
                        "WHERE ct.CalendarId = c.CalendarId\n"
-                       "AND r.routeId = (?)", weekDayString];
+                       "AND r.routeId = (?)\n"
+                       "ORDER BY DepartureHour, DepartureMinute", weekDayString];
     
     NSNumber *dateNumber = [NSNumber numberWithDouble:[date timeIntervalSince1970]];
     
@@ -89,7 +90,7 @@
 - (NSString *)padWithZero:(NSNumber *)numberToPad
 {
     if ([numberToPad integerValue] < 10) {
-        return [NSString stringWithFormat:@"0%d", [numberToPad integerValue]];
+        return [NSString stringWithFormat:@"0%ld", (long)[numberToPad integerValue]];
     }
     else {
         return [numberToPad stringValue];

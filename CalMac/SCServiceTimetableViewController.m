@@ -61,7 +61,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
 {
     [super viewDidLoad];
     
-    self.title = @"Timetable";
+    self.title = @"Departures";
     
     UITableViewCell *pickerViewCell = [self.tableView dequeueReusableCellWithIdentifier:DatePickerCellIdentifier];
     self.pickerCellRowHeight = pickerViewCell.frame.size.height;
@@ -71,7 +71,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     self.dateFormatter = [[NSDateFormatter alloc] init];
     self.dateFormatter.dateFormat = @"EEEE dd MMM yy";
     
-    self.routes = [SCRoute fetchRoutesForServiceId:self.routeId onDate:self.date];
+    self.routes = [[SCRoute fetchRoutesForServiceId:self.routeId onDate:self.date] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"trips.@count > 0"]];
     [self.tableView reloadData];
 }
 
@@ -79,6 +79,13 @@ static NSString *TimeCellIdentifier = @"TimeCell";
 
 - (IBAction)valueChangedArrivalsDepartures:(UISegmentedControl *)sender
 {
+    if (sender.selectedSegmentIndex == 0) {
+        self.title = @"Departures";
+    }
+    else {
+        self.title = @"Arrivals";
+    }
+    
     [self.tableView reloadData];
 }
 
@@ -88,7 +95,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     {
         self.date = sender.date;
         
-        self.routes = [SCRoute fetchRoutesForServiceId:self.routeId onDate:self.date];
+        self.routes = [[SCRoute fetchRoutesForServiceId:self.routeId onDate:self.date] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"trips.@count > 0"]];
         [self.tableView reloadData];
     }
 }
@@ -187,7 +194,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSInteger sections = [[self.routes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"trips.@count > 0"]] count] + 1;
+    NSInteger sections = [self.routes count] + 1;
     return  sections;
 }
 

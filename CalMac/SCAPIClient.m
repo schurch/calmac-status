@@ -17,7 +17,7 @@ NSString * const SCAPIClientErrorDomain = @"SCAPIClientErrorDomain";
 
 @interface SCAPIClient()
 
-@property (nonatomic, strong) AFHTTPRequestOperationManager *requestManager;
+@property (strong, nonatomic) AFHTTPRequestOperationManager *requestManager;
 
 @end
 

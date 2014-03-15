@@ -20,7 +20,7 @@
 
 @interface SCServiceDetailViewController ()
 
-@property (nonatomic, strong) SCDisruptionDetails *disruptionDetails;
+@property (strong, nonatomic) SCDisruptionDetails *disruptionDetails;
 
 - (void)configureView;
 
@@ -151,7 +151,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
     // Fetch the detailed information
     [[SCAPIClient sharedInstance] fetchDisruptionDetailsForFerryServiceId:self.serviceStatus.routeId completion:^(SCDisruptionDetails *disruptionDetails, SCRouteDetails *routeDetails, NSError *error) {
         
-        if (disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusNormal) {
+        if (disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusNormal || disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusInformation) {
             self.imageViewDisruption.image = [UIImage imageNamed:@"green_tick.png"];
             self.labelDisruptionDetails.text = @"There are currently no disruptions with this service.";
             
@@ -176,7 +176,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
                     break;
             }
             
-            self.labelReason.text = disruptionDetails.reason;
+            self.labelReason.text = [disruptionDetails.reason capitalizedString];
             self.labelEndTime.text = [[SCServiceDetailViewController dateFormatter] stringFromDate:disruptionDetails.disruptionEndDate];
             
             if (disruptionDetails.updatedDate) {

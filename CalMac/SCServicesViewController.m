@@ -15,8 +15,8 @@
 
 @interface SCServicesViewController ()
 
-@property (nonatomic, strong) NSArray *serviceStatuses;
-@property (nonatomic, strong) NSArray *filteredServiceStatuses;
+@property (strong, nonatomic) NSArray *serviceStatuses;
+@property (strong, nonatomic) NSArray *filteredServiceStatuses;
 
 @end
 

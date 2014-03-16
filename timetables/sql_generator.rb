@@ -86,9 +86,11 @@ def process_trip(trip_line)
 		arrival_hour = line_elements[1][0..1]
 		arrival_minute = line_elements[1][2..3]
 
+		notes = !line_elements[2] ? "NULL" : "'#{line_elements[2]}'"
+
 		calendar_id = $current_calendar_id - 1
 
-		$output += "INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (#{$current_trip_id}, #{departure_hour}, #{departure_minute}, #{arrival_hour}, #{arrival_minute}, #{$current_route_sql}, NULL);\n"
+		$output += "INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (#{$current_trip_id}, #{departure_hour}, #{departure_minute}, #{arrival_hour}, #{arrival_minute}, #{$current_route_sql}, #{notes});\n"
 		$output += "INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (#{calendar_id}, #{$current_trip_id});\n"
 
 		$current_trip_id += 1

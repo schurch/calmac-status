@@ -1,0 +1,323 @@
+#########################################
+################# BUTE ##################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+5,Glasgow Central,55.860524,-4.258041
+6,Wemyss Bay,55.876138,-4.889059
+7,Wemyss Bay,55.875730,-4.890800
+8,Rothesay,55.838480,-5.054210
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+2,5,6,3
+1,7,8,3
+1,8,7,3
+2,6,5,3
+
+#########################################
+############### SUMMER ##################
+#########################################
+
+#########################################
+## MON - SAT - Normal timetable
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,1,1,1,1,1,0
+
+-- trips
+#route lookup
+2,5,6,3
+# Depart, Arrive
+0605,0657
+0632,0733
+0750,0841
+0855,0944
+1632,1724
+1716,1807
+1755,1843
+1838,1937
+1936,2033
+2036,2133
+
+-- trips
+#route lookup
+1,7,8,3
+# Depart, Arrive
+0755,0830
+0845,0920
+0925,1000
+1015,1050
+1100,1135
+1200,1235
+1305,1340
+1405,1440
+1500,1535
+1600,1635
+1645,1720
+1730,1805
+1815,1850
+1900,1935
+1945,2020
+
+-- trips
+#route lookup
+1,8,7,3
+# Depart, Arrive
+0700,0735
+0800,0835
+0840,0915
+0930,1005
+1010,1045
+1100,1135
+1200,1235
+1300,1335
+1400,1435
+1500,1535
+1600,1635
+1645,1720
+1730,1805
+1815,1850
+1900,1935
+
+-- trips
+#route lookup
+2,6,5,3
+# Depart, Arrive
+0716,0809
+0754,0847
+0857,0944
+0957,1044
+1057,1144
+1157,1244
+1257,1344
+1357,1444
+1457,1544
+1557,1646
+1645,1735
+1749,1844
+1824,1919
+1856,1944
+1947,2044
+2047,2144
+2152,2249
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+2,5,6,3
+# Depart, Arrive
+0750,0839
+0850,0939
+0950,1039
+1050,1139
+1150,1239
+1250,1340
+1350,1439
+1450,1539
+1550,1639
+1650,1739
+1750,1839
+1850,1939
+
+-- trips
+#route lookup
+1,7,8,3
+# Depart, Arrive
+0845,0920
+1015,1050
+1100,1135
+1200,1235
+1300,1335
+1350,1425
+1500,1535
+1600,1635
+1645,1720
+1730,1805
+1815,1850
+1900,1935
+1945,2020
+2045,2120
+
+-- trips
+#route lookup
+1,8,7,3
+# Depart, Arrive
+0800,0835
+0930,1005
+1010,1045
+1100,1135
+1200,1235
+1300,1335
+1400,1435
+1510,1545
+1600,1635
+1645,1720
+1730,1805
+1815,1850
+1900,1935
+1945,2020
+
+-- trips
+#route lookup
+2,6,5,3
+# Depart, Arrive
+0850,0939
+1055,1144
+1150,1239
+1250,1339
+1350,1439
+1450,1539
+1555,1644
+1650,1739
+1750,1839
+1855,1944
+1950,2039
+2050,2139
+
+#########################################
+## MON - SAT - Abnormal times
+#########################################
+
+##################
+##### Trains #####
+##################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-05-18,1,1,1,1,1,1,0
+
+-- trips
+#route lookup
+2,5,6,3
+# Depart, Arrive
+0955,1043
+1055,1143
+1155,1243
+1255,1343
+1355,1443
+1455,1543
+1547,1638
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-19,2014-10-26,1,1,1,1,1,1,0
+-- trips
+#route lookup
+2,5,6,3
+# Depart, Arrive
+0955,1048
+1057,1147
+1157,1247
+1257,1347
+1357,1447
+1457,1547
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-19,2014-10-26,1,1,1,1,1,0,0
+-- trips
+#route lookup
+2,5,6,3
+# Depart, Arrive
+1550,1638
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-19,2014-10-26,0,0,0,0,0,1,0
+-- trips
+#route lookup
+2,5,6,3
+# Depart, Arrive
+1547,1638
+
+###################
+##### Ferries #####
+###################
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,1,1,1,1,0,0
+
+-- trips
+#route lookup
+1,7,8,3
+# Depart, Arrive
+0715,0750
+
+-- trips
+#route lookup
+1,8,7,3
+# Depart, Arrive
+0625,0700
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,1,1,0
+
+-- trips
+#route lookup
+1,7,8,3
+# Depart, Arrive
+2045,2120
+
+-- trips
+#route lookup
+1,8,7,3
+# Depart, Arrive
+1945,2020
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-06-06,1,1,1,1,1,1,0
+
+-- trips
+#route lookup
+1,7,8,3
+# Depart, Arrive
+2200,2235
+
+-- trips
+#route lookup
+1,8,7,3
+# Depart, Arrive
+2110,2145
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-06-07,2014-08-23,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,7,8,3
+# Depart, Arrive
+2200,2235
+
+-- trips
+#route lookup
+1,8,7,3
+# Depart, Arrive
+2110,2145
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-24-08,2014-10-26,1,1,1,1,1,1,0
+
+-- trips
+#route lookup
+1,7,8,3
+# Depart, Arrive
+2200,2235
+
+-- trips
+#route lookup
+1,8,7,3
+# Depart, Arrive
+2110,2145

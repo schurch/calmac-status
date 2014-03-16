@@ -101,7 +101,7 @@
         MKCoordinateRegion region = coordinateRegionForCoordinates(coordinates, [locations count]);
         
         // make slightly larger and offset center so we can see the pins completely
-        region.span = MKCoordinateSpanMake(region.span.latitudeDelta + 0.14, region.span.longitudeDelta);
+        region.span = MKCoordinateSpanMake(region.span.latitudeDelta + 0.14, region.span.longitudeDelta + 0.14);
         region.center = CLLocationCoordinate2DMake(region.center.latitude + 0.06, region.center.longitude);
         
         [self.mapView setRegion:region animated:NO];

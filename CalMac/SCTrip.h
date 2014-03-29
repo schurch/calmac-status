@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString *notes;
 @property (strong, nonatomic) NSNumber *routeId;
 
++ (BOOL)areTripsAvailableForRouteId:(NSInteger)routeId;
 + (NSArray *)fetchTripsForRouteId:(NSInteger)routeId onDate:(NSDate *)date;
 
 - (NSString *)departureTime;

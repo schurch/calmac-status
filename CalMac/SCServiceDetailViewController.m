@@ -14,6 +14,7 @@
 #import "SCRouteDetails.h"
 #import "SCServiceStatus.h"
 #import "SCServiceTimetableViewController.h"
+#import "SCTrip.h"
 
 #define IMAGE_VIEW_TOP_SPACE 29
 #define IMAGE_VIEW_TOP_SPACE_REDUCED 17
@@ -106,7 +107,7 @@
     }
 }
 
-#pragma mark - Private
+#pragma mark - Utility methods
 
 - (void)toggleDisruptionHidden:(BOOL)hidden
 {
@@ -129,6 +130,18 @@
     }];
     
     return MKCoordinateRegionForMapRect(mapRect);
+}
+
+- (BOOL)isTimeTableDataAvailable
+{
+    return [SCTrip areTripsAvailableForRouteId:self.serviceStatus.routeId];
+}
+
+- (NSInteger)disruptionsRowHeight
+{
+    CGRect boundingRect = [self.labelDisruptionDetails.text boundingRectWithSize:CGSizeMake(self.labelDisruptionDetails.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.labelDisruptionDetails.font} context:nil];
+    NSInteger height = ceilf(boundingRect.size.height);
+    return height < 40 ? 60 : height + 74; // Height + padding
 }
 
 #pragma mark - UIRefreshControl
@@ -213,39 +226,91 @@
     }];
 }
 
-#pragma mark - Table view datasource / delegates
+#pragma mark - UITableViewDatasource
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0) {
-        // Timetables
-        return 44;
-    }
-    else if (indexPath.section == 1) {
-        // Map
-        return 130;   
-    }
-    else {
-        // Disruptions section
-        CGRect boundingRect = [self.labelDisruptionDetails.text boundingRectWithSize:CGSizeMake(self.labelDisruptionDetails.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.labelDisruptionDetails.font} context:nil];
-        NSInteger height = ceilf(boundingRect.size.height);
-        return height < 40 ? 60 : height + 74; // Height + padding
-    }
-}
+#define MAP_HEADER @"Map"
+#define DISRUPTIONS_HEADER @"Disruptions"
+#define TIMETABLE_ROW_HEIGHT 44
+#define MAP_ROW_HEIGHT 130
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        // Timetables
-        return self.serviceStatus.route;
-    }
-    else if (section == 1) {
-        // Map
-        return @"Map";
+    if ([self isTimeTableDataAvailable]) {
+        if (section == 0) {
+            return self.serviceStatus.route;
+        }
+        else if (section == 1) {
+            return MAP_HEADER;
+        }
+        else {
+            return DISRUPTIONS_HEADER;
+        }
     }
     else {
-        // Disruptions section
-        return @"Disruptions";
+        if (section == 0) {
+            return self.serviceStatus.route;
+        }
+        else {
+            return DISRUPTIONS_HEADER;
+        }
+    }
+}
+
+#pragma mark - UITableViewDelegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self isTimeTableDataAvailable] ? 3 : 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self isTimeTableDataAvailable]) {
+        if (indexPath.section == 0) {
+            return self.cellTimetable;
+        }
+        else if (indexPath.section == 1) {
+            return self.cellMap;
+        }
+        else {
+            return self.cellDisruptions;
+        }
+    }
+    else {
+        if (indexPath.section == 0) {
+            return self.cellMap;
+        }
+        else {
+            return self.cellDisruptions;
+        }
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self isTimeTableDataAvailable]) {
+        if (indexPath.section == 0) {
+            return TIMETABLE_ROW_HEIGHT;
+        }
+        else if (indexPath.section == 1) {
+            return MAP_ROW_HEIGHT;
+        }
+        else {
+            return [self disruptionsRowHeight];
+        }
+    }
+    else {
+        if (indexPath.section == 0) {
+            return MAP_ROW_HEIGHT;
+        }
+        else {
+            return [self disruptionsRowHeight];
+        }
     }
 }
 

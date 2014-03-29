@@ -14,6 +14,10 @@
 
 @interface SCServiceDetailViewController : UITableViewController<MKMapViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UITableViewCell *cellTimetable;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cellMap;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cellDisruptions;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityViewLoadingDisruptions;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewDisruption;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTopSpaceImageViewDisruption;

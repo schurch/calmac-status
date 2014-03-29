@@ -9,6 +9,7 @@
 #import "SCTrip.h"
 
 #import "FMDatabase.h"
+#import "FMDatabaseAdditions.h"
 
 @implementation SCTrip
 
@@ -24,6 +25,26 @@
     }
     
     return dayDateFormatter;
+}
+
++ (BOOL)areTripsAvailableForRouteId:(NSInteger)routeId
+{
+    FMDatabase *database = [FMDatabase databaseWithPath:[[NSBundle mainBundle] pathForResource:@"timetables" ofType:@"sqlite"]];
+    
+    if (![database open]) {
+        return NO;
+    }
+    
+    NSString *query = [NSString stringWithFormat:@"SELECT COUNT(*)\n"
+                                                  "FROM Route r\n"
+                                                  "INNER JOIN Trip t ON r.RouteId = t.RouteId\n"
+                                                  "WHERE r.ServiceId = %d", routeId];
+    
+    NSUInteger tripCount = [database intForQuery:query];
+    
+    [database close];
+    
+    return tripCount > 0;
 }
 
 + (NSArray *)fetchTripsForRouteId:(NSInteger)routeId onDate:(NSDate *)date

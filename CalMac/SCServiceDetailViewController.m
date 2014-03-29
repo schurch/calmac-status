@@ -97,13 +97,10 @@
         
         [self.mapView addAnnotations:annotations];
         
-        MKCoordinateRegion region = [self coordinateRegionForAnnotations:annotations];
+        MKMapRect mapRect = [self mapRectForAnnotations:annotations];
         
-        // make slightly larger and offset center so we can see the pins completely
-        region.span = MKCoordinateSpanMake(region.span.latitudeDelta + 0.14, region.span.longitudeDelta + 0.14);
-        region.center = CLLocationCoordinate2DMake(region.center.latitude + 0.06, region.center.longitude);
-        
-        [self.mapView setRegion:region animated:NO];
+        // Add some extra padding so we can see top of pin
+        [self.mapView setVisibleMapRect:mapRect edgePadding:UIEdgeInsetsMake(40.0f, 20.0f, 5.0f, 20.0f) animated:NO];
     }
 }
 
@@ -120,16 +117,16 @@
     self.labelEndTimeTitle.hidden = hidden;
 }
 
-- (MKCoordinateRegion)coordinateRegionForAnnotations:(NSArray *)annotations
+- (MKMapRect)mapRectForAnnotations:(NSArray *)annotations
 {
     __block MKMapRect mapRect = MKMapRectNull;
     
     [annotations enumerateObjectsUsingBlock:^(MKPointAnnotation *annotation, NSUInteger idx, BOOL *stop) {
         MKMapPoint point = MKMapPointForCoordinate(annotation.coordinate);
-        mapRect = MKMapRectUnion(mapRect, MKMapRectMake(point.x, point.y, 0, 0));
+        mapRect = MKMapRectUnion(mapRect, MKMapRectMake(point.x, point.y, 0.1, 0.1));
     }];
     
-    return MKCoordinateRegionForMapRect(mapRect);
+    return mapRect;
 }
 
 - (BOOL)isTimeTableDataAvailable

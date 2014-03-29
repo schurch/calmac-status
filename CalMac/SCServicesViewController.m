@@ -108,13 +108,13 @@
     
     switch (serviceStatus.disruptionStatus) {
         case SCDisruptionStatusNormal:
-            cell.imageViewStatus.image = [UIImage imageNamed:@"green_tick.png"];
+            cell.imageViewStatus.image = [UIImage imageNamed:@"green.png"];
             break;
         case SCDisruptionStatusSailingsAffected:
-            cell.imageViewStatus.image = [UIImage imageNamed:@"orange_exclamation.png"];
+            cell.imageViewStatus.image = [UIImage imageNamed:@"amber.png"];
             break;
         case SCDisruptionStatusSailingsCancelled:
-            cell.imageViewStatus.image = [UIImage imageNamed:@"red_cross.png"];
+            cell.imageViewStatus.image = [UIImage imageNamed:@"red.png"];
             break;
         default:
             cell.imageViewStatus.image = nil;

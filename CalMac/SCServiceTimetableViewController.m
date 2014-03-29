@@ -198,12 +198,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     [self updateDatePicker];
 }
 
-#pragma mark - Table view data source
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [self indexPathHasPicker:indexPath] ? self.pickerCellRowHeight : self.tableView.rowHeight;
-}
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -289,7 +284,21 @@ static NSString *TimeCellIdentifier = @"TimeCell";
             return timeCell;
         }
     }
-    return nil;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self indexPathHasPicker:indexPath] ? self.pickerCellRowHeight : self.tableView.rowHeight;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        SCTimetableDateCell *dateCell = (SCTimetableDateCell *)cell;
+        dateCell.labelSelectedDate.textColor =  [[[UIApplication sharedApplication] delegate] window].tintColor;
+    }
 }
 
 #pragma mark - UITableViewDelegate

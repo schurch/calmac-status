@@ -151,7 +151,7 @@
     [[SCAPIClient sharedInstance] fetchDisruptionDetailsForFerryServiceId:self.serviceStatus.routeId completion:^(SCDisruptionDetails *disruptionDetails, SCRouteDetails *routeDetails, NSError *error) {
         
         if (disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusNormal || disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusInformation) {
-            self.imageViewDisruption.image = [UIImage imageNamed:@"green_tick.png"];
+            self.imageViewDisruption.image = [UIImage imageNamed:@"green.png"];
             self.labelDisruptionDetails.text = @"There are currently no disruptions with this service.";
             
             self.constraintTopSpaceImageViewDisruption.constant = IMAGE_VIEW_TOP_SPACE_REDUCED;
@@ -164,10 +164,10 @@
             
             switch (disruptionDetails.disruptionStatus) {
                 case SCDisruptionDetailsStatusSailingsAffected:
-                    self.imageViewDisruption.image = [UIImage imageNamed:@"orange_exclamation.png"];
+                    self.imageViewDisruption.image = [UIImage imageNamed:@"amber.png"];
                     break;
                 case SCDisruptionDetailsStatusSailingsCancelled:
-                    self.imageViewDisruption.image = [UIImage imageNamed:@"red_cross.png"];
+                    self.imageViewDisruption.image = [UIImage imageNamed:@"red.png"];
                     break;
                 default:
                     self.imageViewDisruption.image = nil;

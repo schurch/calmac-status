@@ -85,7 +85,6 @@
 {
     if ([locations count] > 0) {
         NSMutableArray *annotations = [[NSMutableArray alloc] init];
-        CLLocationCoordinate2D coordinates[[locations count]];
         
         for (NSInteger i = 0; i < [locations count]; i++) {
             SCLocation *location = [locations objectAtIndex:i];
@@ -93,12 +92,11 @@
             locationAnnotation.coordinate = CLLocationCoordinate2DMake([location.latitude doubleValue], [location.longitude doubleValue]);
             locationAnnotation.title = location.name;
             [annotations addObject:locationAnnotation];
-            coordinates[i] = locationAnnotation.coordinate;
         }
         
         [self.mapView addAnnotations:annotations];
         
-        MKCoordinateRegion region = coordinateRegionForCoordinates(coordinates, [locations count]);
+        MKCoordinateRegion region = [self coordinateRegionForAnnotations:annotations];
         
         // make slightly larger and offset center so we can see the pins completely
         region.span = MKCoordinateSpanMake(region.span.latitudeDelta + 0.14, region.span.longitudeDelta + 0.14);
@@ -121,13 +119,14 @@
     self.labelEndTimeTitle.hidden = hidden;
 }
 
-MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords, NSUInteger coordCount)
+- (MKCoordinateRegion)coordinateRegionForAnnotations:(NSArray *)annotations
 {
-    MKMapRect mapRect = MKMapRectNull;
-    for (NSUInteger i = 0; i < coordCount; ++i) {
-        MKMapPoint point = MKMapPointForCoordinate(coords[i]);
+    __block MKMapRect mapRect = MKMapRectNull;
+    
+    [annotations enumerateObjectsUsingBlock:^(MKPointAnnotation *annotation, NSUInteger idx, BOOL *stop) {
+        MKMapPoint point = MKMapPointForCoordinate(annotation.coordinate);
         mapRect = MKMapRectUnion(mapRect, MKMapRectMake(point.x, point.y, 0, 0));
-    }
+    }];
     
     return MKCoordinateRegionForMapRect(mapRect);
 }

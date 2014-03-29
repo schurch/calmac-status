@@ -308,7 +308,7 @@
 
 -- calendar
 # StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-24-08,2014-10-26,1,1,1,1,1,1,0
+2014-08-24,2014-10-26,1,1,1,1,1,1,0
 
 -- trips
 #route lookup

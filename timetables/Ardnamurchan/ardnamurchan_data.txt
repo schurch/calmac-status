@@ -6,3 +6,8 @@
 # ID, Name, Lat, Lng
 13,Tobermory,56.623300,-6.063340
 14,Kilchoan,56.688550,-6.093960
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,13,14,14
+1,14,13,14

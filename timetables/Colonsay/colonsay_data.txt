@@ -8,3 +8,12 @@
 26,Colonsay,56.068580,-6.188190
 27,Port Askaig,55.847707,-6.105102
 28,Kennacraig,55.806700,-5.483400
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,19,26,10
+1,28,27,10
+1,27,28,10
+1,26,27,10
+1,26,19,10
+1,27,28,10

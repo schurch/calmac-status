@@ -1,207 +1,224 @@
 #########################################
-################# LEWIS #################
+################ MULL ###################
 #########################################
 
 -- locations
 # ID, Name, Lat, Lng
-9,Stornoway,58.206822,-6.386586
-10,Ullapool Bay,57.894939,-5.160442
+#19, Oban
+38,Craignure,56.470740,-5.706290
 
 -- route
 # Type, SourceLocationId, DestinationLocationId, ServiceId
-1,9,10,25
-1,10,9,25
+1,19,38,11
+1,38,19,11
 
 #########################################
 ############### SUMMER ##################
 #########################################
 
 #########################################
-## FRI 4 APRIL - SUN 22 JUNE
-## MON 8 SEPT - SUN 26 OCT
-#########################################
-
-#############################
-### FRI 4 APRIL - SUN 22 JUNE
-#############################
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-04-04,2014-06-22,1,1,1,1,1,0,0
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1350,1635
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1735,2020
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-04-04,2014-06-22,0,0,0,0,0,1,0
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1815,2100
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-04-04,2014-06-22,0,0,0,0,0,0,1
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1815,2100
-
-###########################
-### MON 8 SEPT - SUN 26 OCT
-###########################
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-09-08,2014-10-26,1,1,1,1,1,0,0
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1350,1635
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1735,2020
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-09-08,2014-10-26,0,0,0,0,0,1,0
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1815,2100
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-09-08,2014-10-26,0,0,0,0,0,0,1
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1815,2100
-
-#########################################
-## MON 23 JUN - SUN 7 SEPT
+## MON
 #########################################
 -- calendar
 # StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-06-23,2014-09-07,1,1,0,1,0,0,0
+2014-04-04,2014-10-26,1,0,0,0,0,0,0
 
 -- trips
 #route lookup
-1,9,10,25
+1,19,38,11
 # Depart, Arrive
-0700,0945
-1350,1635
+0700,0746
+0950,1036
+1155,1241
+1400,1446
+1600,1646
+1800,1846
 
 -- trips
 #route lookup
-1,10,9,25
+1,38,19,11
 # Depart, Arrive
-1025,1310
-1735,2020
+0800,0846
+1055,1141
+1300,1346
+1500,1546
+1700,1746
+1900,1946
 
+#########################################
+## TUE/WED/THU
+#########################################
 -- calendar
 # StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-06-23,2014-09-07,0,0,1,0,1,0,0
+2014-04-04,2014-10-26,0,1,1,1,0,0,0
 
 -- trips
 #route lookup
-1,9,10,25
+1,19,38,11
 # Depart, Arrive
-0600,0845
-1300,1545
-1945,2230
+0745,0831
+0950,1036
+1155,1241
+1400,1446
+1600,1646
+1800,1846
 
 -- trips
 #route lookup
-1,10,9,25
+1,38,19,11
 # Depart, Arrive
-0930,1215
-1630,1915
-2300,0145,Arrives following morning.
+0845,0931
+1055,1141
+1300,1346
+1500,1546
+1700,1746
+1900,1946
 
+#########################################
+## FRI
+#########################################
 -- calendar
 # StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-06-23,2014-09-07,0,0,0,0,0,1,0
+2014-04-04,2014-10-26,0,0,0,0,1,0,0
 
 -- trips
 #route lookup
-1,9,10,25
+1,19,38,11
 # Depart, Arrive
-0700,0945
-1430,1715
+0745,0831
+0950,1036
+1155,1241
+1400,1446
+1600,1646
+1800,1846
+2230,2316
 
 -- trips
 #route lookup
-1,10,9,25
+1,38,19,11
 # Depart, Arrive
-1025,1310
-1815,2100
+0845,0931
+1055,1141
+1300,1346
+1500,1546
+1700,1746
+1900,1946
 
+#########################################
+## SAT
+#########################################
 -- calendar
 # StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-06-23,2014-09-07,0,0,0,0,0,0,1
+2014-04-04,2014-10-26,0,0,0,0,0,1,0
 
 -- trips
 #route lookup
-1,9,10,25
+1,19,38,11
 # Depart, Arrive
-1430,1715
+0730,0816
+0930,1016
+1145,1231
+1400,1446
+1600,1646
+1800,1846
 
 -- trips
 #route lookup
-1,10,9,25
+1,38,19,11
 # Depart, Arrive
-1815,2100
+0645,0731
+0830,0916
+1030,1116
+1245,1331
+1500,1546
+1700,1746
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+0950,1036
+1155,1241
+1400,1446
+1600,1646
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+0845,0931
+1055,1141
+1300,1346
+1500,1546
+1700,1746
+
+#########################################
+## WED
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,1,0,0,0,0
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+2000,2046
+
+#########################################
+## THU
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,1,0,0,0
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+0645,0731
+
+#########################################
+## SAT: 10 MAY - 13 SEP
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-10,2014-09-13,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+2000,2046
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+1900,1946
+
+#########################################
+## SUN: 11 MAY - 14 SEP
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-11,2014-09-14,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+1800,1846
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+1900,1946

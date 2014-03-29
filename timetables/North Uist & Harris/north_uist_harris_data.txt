@@ -1,14 +1,13 @@
 #########################################
-############# COLL - TIREE ##############
+######### NORTH UIST / HARRIS ###########
 #########################################
 
 -- locations
 # ID, Name, Lat, Lng
-# oban 19
-24,Coll,56.615059,-6.524241
-25,Tiree,56.508324,-6.798924
+40,Berneray,57.702302,-7.180422
+41,Leverburgh,57.766540,-7.025258
 
 -- route
 # Type, SourceLocationId, DestinationLocationId, ServiceId
-1,24,25,16
-1,25,24,16
+1,40,41,23
+1,41,40,23

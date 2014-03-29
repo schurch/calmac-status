@@ -6,3 +6,8 @@
 # ID, Name, Lat, Lng
 17,Barra,57.008400,-7.404750
 18,Eriskay,57.070910,-7.308250
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,17,18,21
+1,18,17,21

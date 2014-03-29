@@ -6,3 +6,8 @@
 # ID, Name, Lat, Lng
 # Tarbert 15
 29,Portavadie,55.876490,-5.316540
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,15,29,2
+1,29,15,2

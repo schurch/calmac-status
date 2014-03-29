@@ -1,0 +1,261 @@
+#########################################
+################ HARRIS #################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+32,Uig,57.586340,-6.376447
+33,Tarbert,57.896848,-6.798668
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,32,33,24
+1,33,32,24
+
+#########################################
+############### SUMMER ##################
+#########################################
+
+#########################################
+## MON
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,0,0,0,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1400,1540
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0730,0910
+1600,1740
+
+#########################################
+## TUE
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,1,0,0,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0940,1120
+1800,1940
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1150,1330
+
+#########################################
+## WED
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,1,0,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1400,1540
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0730,0910
+1600,1740
+
+#########################################
+## THU
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,1,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0940,1120
+1800,1940
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1150,1330
+
+#########################################
+## FRI
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,1,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1400,1540
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0730,0910
+1600,1740
+
+#########################################
+## SAT: 4 APR - 21 JUNE
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-06-21,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0940,1120
+1800,1940
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1150,1330
+
+#########################################
+## SAT: 30 AUG - 26 OCT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-08-30,2014-10-26,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0940,1120
+1800,1940
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1150,1330
+
+#########################################
+## SAT: 28 JUNE - 23 AUG
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-06-28,2014-08-23,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0945,1125
+1840,2020
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1155,1335
+2100,2240
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1400,1540
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1600,1740
+
+#########################################
+## MON: 10 MAY - 13 SEP
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-10,2014-09-13,1,0,0,0,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0530,0710
+
+#########################################
+## SAT: 10 MAY - 13 SEP
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-10,2014-09-13,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+2000,2140
+
+#########################################
+## SUN: 6 APR - 4 MAY
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-06,2014-05-04,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1800,2145,Operates via Lochmaddy (North Uist).
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0900,1300,Operates via Lochmaddy (North Uist).
+
+#########################################
+## SUN: 21 SEP - 26 OCT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-09-21,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1800,2145,Operates via Lochmaddy (North Uist).
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0900,1300,Operates via Lochmaddy (North Uist).

@@ -1,6 +1,17 @@
 #########################################
-################ ARRAN ##################
+############# ARDNAMURCHAN ##############
 #########################################
+
+-- locations
+# ID, Name, Lat, Lng
+13,Tobermory,56.623300,-6.063340
+14,Kilchoan,56.688550,-6.093960
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,13,14,14
+1,14,13,14
+
 
 -- locations
 # ID, Name, Lat, Lng
@@ -528,6 +539,55 @@
 0905,1000
 1230,1325
 
+
+#########################################
+########## ARRAN - LOCHRANZA ############
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+15,Tarbert (Loch Fyne),55.866150,-5.403760
+16,Lochranza,55.707714,-5.301985
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,15,16,6
+1,16,15,6
+
+
+#########################################
+############ BARRA - ERISKAY ############
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+17,Barra,57.008400,-7.404750
+18,Eriskay,57.070910,-7.308250
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,17,18,21
+1,18,17,21
+
+
+#########################################
+########## BARRA - SOUTH UIST ###########
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+19,Oban,56.411580,-5.477250
+20,Castlebay,56.953846,-7.488251
+21,Lochboisdale,57.152201,-7.303969
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,19,20,20
+1,20,21,20
+1,21,20,20
+1,20,19,20
+
+
 #########################################
 ################# BUTE ##################
 #########################################
@@ -838,7 +898,7 @@
 
 -- calendar
 # StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-24-08,2014-10-26,1,1,1,1,1,1,0
+2014-08-24,2014-10-26,1,1,1,1,1,1,0
 
 -- trips
 #route lookup
@@ -854,213 +914,69 @@
 
 
 #########################################
-################# LEWIS #################
+########### BUTE COLINTRAIVE ############
 #########################################
 
 -- locations
 # ID, Name, Lat, Lng
-9,Stornoway,58.206822,-6.386586
-10,Ullapool Bay,57.894939,-5.160442
+22,Colintraive,55.923353,-5.152758
+23,Rhubodach,55.920670,-5.158880
 
 -- route
 # Type, SourceLocationId, DestinationLocationId, ServiceId
-1,9,10,25
-1,10,9,25
+1,22,23,4
+1,23,22,4
+
 
 #########################################
-############### SUMMER ##################
+############# COLL - TIREE ##############
 #########################################
 
-#########################################
-## FRI 4 APRIL - SUN 22 JUNE
-## MON 8 SEPT - SUN 26 OCT
-#########################################
+-- locations
+# ID, Name, Lat, Lng
+# oban 19
+24,Coll,56.615059,-6.524241
+25,Tiree,56.508324,-6.798924
 
-#############################
-### FRI 4 APRIL - SUN 22 JUNE
-#############################
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-04-04,2014-06-22,1,1,1,1,1,0,0
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,24,25,16
+1,25,24,16
 
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1350,1635
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1735,2020
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-04-04,2014-06-22,0,0,0,0,0,1,0
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1815,2100
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-04-04,2014-06-22,0,0,0,0,0,0,1
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1815,2100
-
-###########################
-### MON 8 SEPT - SUN 26 OCT
-###########################
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-09-08,2014-10-26,1,1,1,1,1,0,0
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1350,1635
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1735,2020
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-09-08,2014-10-26,0,0,0,0,0,1,0
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1815,2100
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-09-08,2014-10-26,0,0,0,0,0,0,1
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1815,2100
 
 #########################################
-## MON 23 JUN - SUN 7 SEPT
+############### COLONSAY ################
 #########################################
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-06-23,2014-09-07,1,1,0,1,0,0,0
 
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1350,1635
+-- locations
+# ID, Name, Lat, Lng
+# oban 19
+26,Colonsay,56.068580,-6.188190
+27,Port Askaig,55.847707,-6.105102
+28,Kennacraig,55.806700,-5.483400
 
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1735,2020
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,19,26,10
+1,28,27,10
+1,27,28,10
+1,26,27,10
+1,26,19,10
+1,27,28,10
 
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-06-23,2014-09-07,0,0,1,0,1,0,0
+#########################################
+################ COWAL ##################
+#########################################
 
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0600,0845
-1300,1545
-1945,2230
+-- locations
+# ID, Name, Lat, Lng
+# Tarbert 15
+29,Portavadie,55.876490,-5.316540
 
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-0930,1215
-1630,1915
-2300,0145,Arrives following morning.
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-06-23,2014-09-07,0,0,0,0,0,1,0
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-0700,0945
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1025,1310
-1815,2100
-
--- calendar
-# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-06-23,2014-09-07,0,0,0,0,0,0,1
-
--- trips
-#route lookup
-1,9,10,25
-# Depart, Arrive
-1430,1715
-
--- trips
-#route lookup
-1,10,9,25
-# Depart, Arrive
-1815,2100
-
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,15,29,2
+1,29,15,2
 
 #########################################
 ############### CUMBRAE #################
@@ -1601,3 +1517,890 @@
 2000,2010
 2015,2025
 2030,2040
+
+
+#########################################
+################ GIGHA ##################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+30,Tayinloan,55.657550,-5.669100
+31,Gigha,55.678637,-5.733597
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,30,31,8
+1,31,30,8
+
+
+#########################################
+################ HARRIS #################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+32,Uig,57.586340,-6.376447
+33,Tarbert,57.896848,-6.798668
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,32,33,24
+1,33,32,24
+
+#########################################
+############### SUMMER ##################
+#########################################
+
+#########################################
+## MON
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,0,0,0,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1400,1540
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0730,0910
+1600,1740
+
+#########################################
+## TUE
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,1,0,0,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0940,1120
+1800,1940
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1150,1330
+
+#########################################
+## WED
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,1,0,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1400,1540
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0730,0910
+1600,1740
+
+#########################################
+## THU
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,1,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0940,1120
+1800,1940
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1150,1330
+
+#########################################
+## FRI
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,1,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1400,1540
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0730,0910
+1600,1740
+
+#########################################
+## SAT: 4 APR - 21 JUNE
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-06-21,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0940,1120
+1800,1940
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1150,1330
+
+#########################################
+## SAT: 30 AUG - 26 OCT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-08-30,2014-10-26,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0940,1120
+1800,1940
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1150,1330
+
+#########################################
+## SAT: 28 JUNE - 23 AUG
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-06-28,2014-08-23,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0945,1125
+1840,2020
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1155,1335
+2100,2240
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1400,1540
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+1600,1740
+
+#########################################
+## MON: 10 MAY - 13 SEP
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-10,2014-09-13,1,0,0,0,0,0,0
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+0530,0710
+
+#########################################
+## SAT: 10 MAY - 13 SEP
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-10,2014-09-13,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+2000,2140
+
+#########################################
+## SUN: 6 APR - 4 MAY
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-06,2014-05-04,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1800,2145,Operates via Lochmaddy (North Uist).
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0900,1300,Operates via Lochmaddy (North Uist).
+
+#########################################
+## SUN: 21 SEP - 26 OCT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-09-21,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,32,33,24
+# Depart, Arrive
+1800,2145,Operates via Lochmaddy (North Uist).
+
+-- trips
+#route lookup
+1,33,32,24
+# Depart, Arrive
+0900,1300,Operates via Lochmaddy (North Uist).
+
+
+#########################################
+################ IONA ###################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+34,Fionnphort,56.325611,-6.369403
+35,Iona,56.330225,-6.392257
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,34,35,13
+1,35,34,13
+
+
+#########################################
+################ ISLAY ##################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+#27,Port Askaig
+#28,Kennacraig
+36,Port Ellen,55.627810,-6.189810
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,28,27,9
+1,28,36,9
+1,27,28,9
+1,36,28,9
+
+
+#########################################
+################# LEWIS #################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+9,Stornoway,58.206822,-6.386586
+10,Ullapool Bay,57.894939,-5.160442
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,9,10,25
+1,10,9,25
+
+#########################################
+############### SUMMER ##################
+#########################################
+
+#########################################
+## FRI 4 APRIL - SUN 22 JUNE
+## MON 8 SEPT - SUN 26 OCT
+#########################################
+
+#############################
+### FRI 4 APRIL - SUN 22 JUNE
+#############################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-06-22,1,1,1,1,1,0,0
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+0700,0945
+1350,1635
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+1025,1310
+1735,2020
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-06-22,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+0700,0945
+1430,1715
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+1025,1310
+1815,2100
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-06-22,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+1430,1715
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+1815,2100
+
+###########################
+### MON 8 SEPT - SUN 26 OCT
+###########################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-09-08,2014-10-26,1,1,1,1,1,0,0
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+0700,0945
+1350,1635
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+1025,1310
+1735,2020
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-09-08,2014-10-26,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+0700,0945
+1430,1715
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+1025,1310
+1815,2100
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-09-08,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+1430,1715
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+1815,2100
+
+#########################################
+## MON 23 JUN - SUN 7 SEPT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-06-23,2014-09-07,1,1,0,1,0,0,0
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+0700,0945
+1350,1635
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+1025,1310
+1735,2020
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-06-23,2014-09-07,0,0,1,0,1,0,0
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+0600,0845
+1300,1545
+1945,2230
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+0930,1215
+1630,1915
+2300,0145,Arrives following morning.
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-06-23,2014-09-07,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+0700,0945
+1430,1715
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+1025,1310
+1815,2100
+
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-06-23,2014-09-07,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,9,10,25
+# Depart, Arrive
+1430,1715
+
+-- trips
+#route lookup
+1,10,9,25
+# Depart, Arrive
+1815,2100
+
+
+#########################################
+################ GIGHA ##################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+#9,Stornoway
+#10,Ullapool Bay
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,9,10,35
+1,10,9,35
+
+
+#########################################
+############### LISMORE #################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+#19, Oban
+37,Lismore,56.511159,-5.492068
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,19,37,15
+1,37,19,15
+
+
+#########################################
+################ MULL ###################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+#19, Oban
+38,Craignure,56.470740,-5.706290
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,19,38,11
+1,38,19,11
+
+#########################################
+############### SUMMER ##################
+#########################################
+
+#########################################
+## MON
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,0,0,0,0,0,0
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+0700,0746
+0950,1036
+1155,1241
+1400,1446
+1600,1646
+1800,1846
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+0800,0846
+1055,1141
+1300,1346
+1500,1546
+1700,1746
+1900,1946
+
+#########################################
+## TUE/WED/THU
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,1,1,1,0,0,0
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+0745,0831
+0950,1036
+1155,1241
+1400,1446
+1600,1646
+1800,1846
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+0845,0931
+1055,1141
+1300,1346
+1500,1546
+1700,1746
+1900,1946
+
+#########################################
+## FRI
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,1,0,0
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+0745,0831
+0950,1036
+1155,1241
+1400,1446
+1600,1646
+1800,1846
+2230,2316
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+0845,0931
+1055,1141
+1300,1346
+1500,1546
+1700,1746
+1900,1946
+
+#########################################
+## SAT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+0730,0816
+0930,1016
+1145,1231
+1400,1446
+1600,1646
+1800,1846
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+0645,0731
+0830,0916
+1030,1116
+1245,1331
+1500,1546
+1700,1746
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+0950,1036
+1155,1241
+1400,1446
+1600,1646
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+0845,0931
+1055,1141
+1300,1346
+1500,1546
+1700,1746
+
+#########################################
+## WED
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,1,0,0,0,0
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+2000,2046
+
+#########################################
+## THU
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,1,0,0,0
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+0645,0731
+
+#########################################
+## SAT: 10 MAY - 13 SEP
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-10,2014-09-13,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+2000,2046
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+1900,1946
+
+#########################################
+## SUN: 11 MAY - 14 SEP
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-05-11,2014-09-14,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,19,38,11
+# Depart, Arrive
+1800,1846
+
+-- trips
+#route lookup
+1,38,19,11
+# Depart, Arrive
+1900,1946
+
+
+#########################################
+############# MULL FISHNISH #############
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+50,Lochaline,56.536660,-5.775020
+51,Fishnish,56.514720,-5.810320
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,50,51,12
+1,51,50,12
+
+
+#########################################
+############# NORTH UIST ################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+#32, Uig
+39,Lochmaddy,57.596518,-7.157672
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,32,39,22
+1,39,32,22
+
+
+#########################################
+######### NORTH UIST / HARRIS ###########
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+40,Berneray,57.702302,-7.180422
+41,Leverburgh,57.766540,-7.025258
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,40,41,23
+1,41,40,23
+
+
+#########################################
+############### RAASAY ##################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+42,Sconser,57.313967,-6.110329
+43,Raasay,57.351034,-6.082454
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,42,43,17
+1,43,42,17
+
+#########################################
+################# SKYE ##################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+44,Mallaig,57.006834,-5.828069
+45,Armadale,57.064596,-5.894743
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,44,45,18
+1,45,44,18
+
+
+#########################################
+############# SMALL ISLES ###############
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+#44,Mallaig
+46,Eigg,56.877200,-6.129950
+47,Muck,56.833640,-6.226905
+48,Rum,57.010862,-6.264991
+49,Canna,57.056171,-6.490296
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,44,46,19
+1,44,47,19
+1,44,48,19
+1,48,49,19
+
+
+#########################################
+############# SOUTH UIST ################
+#########################################
+
+-- locations
+# ID, Name, Lat, Lng
+#44,Mallaig
+#21,Lochboisdale
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,44,21,37
+1,21,44,37
+
+

@@ -4,5 +4,10 @@
 
 -- locations
 # ID, Name, Lat, Lng
-21,Colintraive,55.923353,-5.152758
-22,Rhubodach,55.920670,-5.158880
+22,Colintraive,55.923353,-5.152758
+23,Rhubodach,55.920670,-5.158880
+
+-- route
+# Type, SourceLocationId, DestinationLocationId, ServiceId
+1,22,23,4
+1,23,22,4

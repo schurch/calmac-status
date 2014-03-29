@@ -152,7 +152,7 @@
         
         if (disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusNormal || disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusInformation) {
             self.imageViewDisruption.image = [UIImage imageNamed:@"green.png"];
-            self.labelDisruptionDetails.text = @"There are currently no disruptions with this service.";
+            self.labelNoDisruptions.text = @"There are currently no disruptions with this service.";
             
             self.constraintTopSpaceImageViewDisruption.constant = IMAGE_VIEW_TOP_SPACE_REDUCED;
             
@@ -201,7 +201,7 @@
                 self.labelLastUpdated.text = [NSString stringWithFormat:@"Last updated %@", updatedValue];
             }
             else {
-                self.labelLastUpdated.text = @"Last updated N/A";
+                self.labelLastUpdated.text = @"Last updated not available";
             }
             
             [self toggleDisruptionHidden:NO];

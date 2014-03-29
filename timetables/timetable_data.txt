@@ -2546,7 +2546,7 @@
 #########################################
 -- calendar
 # StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-2014-06-04,2014-05-04,0,0,0,0,0,0,1
+2014-04-06,2014-05-04,0,0,0,0,0,0,1
 
 -- trips
 #route lookup

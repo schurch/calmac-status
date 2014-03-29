@@ -2533,7 +2533,7 @@ INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMi
 INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (75, 869);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (76, strftime('%s', '2014-06-04'), strftime('%s', '2014-05-04'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (76, strftime('%s', '2014-04-06'), strftime('%s', '2014-05-04'), 0, 0, 0, 0, 0, 0, 1);
 
 -- Trips
 INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (870, 11, 15, 13, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);

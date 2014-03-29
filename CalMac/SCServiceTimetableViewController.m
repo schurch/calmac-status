@@ -24,7 +24,7 @@ static NSString *DateCellIdentifier = @"DateCell";
 static NSString *HeaderCellIdentifier = @"HeaderCell";
 static NSString *TimeCellIdentifier = @"TimeCell";
 
-@interface SCServiceTimetableViewController ()
+@interface SCServiceTimetableViewController ()<SCTimeTableCellDelegate>
 
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -98,6 +98,19 @@ static NSString *TimeCellIdentifier = @"TimeCell";
         self.routes = [[SCRoute fetchRoutesForServiceId:self.routeId onDate:self.date] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"trips.@count > 0"]];
         [self.tableView reloadData];
     }
+}
+
+#pragma mark - Utility methods 
+
+- (SCRoute *)routeForIndexPath:(NSIndexPath *)indexPath
+{
+    return self.routes[indexPath.section - 1];
+}
+
+- (SCTrip *)tripForIndexPath:(NSIndexPath *)indexPath
+{
+    SCRoute *route = [self routeForIndexPath:indexPath];
+    return route.trips[indexPath.row - 1];
 }
 
 #pragma mark - Inline date picker utility methods
@@ -236,7 +249,7 @@ static NSString *TimeCellIdentifier = @"TimeCell";
         }
     }
     else {
-        SCRoute *route = self.routes[indexPath.section - 1];
+        SCRoute *route = [self routeForIndexPath:indexPath];
         
         if (indexPath.row == 0) {
             SCTimetableHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:HeaderCellIdentifier];
@@ -252,9 +265,17 @@ static NSString *TimeCellIdentifier = @"TimeCell";
             return headerCell;
         }
         else {
-            SCTrip *trip = route.trips[indexPath.row - 1];
+            SCTrip *trip = [self tripForIndexPath:indexPath];
             
             SCTimetableTimeCell *timeCell = [tableView dequeueReusableCellWithIdentifier:TimeCellIdentifier];
+            timeCell.delegate = self;
+            
+            if ([[trip.notes stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0) {
+                timeCell.buttonInfo.hidden = NO;
+            }
+            else {
+                timeCell.buttonInfo.hidden = YES;
+            }
             
             if (self.segmentedControlArrivalDeparture.selectedSegmentIndex == 0) {
                 timeCell.labelTime.text = [trip departureTime];
@@ -282,6 +303,15 @@ static NSString *TimeCellIdentifier = @"TimeCell";
     else {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
+}
+
+#pragma mark - SCTimetableCellDelegate
+
+- (void)didTouchTimetableInfoButtonForCell:(SCTimetableTimeCell *)cell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    SCTrip *trip = [self tripForIndexPath:indexPath];
+    [[[UIAlertView alloc] initWithTitle:nil message:trip.notes delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 @end

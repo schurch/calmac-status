@@ -10,4 +10,9 @@
 
 @implementation SCTimetableTimeCell
 
+- (IBAction)touchedButtonInfo:(id)sender
+{
+    [self.delegate didTouchTimetableInfoButtonForCell:self];
+}
+
 @end

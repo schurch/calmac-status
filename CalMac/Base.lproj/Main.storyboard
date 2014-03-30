@@ -34,7 +34,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" id="Gmk-BR-31Z">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             <connections>
                                 <outlet property="delegate" destination="pGg-6v-bdr" id="kKd-jh-iiK"/>
                             </connections>
@@ -72,7 +72,6 @@
                                     <outlet property="imageViewStatus" destination="aBU-Rb-ugH" id="LGF-JE-rdd"/>
                                     <outlet property="labelSubtitle" destination="bUa-TF-IPI" id="QVQ-4u-0tr"/>
                                     <outlet property="labelTitle" destination="2aT-15-5Ne" id="8Vm-km-wtg"/>
-                                    <segue destination="WmW-MS-Syr" kind="push" identifier="showDetail" id="dCK-GN-cd9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -103,7 +102,7 @@
         <!--Service Detail View Controller-->
         <scene sceneID="Yhj-ll-s6x">
             <objects>
-                <tableViewController id="WmW-MS-Syr" customClass="SCServiceDetailViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SCServiceDetailViewController" id="WmW-MS-Syr" customClass="SCServiceDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="QKR-b0-L7v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

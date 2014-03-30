@@ -309,7 +309,41 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"HERE");
+    SCServiceStatus *serviceStatus;
+    
+    if (self.searchDisplayController.isActive) {
+        NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        serviceStatus = self.arrayFilteredServiceStatuses[indexPath.row];
+    }
+    else {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        if ([self.arrayFavourites count] > 0) {
+            if (indexPath.section == 0) {
+                serviceStatus = self.arrayFavourites[indexPath.row];
+            }
+            else {
+                serviceStatus = self.arrayServiceStatuses[indexPath.row];
+            }
+        }
+        else {
+            serviceStatus = self.arrayServiceStatuses[indexPath.row];
+        }
+    }
+    
+    // Only increment for non favourites
+    if ([self.arrayFavourites count] > 0) {
+        if ([self.tableView indexPathForSelectedRow].section == 1) {
+            [self incrementTapCountForRouteId:serviceStatus.routeId];
+        }
+    }
+    else {
+        [self incrementTapCountForRouteId:serviceStatus.routeId];
+    }
+    
+    SCServiceDetailViewController *serviceDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SCServiceDetailViewController"];
+    serviceDetailViewController.serviceStatus = serviceStatus;
+    
+    [self.navigationController pushViewController:serviceDetailViewController animated:YES];
 }
 
 #pragma mark - UISearchDisplayController
@@ -318,46 +352,6 @@
 {
     self.arrayFilteredServiceStatuses = [self.arrayServiceStatuses filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"route contains[c] %@ OR area contains[c] %@", searchString, searchString]];
     return YES;
-}
-
-#pragma mark - Storyboard
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        SCServiceStatus *serviceStatus;
-        
-        if (self.searchDisplayController.isActive) {
-            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-            serviceStatus = self.arrayFilteredServiceStatuses[indexPath.row];
-        }
-        else {
-            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            if ([self.arrayFavourites count] > 0) {
-                if (indexPath.section == 0) {
-                    serviceStatus = self.arrayFavourites[indexPath.row];
-                }
-                else {
-                    serviceStatus = self.arrayServiceStatuses[indexPath.row];
-                }
-            }
-            else {
-                serviceStatus = self.arrayServiceStatuses[indexPath.row];
-            }
-        }
-        
-        // Only increment for non favourites
-        if ([self.arrayFavourites count] > 0) {
-            if ([self.tableView indexPathForSelectedRow].section == 1) {
-                [self incrementTapCountForRouteId:serviceStatus.routeId];
-            }
-        }
-        else {
-            [self incrementTapCountForRouteId:serviceStatus.routeId];
-        }
-        
-        [[segue destinationViewController] setServiceStatus:serviceStatus];
-    }
 }
 
 @end

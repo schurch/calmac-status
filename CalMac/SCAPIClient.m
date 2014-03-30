@@ -42,7 +42,7 @@ NSString * const SCAPIClientErrorDomain = @"SCAPIClientErrorDomain";
         [self.requestManager.requestSerializer setValue:@"en-us" forHTTPHeaderField:@"Accept-Language"];
         [self.requestManager.requestSerializer setValue:@"Mozilla/5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D167 (350921184)" forHTTPHeaderField:@"User-Agent"];
 #ifdef DEBUG
-        self.requestManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
+        self.requestManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", nil];
 #endif
     }
     return self;

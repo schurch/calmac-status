@@ -39,6 +39,11 @@ NSString * const SCAPIClientErrorDomain = @"SCAPIClientErrorDomain";
     if (self) {
         self.requestManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
         self.requestManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        [self.requestManager.requestSerializer setValue:@"en-us" forHTTPHeaderField:@"Accept-Language"];
+        [self.requestManager.requestSerializer setValue:@"Mozilla/5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D167 (350921184)" forHTTPHeaderField:@"User-Agent"];
+#ifdef DEBUG
+        self.requestManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
+#endif
     }
     return self;
 }

@@ -13,10 +13,17 @@
 #import "SCServiceStatus.h"
 #import "SCServiceStatusCell.h"
 
+#define MIN_FAVOURITE_COUNT 2
+#define TAP_COUNT_KEY @"com.ferryservices.userdefaultkeys.tapcount"
+
 @interface SCServicesViewController ()
 
-@property (strong, nonatomic) NSArray *serviceStatuses;
-@property (strong, nonatomic) NSArray *filteredServiceStatuses;
+@property (strong, nonatomic) NSArray *arrayFavourites; // nil if there are no favourites
+@property (strong, nonatomic) NSArray *arrayFilteredServiceStatuses;
+@property (strong, nonatomic) NSArray *arrayServiceStatuses;
+@property (strong, nonatomic) NSMutableDictionary *dictionaryTapCount;
+
+@property (nonatomic) NSInteger previousFavouritesCount;
 
 @end
 
@@ -26,7 +33,7 @@
 {
     self = [super init];
     if (self) {
-        self.filteredServiceStatuses = [[NSArray alloc] init];
+        self.arrayFilteredServiceStatuses = [[NSArray alloc] init];
     }
     return self;
 }
@@ -44,9 +51,23 @@
     [self refresh:nil];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    if ([self.arrayServiceStatuses count] > 0) {
+        [self generateFavourites];
+        [self updateEditButtonVisiblity];
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if (self.previousFavouritesCount != [self.arrayFavourites count]) {
+        [self.tableView reloadData];
+    }
     
     // make sure to deselect rows
     NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
@@ -55,17 +76,72 @@
     }
 }
 
+#pragma mark - Utiltity methods
+
+- (void)generateFavourites
+{
+    self.previousFavouritesCount = [self.arrayFavourites count];
+    
+    // reload tap count dictionary
+    NSDictionary *savedCountDictionary = [[NSUserDefaults standardUserDefaults] dictionaryForKey:TAP_COUNT_KEY];
+    if (savedCountDictionary) {
+        self.dictionaryTapCount = [savedCountDictionary mutableCopy];
+    }
+    else {
+        self.dictionaryTapCount = [[NSMutableDictionary alloc] init];
+    }
+    
+    NSMutableArray *favourites = [[NSMutableArray alloc] init];
+    
+    [self.arrayServiceStatuses enumerateObjectsUsingBlock:^(SCServiceStatus *serviceStatus, NSUInteger idx, BOOL *stop) {
+        NSString *tapCountKey = [NSString stringWithFormat:@"%ld", (long)serviceStatus.routeId];
+        if ([self.dictionaryTapCount[tapCountKey] integerValue] >= MIN_FAVOURITE_COUNT) {
+            [favourites addObject:serviceStatus];
+        }
+    }];
+
+    self.arrayFavourites = [NSArray arrayWithArray:favourites];
+}
+
+- (void)incrementTapCountForRouteId:(NSInteger)routeId
+{
+    NSString *routeIdKey = [NSString stringWithFormat:@"%d", routeId];
+    NSInteger count = [self.dictionaryTapCount[routeIdKey] integerValue];
+    count += 1;
+    NSNumber *newCount = [NSNumber numberWithInteger:count];
+    self.dictionaryTapCount[routeIdKey] = newCount;
+    
+    [self saveTapCountDictionary];
+}
+
+- (void)updateEditButtonVisiblity
+{
+    if ([self.arrayFavourites count] > 0) {
+        self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    }
+    else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+}
+
+- (void)saveTapCountDictionary
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.dictionaryTapCount forKey:TAP_COUNT_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 #pragma mark - UIRefreshControl
 
 - (void)refresh:(UIRefreshControl *)sender
 {
     [[SCAPIClient sharedInstance] fetchFerryServiceStatusesWithCompletion:^(NSArray *serviceStatuses, NSError *error) {
-        
         if (error) {
             [[[UIAlertView alloc] initWithTitle:@"Oops" message:@"There was an error. Please check your connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
         else {
-            self.serviceStatuses = serviceStatuses;
+            self.arrayServiceStatuses = serviceStatuses;
+            [self generateFavourites];
+            [self updateEditButtonVisiblity];
             [self.tableView reloadData];
         }
         
@@ -77,30 +153,84 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    }
+    
+    if ([self.arrayFavourites count] > 0) {
+        return 2;
+    }
+    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [self.filteredServiceStatuses count];
+        return [self.arrayFilteredServiceStatuses count];
     }
     else {
-        return [self.serviceStatuses count];
+        if ([self.arrayFavourites count] > 0) {
+            if (section == 0) {
+                return [self.arrayFavourites count];
+            }
+            else {
+                return [self.arrayServiceStatuses count];
+            }
+        }
+        else {
+            return [self.arrayServiceStatuses count];
+        }
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return nil;
+    }
+    
+    if ([self.arrayFavourites count] > 0) {
+        if (section == 0) {
+            return @"Favourites";
+        }
+        else {
+            return @"Services";
+        }
+    }
+    else {
+        return nil;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SCServiceStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    SCServiceStatusCell *cell;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    }
+    else {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    }
     
     SCServiceStatus *serviceStatus;
 
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        serviceStatus = self.filteredServiceStatuses[indexPath.row];
+        serviceStatus = self.arrayFilteredServiceStatuses[indexPath.row];
     }
     else {
-        serviceStatus = self.serviceStatuses[indexPath.row];
+        if ([self.arrayFavourites count] > 0) {
+            if (indexPath.section == 0 && self.tableView.numberOfSections == 2) {
+                serviceStatus = self.arrayFavourites[indexPath.row];
+            }
+            else {
+                serviceStatus = self.arrayServiceStatuses[indexPath.row];
+            }
+        }
+        else {
+            serviceStatus = self.arrayServiceStatuses[indexPath.row];
+        }
     }
     
     cell.labelTitle.text = serviceStatus.area;
@@ -125,11 +255,68 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return NO;
+    }
+    
+    if ([self.arrayFavourites count] > 0) {
+        if (indexPath.section == 0) {
+            return YES;
+        }
+        else {
+            return NO;
+        }
+    }
+    else {
+        return NO;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        SCServiceStatus *serviceStatus = self.arrayFavourites[indexPath.row];
+        NSString *routeKey = [NSString stringWithFormat:@"%d", serviceStatus.routeId];
+        
+        [self.dictionaryTapCount removeObjectForKey:routeKey];
+        [self saveTapCountDictionary];
+        
+        [self generateFavourites];
+        
+        [self.tableView beginUpdates];
+        
+        if ([self.arrayFavourites count] == 0) {
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        else {
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        
+        [self.tableView endUpdates];
+    
+        [self updateEditButtonVisiblity];
+    }
+}
+
+#pragma mark - UITableViewDelegate
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"HERE");
+}
+
 #pragma mark - UISearchDisplayController
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    self.filteredServiceStatuses = [self.serviceStatuses filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"route contains[c] %@ OR area contains[c] %@", searchString, searchString]];
+    self.arrayFilteredServiceStatuses = [self.arrayServiceStatuses filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"route contains[c] %@ OR area contains[c] %@", searchString, searchString]];
     return YES;
 }
 
@@ -142,11 +329,31 @@
         
         if (self.searchDisplayController.isActive) {
             NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-            serviceStatus = self.filteredServiceStatuses[indexPath.row];
+            serviceStatus = self.arrayFilteredServiceStatuses[indexPath.row];
         }
         else {
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            serviceStatus = self.serviceStatuses[indexPath.row];
+            if ([self.arrayFavourites count] > 0) {
+                if (indexPath.section == 0) {
+                    serviceStatus = self.arrayFavourites[indexPath.row];
+                }
+                else {
+                    serviceStatus = self.arrayServiceStatuses[indexPath.row];
+                }
+            }
+            else {
+                serviceStatus = self.arrayServiceStatuses[indexPath.row];
+            }
+        }
+        
+        // Only increment for non favourites
+        if ([self.arrayFavourites count] > 0) {
+            if ([self.tableView indexPathForSelectedRow].section == 1) {
+                [self incrementTapCountForRouteId:serviceStatus.routeId];
+            }
+        }
+        else {
+            [self incrementTapCountForRouteId:serviceStatus.routeId];
         }
         
         [[segue destinationViewController] setServiceStatus:serviceStatus];

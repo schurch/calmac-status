@@ -6,4 +6,4 @@ ruby timetable_data_generator.rb timetable_data.txt
 ruby sql_generator.rb timetable_data.txt timetable.sql
 
 # add to database
-sqlite3 "/Users/stefanchurch/Documents/XCode Projects/CalMac/timetables.sqlite" < timetable.sql
+sqlite3 "/Users/stefanchurch/Documents/XCode Projects/FerryServices/timetables.sqlite" < timetable.sql

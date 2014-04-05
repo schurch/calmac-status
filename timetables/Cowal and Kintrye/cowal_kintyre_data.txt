@@ -11,3 +11,99 @@
 # Type, SourceLocationId, DestinationLocationId, ServiceId
 1,15,29,2
 1,29,15,2
+
+#########################################
+############### SUMMER ##################
+#########################################
+
+#########################################
+## MON - SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,1,1,1,1,1,1
+
+-- trips
+#route lookup
+1,15,29,2
+# Depart, Arrive
+0900,0925
+1015,1040
+1115,1140
+1215,1240
+1315,1340
+1415,1440
+1515,1540
+1615,1640
+1715,1740
+
+-- trips
+#route lookup
+1,29,15,2
+# Depart, Arrive
+0945,1010
+1045,1110
+1145,1210
+1245,1310
+1345,1410
+1445,1510
+1545,1610
+1645,1710
+1745,1810
+
+#########################################
+## MON - SAT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,1,1,1,1,1,0
+
+-- trips
+#route lookup
+1,15,29,2
+# Depart, Arrive
+0800,0825
+
+-- trips
+#route lookup
+1,29,15,2
+# Depart, Arrive
+0830,0855
+
+#########################################
+## MON - SUN until 15 Sep
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-09-14,1,1,1,1,1,1,1
+
+-- trips
+#route lookup
+1,15,29,2
+# Depart, Arrive
+1815,1840
+
+-- trips
+#route lookup
+1,29,15,2
+# Depart, Arrive
+1845,1910
+
+#########################################
+## MON - SUN: 16 Jun - 18 Aug
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-06-16,2014-08-17,1,1,1,1,1,1,1
+
+-- trips
+#route lookup
+1,15,29,2
+# Depart, Arrive
+1915,1940
+
+-- trips
+#route lookup
+1,29,15,2
+# Depart, Arrive
+1945,2010

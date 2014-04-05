@@ -546,13 +546,13 @@
 
 -- locations
 # ID, Name, Lat, Lng
-15,Tarbert (Loch Fyne),55.866150,-5.403760
+52,Claonaig,55.751060,-5.387870
 16,Lochranza,55.707714,-5.301985
 
 -- route
 # Type, SourceLocationId, DestinationLocationId, ServiceId
-1,15,16,6
-1,16,15,6
+1,52,16,6
+1,16,52,6
 
 
 #########################################
@@ -1213,7 +1213,7 @@
 
 -- locations
 # ID, Name, Lat, Lng
-# Tarbert 15
+15,Tarbert (Loch Fyne),55.866150,-5.403760
 29,Portavadie,55.876490,-5.316540
 
 -- route
@@ -2164,10 +2164,258 @@
 
 -- route
 # Type, SourceLocationId, DestinationLocationId, ServiceId
-1,28,27,9
 1,28,36,9
+1,28,27,9
 1,27,28,9
 1,36,28,9
+
+#########################################
+############### SUMMER ##################
+#########################################
+
+#########################################
+## MON
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,0,0,0,0,0,0
+
+-- trips
+#route lookup
+1,28,36,9
+# Depart, Arrive
+0700,0920
+0945,1155
+1515,1725
+
+-- trips
+#route lookup
+1,28,27,9
+# Depart, Arrive
+1300,1505
+1800,2005
+
+-- trips
+#route lookup
+1,27,28,9
+# Depart, Arrive
+1530,1735
+
+-- trips
+#route lookup
+1,36,28,9
+# Depart, Arrive
+0700,0910
+0945,1205
+1230,1440
+1800,2010
+
+#########################################
+## TUE
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,1,0,0,0,0,0
+
+-- trips
+#route lookup
+1,28,36,9
+# Depart, Arrive
+0700,0910
+0945,1205
+1800,2010
+
+-- trips
+#route lookup
+1,28,27,9
+# Depart, Arrive
+1300,1455
+1515,1720
+
+-- trips
+#route lookup
+1,27,28,9
+# Depart, Arrive
+0700,0905
+1530,1725
+1800,2005
+
+-- trips
+#route lookup
+1,36,28,9
+# Depart, Arrive
+0945,1155
+1230,1450
+
+#########################################
+## WED
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,1,0,0,0,0
+
+-- trips
+#route lookup
+1,28,27,9
+# Depart, Arrive
+0745,0950
+1300,1455
+1800,1955
+
+-- trips
+#route lookup
+1,27,28,9
+# Depart, Arrive
+1530,1725
+2015,2210
+
+-- trips
+#route lookup
+1,36,28,9
+# Depart, Arrive
+0945,1155
+
+#########################################
+## THU
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,1,0,0,0
+
+-- trips
+#route lookup
+1,28,36,9
+# Depart, Arrive
+0700,0910
+0945,1205
+1800,2010
+
+-- trips
+#route lookup
+1,28,27,9
+# Depart, Arrive
+1300,1455
+1515,1720
+
+-- trips
+#route lookup
+1,27,28,9
+# Depart, Arrive
+0700,0905
+1530,1725
+1800,2005
+
+-- trips
+#route lookup
+1,36,28,9
+# Depart, Arrive
+0945,1155
+1230,1450
+
+#########################################
+## FRI
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,1,0,0
+
+-- trips
+#route lookup
+1,28,36,9
+# Depart, Arrive
+0700,0920
+0945,1155
+1515,1725
+
+-- trips
+#route lookup
+1,28,27,9
+# Depart, Arrive
+1300,1505
+1800,2005
+
+-- trips
+#route lookup
+1,27,28,9
+# Depart, Arrive
+1530,1735
+
+-- trips
+#route lookup
+1,36,28,9
+# Depart, Arrive
+0700,0910
+0945,1205
+1230,1440
+1800,2010
+
+#########################################
+## SAT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,1,0
+
+-- trips
+#route lookup
+1,28,36,9
+# Depart, Arrive
+0700,0910
+
+-- trips
+#route lookup
+1,28,27,9
+# Depart, Arrive
+0945,1150
+1300,1455
+1800,1955
+
+-- trips
+#route lookup
+1,27,28,9
+# Depart, Arrive
+0700,0905
+1530,1725
+2015,2210
+
+-- trips
+#route lookup
+1,36,28,9
+# Depart, Arrive
+0945,1155
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,28,36,9
+# Depart, Arrive
+0945,1155
+1800,2010
+
+-- trips
+#route lookup
+1,28,27,9
+# Depart, Arrive
+1300,1505
+
+-- trips
+#route lookup
+1,27,28,9
+# Depart, Arrive
+0945,1150
+1530,1735
+
+-- trips
+#route lookup
+1,36,28,9
+# De,art, Arrive
+1300,1510
 
 
 #########################################

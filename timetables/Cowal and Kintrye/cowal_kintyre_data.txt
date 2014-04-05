@@ -4,7 +4,7 @@
 
 -- locations
 # ID, Name, Lat, Lng
-# Tarbert 15
+15,Tarbert (Loch Fyne),55.866150,-5.403760
 29,Portavadie,55.876490,-5.316540
 
 -- route

@@ -4,10 +4,10 @@
 
 -- locations
 # ID, Name, Lat, Lng
-15,Tarbert (Loch Fyne),55.866150,-5.403760
+52,Claonaig,55.751060,-5.387870
 16,Lochranza,55.707714,-5.301985
 
 -- route
 # Type, SourceLocationId, DestinationLocationId, ServiceId
-1,15,16,6
-1,16,15,6
+1,52,16,6
+1,16,52,6

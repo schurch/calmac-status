@@ -553,12 +553,12 @@ INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (12, 194);
 
 
 -- Locations
-INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (15, "Tarbert (Loch Fyne)", 55.866150, -5.403760);
+INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (52, "Claonaig", 55.751060, -5.387870);
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (16, "Lochranza", 55.707714, -5.301985);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (6, 1, 15, 16, 6);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (7, 1, 16, 15, 6);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (6, 1, 52, 16, 6);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (7, 1, 16, 52, 6);
 
 
 
@@ -1377,6 +1377,7 @@ INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, Servi
 
 
 -- Locations
+INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (15, "Tarbert (Loch Fyne)", 55.866150, -5.403760);
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (29, "Portavadie", 55.876490, -5.316540);
 
 -- Routes
@@ -2478,10 +2479,206 @@ INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, Servi
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (36, "Port Ellen", 55.627810, -6.189810);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (38, 1, 28, 27, 9);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (39, 1, 28, 36, 9);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (38, 1, 28, 36, 9);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (39, 1, 28, 27, 9);
 INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (40, 1, 27, 28, 9);
 INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (41, 1, 36, 28, 9);
+
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (53, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 1, 0, 0, 0, 0, 0, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (951, 07, 00, 09, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 951);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (952, 09, 45, 11, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 952);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (953, 15, 15, 17, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 953);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (954, 13, 00, 15, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 954);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (955, 18, 00, 20, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 955);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (956, 15, 30, 17, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 956);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (957, 07, 00, 09, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 957);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (958, 09, 45, 12, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 958);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (959, 12, 30, 14, 40, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 959);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (960, 18, 00, 20, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 960);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (54, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 1, 0, 0, 0, 0, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (961, 07, 00, 09, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 961);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (962, 09, 45, 12, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 962);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (963, 18, 00, 20, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 963);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (964, 13, 00, 14, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 964);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (965, 15, 15, 17, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 965);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (966, 07, 00, 09, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 966);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (967, 15, 30, 17, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 967);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (968, 18, 00, 20, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 968);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (969, 09, 45, 11, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 969);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (970, 12, 30, 14, 50, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 970);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (55, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 1, 0, 0, 0, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (971, 07, 45, 09, 50, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (55, 971);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (972, 13, 00, 14, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (55, 972);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (973, 18, 00, 19, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (55, 973);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (974, 15, 30, 17, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (55, 974);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (975, 20, 15, 22, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (55, 975);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (976, 09, 45, 11, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (55, 976);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (56, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 1, 0, 0, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (977, 07, 00, 09, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 977);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (978, 09, 45, 12, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 978);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (979, 18, 00, 20, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 979);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (980, 13, 00, 14, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 980);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (981, 15, 15, 17, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 981);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (982, 07, 00, 09, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 982);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (983, 15, 30, 17, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 983);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (984, 18, 00, 20, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 984);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (985, 09, 45, 11, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 985);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (986, 12, 30, 14, 50, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 986);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (57, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 1, 0, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (987, 07, 00, 09, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 987);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (988, 09, 45, 11, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 988);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (989, 15, 15, 17, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 989);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (990, 13, 00, 15, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 990);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (991, 18, 00, 20, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 991);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (992, 15, 30, 17, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 992);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (993, 07, 00, 09, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 993);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (994, 09, 45, 12, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 994);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (995, 12, 30, 14, 40, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 995);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (996, 18, 00, 20, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 996);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (58, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 1, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (997, 07, 00, 09, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 997);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (998, 09, 45, 11, 50, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 998);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (999, 13, 00, 14, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 999);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1000, 18, 00, 19, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 1000);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1001, 07, 00, 09, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 1001);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1002, 15, 30, 17, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 1002);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1003, 20, 15, 22, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 1003);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1004, 09, 45, 11, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 1004);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (59, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1005, 09, 45, 11, 55, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 1005);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1006, 18, 00, 20, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 36 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 1006);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1007, 13, 00, 15, 05, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 28 AND DestinationLocationId = 27 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 1007);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1008, 09, 45, 11, 50, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 1008);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1009, 15, 30, 17, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 27 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 1009);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1010, 13, 00, 15, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 36 AND DestinationLocationId = 28 AND ServiceId = 9), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 1010);
 
 
 
@@ -2496,146 +2693,146 @@ INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, Servi
 
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (53, strftime('%s', '2014-04-04'), strftime('%s', '2014-06-22'), 1, 1, 1, 1, 1, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (60, strftime('%s', '2014-04-04'), strftime('%s', '2014-06-22'), 1, 1, 1, 1, 1, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (951, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 951);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (952, 13, 50, 16, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 952);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1011, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 1011);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1012, 13, 50, 16, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 1012);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (953, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 953);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (954, 17, 35, 20, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (53, 954);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1013, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 1013);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1014, 17, 35, 20, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 1014);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (54, strftime('%s', '2014-04-04'), strftime('%s', '2014-06-22'), 0, 0, 0, 0, 0, 1, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (61, strftime('%s', '2014-04-04'), strftime('%s', '2014-06-22'), 0, 0, 0, 0, 0, 1, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (955, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 955);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (956, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 956);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1015, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (61, 1015);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1016, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (61, 1016);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (957, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 957);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (958, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (54, 958);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1017, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (61, 1017);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1018, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (61, 1018);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (55, strftime('%s', '2014-04-04'), strftime('%s', '2014-06-22'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (62, strftime('%s', '2014-04-04'), strftime('%s', '2014-06-22'), 0, 0, 0, 0, 0, 0, 1);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (959, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (55, 959);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1019, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (62, 1019);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (960, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (55, 960);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1020, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (62, 1020);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (56, strftime('%s', '2014-09-08'), strftime('%s', '2014-10-26'), 1, 1, 1, 1, 1, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (63, strftime('%s', '2014-09-08'), strftime('%s', '2014-10-26'), 1, 1, 1, 1, 1, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (961, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 961);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (962, 13, 50, 16, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 962);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1021, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 1021);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1022, 13, 50, 16, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 1022);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (963, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 963);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (964, 17, 35, 20, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (56, 964);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1023, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 1023);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1024, 17, 35, 20, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 1024);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (57, strftime('%s', '2014-09-08'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 1, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (64, strftime('%s', '2014-09-08'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 1, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (965, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 965);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (966, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 966);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1025, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1025);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1026, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1026);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (967, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 967);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (968, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (57, 968);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1027, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1027);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1028, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1028);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (58, strftime('%s', '2014-09-08'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (65, strftime('%s', '2014-09-08'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (969, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 969);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1029, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1029);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (970, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (58, 970);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1030, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1030);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (59, strftime('%s', '2014-06-23'), strftime('%s', '2014-09-07'), 1, 1, 0, 1, 0, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (66, strftime('%s', '2014-06-23'), strftime('%s', '2014-09-07'), 1, 1, 0, 1, 0, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (971, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 971);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (972, 13, 50, 16, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 972);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1031, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1031);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1032, 13, 50, 16, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1032);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (973, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 973);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (974, 17, 35, 20, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (59, 974);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1033, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1033);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1034, 17, 35, 20, 20, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1034);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (60, strftime('%s', '2014-06-23'), strftime('%s', '2014-09-07'), 0, 0, 1, 0, 1, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (67, strftime('%s', '2014-06-23'), strftime('%s', '2014-09-07'), 0, 0, 1, 0, 1, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (975, 06, 00, 08, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 975);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (976, 13, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 976);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (977, 19, 45, 22, 30, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 977);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1035, 06, 00, 08, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1035);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1036, 13, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1036);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1037, 19, 45, 22, 30, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1037);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (978, 09, 30, 12, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 978);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (979, 16, 30, 19, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 979);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (980, 23, 00, 01, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), 'Arrives following morning.');
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (60, 980);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1038, 09, 30, 12, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1038);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1039, 16, 30, 19, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1039);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1040, 23, 00, 01, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), 'Arrives following morning.');
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1040);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (61, strftime('%s', '2014-06-23'), strftime('%s', '2014-09-07'), 0, 0, 0, 0, 0, 1, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (68, strftime('%s', '2014-06-23'), strftime('%s', '2014-09-07'), 0, 0, 0, 0, 0, 1, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (981, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (61, 981);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (982, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (61, 982);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1041, 07, 00, 09, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (68, 1041);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1042, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (68, 1042);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (983, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (61, 983);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (984, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (61, 984);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1043, 10, 25, 13, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (68, 1043);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1044, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (68, 1044);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (62, strftime('%s', '2014-06-23'), strftime('%s', '2014-09-07'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (69, strftime('%s', '2014-06-23'), strftime('%s', '2014-09-07'), 0, 0, 0, 0, 0, 0, 1);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (985, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (62, 985);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1045, 14, 30, 17, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 9 AND DestinationLocationId = 10 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (69, 1045);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (986, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (62, 986);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1046, 18, 15, 21, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 10 AND DestinationLocationId = 9 AND ServiceId = 25), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (69, 1046);
 
 
 
@@ -2665,191 +2862,191 @@ INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, Servi
 
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (63, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 1, 0, 0, 0, 0, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (70, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 1, 0, 0, 0, 0, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (987, 07, 00, 07, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 987);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (988, 09, 50, 10, 36, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 988);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (989, 11, 55, 12, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 989);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (990, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 990);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (991, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 991);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (992, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 992);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (993, 08, 00, 08, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 993);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (994, 10, 55, 11, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 994);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (995, 13, 00, 13, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 995);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (996, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 996);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (997, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 997);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (998, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (63, 998);
-
--- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (64, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 1, 1, 1, 0, 0, 0);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (999, 07, 45, 08, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 999);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1000, 09, 50, 10, 36, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1000);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1001, 11, 55, 12, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1001);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1002, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1002);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1003, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1003);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1004, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1004);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1005, 08, 45, 09, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1005);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1006, 10, 55, 11, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1006);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1007, 13, 00, 13, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1007);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1008, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1008);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1009, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1009);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1010, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (64, 1010);
-
--- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (65, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 1, 0, 0);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1011, 07, 45, 08, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1011);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1012, 09, 50, 10, 36, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1012);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1013, 11, 55, 12, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1013);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1014, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1014);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1015, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1015);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1016, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1016);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1017, 22, 30, 23, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1017);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1018, 08, 45, 09, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1018);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1019, 10, 55, 11, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1019);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1020, 13, 00, 13, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1020);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1021, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1021);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1022, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1022);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1023, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (65, 1023);
-
--- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (66, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 1, 0);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1024, 07, 30, 08, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1024);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1025, 09, 30, 10, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1025);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1026, 11, 45, 12, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1026);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1027, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1027);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1028, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1028);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1029, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1029);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1030, 06, 45, 07, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1030);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1031, 08, 30, 09, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1031);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1032, 10, 30, 11, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1032);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1033, 12, 45, 13, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1033);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1034, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1034);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1035, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (66, 1035);
-
--- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (67, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1036, 09, 50, 10, 36, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1036);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1037, 11, 55, 12, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1037);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1038, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1038);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1039, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1039);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1040, 08, 45, 09, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1040);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1041, 10, 55, 11, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1041);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1042, 13, 00, 13, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1042);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1043, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1043);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1044, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (67, 1044);
-
--- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (68, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 1, 0, 0, 0, 0);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1045, 20, 00, 20, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (68, 1045);
-
--- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (69, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 1, 0, 0, 0);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1046, 06, 45, 07, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (69, 1046);
-
--- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (70, strftime('%s', '2014-05-10'), strftime('%s', '2014-09-13'), 0, 0, 0, 0, 0, 1, 0);
-
--- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1047, 20, 00, 20, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1047, 07, 00, 07, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
 INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1047);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1048, 09, 50, 10, 36, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1048);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1049, 11, 55, 12, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1049);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1050, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1050);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1051, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1051);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1052, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1052);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1048, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1048);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1053, 08, 00, 08, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1053);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1054, 10, 55, 11, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1054);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1055, 13, 00, 13, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1055);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1056, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1056);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1057, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1057);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1058, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (70, 1058);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (71, strftime('%s', '2014-05-11'), strftime('%s', '2014-09-14'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (71, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 1, 1, 1, 0, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1049, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1049);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1059, 07, 45, 08, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1059);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1060, 09, 50, 10, 36, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1060);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1061, 11, 55, 12, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1061);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1062, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1062);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1063, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1063);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1064, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1064);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1050, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1050);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1065, 08, 45, 09, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1065);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1066, 10, 55, 11, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1066);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1067, 13, 00, 13, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1067);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1068, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1068);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1069, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1069);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1070, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (71, 1070);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (72, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 1, 0, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1071, 07, 45, 08, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1071);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1072, 09, 50, 10, 36, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1072);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1073, 11, 55, 12, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1073);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1074, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1074);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1075, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1075);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1076, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1076);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1077, 22, 30, 23, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1077);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1078, 08, 45, 09, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1078);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1079, 10, 55, 11, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1079);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1080, 13, 00, 13, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1080);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1081, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1081);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1082, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1082);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1083, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1083);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (73, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 1, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1084, 07, 30, 08, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1084);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1085, 09, 30, 10, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1085);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1086, 11, 45, 12, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1086);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1087, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1087);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1088, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1088);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1089, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1089);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1090, 06, 45, 07, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1090);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1091, 08, 30, 09, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1091);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1092, 10, 30, 11, 16, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1092);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1093, 12, 45, 13, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1093);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1094, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1094);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1095, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1095);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (74, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1096, 09, 50, 10, 36, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1096);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1097, 11, 55, 12, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1097);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1098, 14, 00, 14, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1098);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1099, 16, 00, 16, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1099);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1100, 08, 45, 09, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1100);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1101, 10, 55, 11, 41, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1101);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1102, 13, 00, 13, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1102);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1103, 15, 00, 15, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1103);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1104, 17, 00, 17, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1104);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (75, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 1, 0, 0, 0, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1105, 20, 00, 20, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (75, 1105);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (76, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 1, 0, 0, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1106, 06, 45, 07, 31, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (76, 1106);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (77, strftime('%s', '2014-05-10'), strftime('%s', '2014-09-13'), 0, 0, 0, 0, 0, 1, 0);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1107, 20, 00, 20, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (77, 1107);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1108, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (77, 1108);
+
+-- Calendars
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (78, strftime('%s', '2014-05-11'), strftime('%s', '2014-09-14'), 0, 0, 0, 0, 0, 0, 1);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1109, 18, 00, 18, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 19 AND DestinationLocationId = 38 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (78, 1109);
+
+-- Trips
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1110, 19, 00, 19, 46, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 38 AND DestinationLocationId = 19 AND ServiceId = 11), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (78, 1110);
 
 
 
@@ -2863,117 +3060,117 @@ INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, Servi
 
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (72, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 1, 1, 1, 1, 1, 1, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (79, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 1, 1, 1, 1, 1, 1, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1051, 07, 00, 07, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), 'Passenger numbers may be restricted.');
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1051);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1052, 07, 45, 08, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1052);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1053, 08, 45, 09, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1053);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1054, 09, 40, 09, 58, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1054);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1055, 10, 25, 10, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1055);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1056, 11, 10, 11, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1056);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1057, 11, 55, 12, 13, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1057);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1058, 12, 45, 13, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1058);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1059, 14, 25, 14, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1059);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1060, 15, 15, 15, 33, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), 'Passenger numbers may be restricted.');
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1060);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1061, 16, 00, 16, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1061);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1062, 16, 45, 17, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1062);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1063, 17, 45, 18, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1063);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1111, 07, 00, 07, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), 'Passenger numbers may be restricted.');
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1111);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1112, 07, 45, 08, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1112);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1113, 08, 45, 09, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1113);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1114, 09, 40, 09, 58, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1114);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1115, 10, 25, 10, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1115);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1116, 11, 10, 11, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1116);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1117, 11, 55, 12, 13, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1117);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1118, 12, 45, 13, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1118);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1119, 14, 25, 14, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1119);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1120, 15, 15, 15, 33, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), 'Passenger numbers may be restricted.');
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1120);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1121, 16, 00, 16, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1121);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1122, 16, 45, 17, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1122);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1123, 17, 45, 18, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1123);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1064, 07, 25, 07, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), 'Passenger numbers may be restricted.');
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1064);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1065, 08, 10, 08, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1065);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1066, 09, 10, 09, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1066);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1067, 10, 00, 10, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1067);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1068, 10, 45, 11, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1068);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1069, 11, 30, 11, 48, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1069);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1070, 12, 15, 12, 33, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1070);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1071, 13, 10, 13, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1071);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1072, 14, 50, 15, 08, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1072);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1073, 15, 40, 15, 58, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), 'Passenger numbers may be restricted.');
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1073);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1074, 16, 25, 16, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1074);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1075, 17, 10, 17, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1075);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1076, 18, 10, 18, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (72, 1076);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1124, 07, 25, 07, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), 'Passenger numbers may be restricted.');
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1124);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1125, 08, 10, 08, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1125);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1126, 09, 10, 09, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1126);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1127, 10, 00, 10, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1127);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1128, 10, 45, 11, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1128);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1129, 11, 30, 11, 48, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1129);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1130, 12, 15, 12, 33, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1130);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1131, 13, 10, 13, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1131);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1132, 14, 50, 15, 08, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1132);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1133, 15, 40, 15, 58, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), 'Passenger numbers may be restricted.');
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1133);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1134, 16, 25, 16, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1134);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1135, 17, 10, 17, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1135);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1136, 18, 10, 18, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1136);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (73, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (80, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1077, 08, 45, 09, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1077);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1078, 10, 00, 10, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1078);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1079, 10, 45, 11, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1079);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1080, 12, 45, 13, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1080);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1081, 13, 45, 14, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1081);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1082, 14, 45, 15, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1082);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1083, 16, 00, 16, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1083);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1084, 16, 45, 17, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1084);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1085, 17, 45, 18, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1085);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1137, 08, 45, 09, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1137);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1138, 10, 00, 10, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1138);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1139, 10, 45, 11, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1139);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1140, 12, 45, 13, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1140);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1141, 13, 45, 14, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1141);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1142, 14, 45, 15, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1142);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1143, 16, 00, 16, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1143);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1144, 16, 45, 17, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1144);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1145, 17, 45, 18, 03, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1145);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1086, 09, 10, 09, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1086);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1087, 10, 25, 10, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1087);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1088, 11, 10, 11, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1088);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1089, 13, 10, 13, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1089);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1090, 14, 10, 14, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1090);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1091, 15, 10, 15, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1091);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1092, 16, 25, 16, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1092);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1093, 17, 10, 17, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1093);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1094, 18, 05, 18, 23, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (73, 1094);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1146, 09, 10, 09, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1146);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1147, 10, 25, 10, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1147);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1148, 11, 10, 11, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1148);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1149, 13, 10, 13, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1149);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1150, 14, 10, 14, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1150);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1151, 15, 10, 15, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1151);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1152, 16, 25, 16, 43, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1152);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1153, 17, 10, 17, 28, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1153);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1154, 18, 05, 18, 23, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1154);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (74, strftime('%s', '2014-04-04'), strftime('%s', '2014-09-30'), 1, 1, 1, 1, 1, 1, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (81, strftime('%s', '2014-04-04'), strftime('%s', '2014-09-30'), 1, 1, 1, 1, 1, 1, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1095, 18, 35, 18, 53, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1095);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1155, 18, 35, 18, 53, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 50 AND DestinationLocationId = 51 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (81, 1155);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1096, 19, 00, 19, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (74, 1096);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1156, 19, 00, 19, 18, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 51 AND DestinationLocationId = 50 AND ServiceId = 12), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (81, 1156);
 
 
 
@@ -2986,155 +3183,155 @@ INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, Servi
 
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (75, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 1, 0, 0, 0, 0, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (82, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 1, 0, 0, 0, 0, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1097, 09, 40, 11, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (75, 1097);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1098, 18, 00, 19, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (75, 1098);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1157, 09, 40, 11, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (82, 1157);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1158, 18, 00, 19, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (82, 1158);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1099, 11, 50, 13, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (75, 1099);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1159, 11, 50, 13, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (82, 1159);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (76, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 1, 0, 0, 0, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (83, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 1, 0, 0, 0, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1100, 14, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (76, 1100);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1160, 14, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (83, 1160);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1101, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (76, 1101);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1102, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (76, 1102);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1161, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (83, 1161);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1162, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (83, 1162);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (77, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 1, 0, 0, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (84, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 1, 0, 0, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1103, 09, 40, 11, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (77, 1103);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1104, 19, 00, 20, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (77, 1104);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1163, 09, 40, 11, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (84, 1163);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1164, 19, 00, 20, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (84, 1164);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1105, 11, 50, 13, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (77, 1105);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1106, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (77, 1106);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1165, 11, 50, 13, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (84, 1165);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1166, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (84, 1166);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (78, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 1, 0, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (85, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 1, 0, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1107, 14, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (78, 1107);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1167, 14, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (85, 1167);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1108, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (78, 1108);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1109, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (78, 1109);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1168, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (85, 1168);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1169, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (85, 1169);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (79, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 1, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (86, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 1, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1110, 09, 40, 11, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1110);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1111, 18, 00, 19, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1111);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1170, 09, 40, 11, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (86, 1170);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1171, 18, 00, 19, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (86, 1171);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1112, 11, 50, 13, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (79, 1112);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1172, 11, 50, 13, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (86, 1172);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (80, strftime('%s', '2014-04-04'), strftime('%s', '2014-06-21'), 0, 0, 0, 0, 0, 1, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (87, strftime('%s', '2014-04-04'), strftime('%s', '2014-06-21'), 0, 0, 0, 0, 0, 1, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1113, 14, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1113);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1173, 14, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (87, 1173);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1114, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1114);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1115, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (80, 1115);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1174, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (87, 1174);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1175, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (87, 1175);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (81, strftime('%s', '2014-08-30'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 1, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (88, strftime('%s', '2014-08-30'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 1, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1116, 14, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (81, 1116);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1176, 14, 00, 15, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (88, 1176);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1117, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (81, 1117);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1118, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (81, 1118);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1177, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (88, 1177);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1178, 16, 00, 17, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (88, 1178);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (82, strftime('%s', '2014-06-28'), strftime('%s', '2014-08-23'), 0, 0, 0, 0, 0, 1, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (89, strftime('%s', '2014-06-28'), strftime('%s', '2014-08-23'), 0, 0, 0, 0, 0, 1, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1119, 14, 15, 16, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (82, 1119);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1179, 14, 15, 16, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (89, 1179);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1120, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (82, 1120);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1121, 16, 25, 18, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (82, 1121);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1180, 07, 30, 09, 15, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (89, 1180);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1181, 16, 25, 18, 10, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (89, 1181);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (83, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (90, strftime('%s', '2014-04-04'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1122, 18, 00, 19, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (83, 1122);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1182, 18, 00, 19, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (90, 1182);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (84, strftime('%s', '2014-06-27'), strftime('%s', '2014-08-29'), 0, 0, 0, 0, 1, 0, 0);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (91, strftime('%s', '2014-06-27'), strftime('%s', '2014-08-29'), 0, 0, 0, 0, 1, 0, 0);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1123, 22, 00, 23, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (84, 1123);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1183, 22, 00, 23, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (91, 1183);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1124, 20, 00, 21, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (84, 1124);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1184, 20, 00, 21, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (91, 1184);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (85, strftime('%s', '2014-06-27'), strftime('%s', '2014-08-29'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (92, strftime('%s', '2014-06-27'), strftime('%s', '2014-08-29'), 0, 0, 0, 0, 0, 0, 1);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1125, 09, 40, 11, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (85, 1125);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1185, 09, 40, 11, 25, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 32 AND DestinationLocationId = 39 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (92, 1185);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1126, 11, 50, 13, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (85, 1126);
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1127, 20, 00, 21, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (85, 1127);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1186, 11, 50, 13, 35, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (92, 1186);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1187, 20, 00, 21, 45, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (92, 1187);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (86, strftime('%s', '2014-04-06'), strftime('%s', '2014-05-04'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (93, strftime('%s', '2014-04-06'), strftime('%s', '2014-05-04'), 0, 0, 0, 0, 0, 0, 1);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1128, 11, 15, 13, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (86, 1128);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1188, 11, 15, 13, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (93, 1188);
 
 -- Calendars
-INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (87, strftime('%s', '2014-09-14'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
+INSERT INTO Calendar (CalendarId, StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (94, strftime('%s', '2014-09-14'), strftime('%s', '2014-10-26'), 0, 0, 0, 0, 0, 0, 1);
 
 -- Trips
-INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1129, 11, 15, 13, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
-INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (87, 1129);
+INSERT INTO Trip (TripId, DepartureHour, DepartureMinute, ArrivalHour, ArrivalMinute, RouteId, Notes) VALUES (1189, 11, 15, 13, 00, (SELECT RouteId FROM Route WHERE Type = 1 AND SourceLocationId = 39 AND DestinationLocationId = 32 AND ServiceId = 22), NULL);
+INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (94, 1189);
 
 
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BDEC3695-C65E-4F71-8498-9E220852B998</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FerryServices</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>085125CE-15C8-4500-8928-69DD9BD44084</key>
+		<string>https://github.com/schurch/calmac-status.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FerryServices.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>085125CE-15C8-4500-8928-69DD9BD44084</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/schurch/calmac-status.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>085125CE-15C8-4500-8928-69DD9BD44084</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>085125CE-15C8-4500-8928-69DD9BD44084</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FerryServices</string>
+		</dict>
+	</array>
+</dict>
+</plist>

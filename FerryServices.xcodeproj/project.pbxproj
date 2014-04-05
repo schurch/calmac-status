@@ -32,27 +32,12 @@
 		FD7B67AD186891F50034EF00 /* SCServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67AC186891F50034EF00 /* SCServicesViewController.m */; };
 		FD7B67B0186891F50034EF00 /* SCServiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67AF186891F50034EF00 /* SCServiceDetailViewController.m */; };
 		FD7B67B2186891F50034EF00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7B67B1186891F50034EF00 /* Images.xcassets */; };
-		FD7B67B9186891F50034EF00 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B67B8186891F50034EF00 /* XCTest.framework */; };
-		FD7B67BA186891F50034EF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6796186891F50034EF00 /* Foundation.framework */; };
-		FD7B67BB186891F50034EF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B679A186891F50034EF00 /* UIKit.framework */; };
-		FD7B67C3186891F50034EF00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD7B67C1186891F50034EF00 /* InfoPlist.strings */; };
-		FD7B67C5186891F50034EF00 /* CalMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67C4186891F50034EF00 /* CalMacTests.m */; };
 		FD7B67D71868952B0034EF00 /* SCAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67D61868952B0034EF00 /* SCAPIClient.m */; };
 		FD7B67DA186897F70034EF00 /* SCServiceStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67D9186897F70034EF00 /* SCServiceStatus.m */; };
 		FD7B67DD1868980B0034EF00 /* SCDisruptionDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67DC1868980B0034EF00 /* SCDisruptionDetails.m */; };
 		FD7B67E01868983D0034EF00 /* SCRouteDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67DF1868983D0034EF00 /* SCRouteDetails.m */; };
 		FD7B67E31868C4F00034EF00 /* SCServiceStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FD7B67BC186891F50034EF00 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD7B678B186891F40034EF00 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD7B6792186891F50034EF00;
-			remoteInfo = CalMac;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		66EB3E6F00EC4F5ABA9D9D64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,14 +63,13 @@
 		FD49916A18C1856C0061D661 /* SCTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTrip.m; sourceTree = "<group>"; };
 		FD6D819618C305DB00856955 /* ferry_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ferry_icon@2x.png"; sourceTree = "<group>"; };
 		FD6D819718C305DB00856955 /* train_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "train_icon@2x.png"; sourceTree = "<group>"; };
-		FD7B6793186891F50034EF00 /* CalMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD7B6793186891F50034EF00 /* FerryServices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FerryServices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B6796186891F50034EF00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7B6798186891F50034EF00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FD7B679A186891F50034EF00 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		FD7B679E186891F50034EF00 /* CalMac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CalMac-Info.plist"; sourceTree = "<group>"; };
+		FD7B679E186891F50034EF00 /* FerryServices-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FerryServices-Info.plist"; sourceTree = "<group>"; };
 		FD7B67A0186891F50034EF00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD7B67A2186891F50034EF00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FD7B67A4186891F50034EF00 /* CalMac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CalMac-Prefix.pch"; sourceTree = "<group>"; };
 		FD7B67A5186891F50034EF00 /* SCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAppDelegate.h; sourceTree = "<group>"; };
 		FD7B67A6186891F50034EF00 /* SCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; };
 		FD7B67A9186891F50034EF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,11 +78,7 @@
 		FD7B67AE186891F50034EF00 /* SCServiceDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCServiceDetailViewController.h; sourceTree = "<group>"; };
 		FD7B67AF186891F50034EF00 /* SCServiceDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCServiceDetailViewController.m; sourceTree = "<group>"; };
 		FD7B67B1186891F50034EF00 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FD7B67B7186891F50034EF00 /* CalMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B67B8186891F50034EF00 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FD7B67C0186891F50034EF00 /* CalMacTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CalMacTests-Info.plist"; sourceTree = "<group>"; };
-		FD7B67C2186891F50034EF00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FD7B67C4186891F50034EF00 /* CalMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalMacTests.m; sourceTree = "<group>"; };
 		FD7B67D51868952B0034EF00 /* SCAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAPIClient.h; sourceTree = "<group>"; };
 		FD7B67D61868952B0034EF00 /* SCAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAPIClient.m; sourceTree = "<group>"; };
 		FD7B67D8186897F70034EF00 /* SCServiceStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCServiceStatus.h; sourceTree = "<group>"; };
@@ -110,6 +90,7 @@
 		FD7B67E11868C4F00034EF00 /* SCServiceStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCServiceStatusCell.h; sourceTree = "<group>"; };
 		FD7B67E21868C4F00034EF00 /* SCServiceStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCServiceStatusCell.m; sourceTree = "<group>"; };
 		FD7B67E41868CD5E0034EF00 /* SCDisruptionStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDisruptionStatus.h; sourceTree = "<group>"; };
+		FDAD19C818EF924E0001CE7B /* FerryServices-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FerryServices-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,16 +103,6 @@
 				FD135B51186DCB3700E5E900 /* MapKit.framework in Frameworks */,
 				FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */,
 				09284BF949044AA8A12A97F9 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD7B67B4186891F50034EF00 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD7B67B9186891F50034EF00 /* XCTest.framework in Frameworks */,
-				FD7B67BB186891F50034EF00 /* UIKit.framework in Frameworks */,
-				FD7B67BA186891F50034EF00 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,9 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				FD49915E18C177AD0061D661 /* timetables.sqlite */,
-				FD7B679C186891F50034EF00 /* CalMac */,
+				FD7B679C186891F50034EF00 /* FerryServices */,
 				FD1E2BC118698B6300B33431 /* Resources */,
-				FD7B67BE186891F50034EF00 /* CalMacTests */,
 				FD7B6795186891F50034EF00 /* Frameworks */,
 				FD7B6794186891F50034EF00 /* Products */,
 				D5844D1C60DC4C5DB77DC4BE /* Pods.xcconfig */,
@@ -181,8 +151,7 @@
 		FD7B6794186891F50034EF00 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD7B6793186891F50034EF00 /* CalMac.app */,
-				FD7B67B7186891F50034EF00 /* CalMacTests.xctest */,
+				FD7B6793186891F50034EF00 /* FerryServices.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,7 +169,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FD7B679C186891F50034EF00 /* CalMac */ = {
+		FD7B679C186891F50034EF00 /* FerryServices */ = {
 			isa = PBXGroup;
 			children = (
 				FDA91E16186F23C400306B45 /* Model */,
@@ -214,34 +183,16 @@
 				FD7B67B1186891F50034EF00 /* Images.xcassets */,
 				FD7B679D186891F50034EF00 /* Supporting Files */,
 			);
-			path = CalMac;
+			path = FerryServices;
 			sourceTree = "<group>";
 		};
 		FD7B679D186891F50034EF00 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FD7B679E186891F50034EF00 /* CalMac-Info.plist */,
+				FDAD19C818EF924E0001CE7B /* FerryServices-Prefix.pch */,
+				FD7B679E186891F50034EF00 /* FerryServices-Info.plist */,
 				FD7B679F186891F50034EF00 /* InfoPlist.strings */,
 				FD7B67A2186891F50034EF00 /* main.m */,
-				FD7B67A4186891F50034EF00 /* CalMac-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FD7B67BE186891F50034EF00 /* CalMacTests */ = {
-			isa = PBXGroup;
-			children = (
-				FD7B67C4186891F50034EF00 /* CalMacTests.m */,
-				FD7B67BF186891F50034EF00 /* Supporting Files */,
-			);
-			path = CalMacTests;
-			sourceTree = "<group>";
-		};
-		FD7B67BF186891F50034EF00 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FD7B67C0186891F50034EF00 /* CalMacTests-Info.plist */,
-				FD7B67C1186891F50034EF00 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -298,9 +249,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FD7B6792186891F50034EF00 /* CalMac */ = {
+		FD7B6792186891F50034EF00 /* FerryServices */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FD7B67C8186891F50034EF00 /* Build configuration list for PBXNativeTarget "CalMac" */;
+			buildConfigurationList = FD7B67C8186891F50034EF00 /* Build configuration list for PBXNativeTarget "FerryServices" */;
 			buildPhases = (
 				7015662A42F34E188EB56EA4 /* Check Pods Manifest.lock */,
 				FD7B678F186891F50034EF00 /* Sources */,
@@ -312,28 +263,10 @@
 			);
 			dependencies = (
 			);
-			name = CalMac;
-			productName = CalMac;
-			productReference = FD7B6793186891F50034EF00 /* CalMac.app */;
+			name = FerryServices;
+			productName = FerryServices;
+			productReference = FD7B6793186891F50034EF00 /* FerryServices.app */;
 			productType = "com.apple.product-type.application";
-		};
-		FD7B67B6186891F50034EF00 /* CalMacTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FD7B67CB186891F50034EF00 /* Build configuration list for PBXNativeTarget "CalMacTests" */;
-			buildPhases = (
-				FD7B67B3186891F50034EF00 /* Sources */,
-				FD7B67B4186891F50034EF00 /* Frameworks */,
-				FD7B67B5186891F50034EF00 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FD7B67BD186891F50034EF00 /* PBXTargetDependency */,
-			);
-			name = CalMacTests;
-			productName = CalMacTests;
-			productReference = FD7B67B7186891F50034EF00 /* CalMacTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -353,12 +286,9 @@
 							};
 						};
 					};
-					FD7B67B6186891F50034EF00 = {
-						TestTargetID = FD7B6792186891F50034EF00;
-					};
 				};
 			};
-			buildConfigurationList = FD7B678E186891F40034EF00 /* Build configuration list for PBXProject "CalMac" */;
+			buildConfigurationList = FD7B678E186891F40034EF00 /* Build configuration list for PBXProject "FerryServices" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -371,8 +301,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FD7B6792186891F50034EF00 /* CalMac */,
-				FD7B67B6186891F50034EF00 /* CalMacTests */,
+				FD7B6792186891F50034EF00 /* FerryServices */,
 			);
 		};
 /* End PBXProject section */
@@ -391,14 +320,6 @@
 				FD1E2BCD18698B6300B33431 /* red@2x.png in Resources */,
 				FD6D819818C305DB00856955 /* ferry_icon@2x.png in Resources */,
 				FD49915F18C177AD0061D661 /* timetables.sqlite in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD7B67B5186891F50034EF00 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD7B67C3186891F50034EF00 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,23 +382,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD7B67B3186891F50034EF00 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD7B67C5186891F50034EF00 /* CalMacTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FD7B67BD186891F50034EF00 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD7B6792186891F50034EF00 /* CalMac */;
-			targetProxy = FD7B67BC186891F50034EF00 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FD7B679F186891F50034EF00 /* InfoPlist.strings */ = {
@@ -494,14 +399,6 @@
 				FD7B67A9186891F50034EF00 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FD7B67C1186891F50034EF00 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FD7B67C2186891F50034EF00 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -588,9 +485,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CalMac/CalMac-Prefix.pch";
-				INFOPLIST_FILE = "CalMac/CalMac-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "FerryServices/FerryServices-Prefix.pch";
+				INFOPLIST_FILE = "FerryServices/FerryServices-Info.plist";
+				PRODUCT_NAME = FerryServices;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -605,60 +502,18 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CalMac/CalMac-Prefix.pch";
-				INFOPLIST_FILE = "CalMac/CalMac-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "FerryServices/FerryServices-Prefix.pch";
+				INFOPLIST_FILE = "FerryServices/FerryServices-Info.plist";
+				PRODUCT_NAME = FerryServices;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		FD7B67CC186891F50034EF00 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CalMac.app/CalMac";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CalMac/CalMac-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "CalMacTests/CalMacTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		FD7B67CD186891F50034EF00 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CalMac.app/CalMac";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CalMac/CalMac-Prefix.pch";
-				INFOPLIST_FILE = "CalMacTests/CalMacTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FD7B678E186891F40034EF00 /* Build configuration list for PBXProject "CalMac" */ = {
+		FD7B678E186891F40034EF00 /* Build configuration list for PBXProject "FerryServices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FD7B67C6186891F50034EF00 /* Debug */,
@@ -667,20 +522,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FD7B67C8186891F50034EF00 /* Build configuration list for PBXNativeTarget "CalMac" */ = {
+		FD7B67C8186891F50034EF00 /* Build configuration list for PBXNativeTarget "FerryServices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FD7B67C9186891F50034EF00 /* Debug */,
 				FD7B67CA186891F50034EF00 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FD7B67CB186891F50034EF00 /* Build configuration list for PBXNativeTarget "CalMacTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FD7B67CC186891F50034EF00 /* Debug */,
-				FD7B67CD186891F50034EF00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

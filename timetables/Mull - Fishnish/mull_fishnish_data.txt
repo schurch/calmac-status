@@ -11,3 +11,104 @@
 # Type, SourceLocationId, DestinationLocationId, ServiceId
 1,50,51,12
 1,51,50,12
+
+#########################################
+############### SUMMER ##################
+#########################################
+
+#########################################
+## MON - SAT
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,1,1,1,1,1,1,0
+
+-- trips
+#route lookup
+1,50,51,12
+# Depart, Arrive
+0700,0718,Passenger numbers may be restricted.
+0745,0803
+0845,0903
+0940,0958
+1025,1043
+1110,1128
+1155,1213
+1245,1303
+1425,1443
+1515,1533,Passenger numbers may be restricted.
+1600,1618
+1645,1703
+1745,1803
+
+-- trips
+#route lookup
+1,51,50,12
+# Depart, Arrive
+0725,0743,Passenger numbers may be restricted.
+0810,0828
+0910,0928
+1000,1018
+1045,1103
+1130,1148
+1215,1233
+1310,1328
+1450,1508
+1540,1558,Passenger numbers may be restricted.
+1625,1643
+1710,1728
+1810,1828
+
+#########################################
+## SUN
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-10-26,0,0,0,0,0,0,1
+
+-- trips
+#route lookup
+1,50,51,12
+# Depart, Arrive
+0845,0903
+1000,1018
+1045,1103
+1245,1303
+1345,1403
+1445,1503
+1600,1618
+1645,1703
+1745,1803
+
+-- trips
+#route lookup
+1,51,50,12
+# Depart, Arrive
+0910,0928
+1025,1043
+1110,1128
+1310,1328
+1410,1428
+1510,1528
+1625,1643
+1710,1728
+1805,1823
+
+#########################################
+## MON - SAT (NOT OCT)
+#########################################
+-- calendar
+# StartDate, EndDate, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+2014-04-04,2014-09-30,1,1,1,1,1,1,0
+
+-- trips
+#route lookup
+1,50,51,12
+# Depart, Arrive
+1835,1853
+
+-- trips
+#route lookup
+1,51,50,12
+# Depart, Arrive
+1900,1918

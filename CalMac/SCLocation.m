@@ -25,11 +25,11 @@
                         "WHERE l.locationId IN (\n"
                             "SELECT r.sourceLocationId\n"
                             "FROM Route r\n"
-                            "WHERE r.serviceId = (?)\n"
+                            "WHERE r.serviceId = (?) AND r.Type = 1\n"
                             "UNION\n"
                             "SELECT r.destinationLocationId\n"
                             "FROM Route r\n"
-                            "WHERE r.serviceId = (?)\n"
+                            "WHERE r.serviceId = (?) AND r.Type = 1\n"
                         ")";
     
     FMResultSet *resultSet = [database executeQuery:query, [NSNumber numberWithInteger:serviceId], [NSNumber numberWithInteger:serviceId]];

@@ -9,6 +9,7 @@
 #import "SCServicesViewController.h"
 
 #import "SCAPIClient.h"
+#import "SCAppDelegate.h"
 #import "SCServiceDetailViewController.h"
 #import "SCServiceStatus.h"
 #import "SCServiceStatusCell.h"
@@ -26,6 +27,7 @@
 @property (strong, nonatomic) NSMutableDictionary *dictionaryTapCount;
 
 @property (nonatomic) NSInteger previousFavouritesCount;
+@property (nonatomic) BOOL refreshing;
 
 @end
 
@@ -40,11 +42,20 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationDidBecomeActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
@@ -74,17 +85,11 @@
         }
     }
     
-    [self refresh:nil];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
+    //-- Show the refresh control
+    self.tableView.contentOffset = CGPointMake(0, -60);
+    [self.refreshControl beginRefreshing];
     
-    if ([self.arrayServiceStatuses count] > 0) {
-        [self generateFavourites];
-        [self updateEditButtonVisiblity];
-    }
+    [self refresh:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -100,6 +105,23 @@
     if (selectedRowIndexPath) {
         [self.tableView deselectRowAtIndexPath:selectedRowIndexPath animated:YES];
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    if ([self.arrayServiceStatuses count] > 0) {
+        [self generateFavourites];
+        [self updateEditButtonVisiblity];
+    }
+}
+
+#pragma mark - Notification handlers
+
+- (void)applicationDidBecomeActive:(NSNotification *)notification
+{
+    [self refresh:nil];
 }
 
 #pragma mark - Utiltity methods
@@ -160,6 +182,14 @@
 
 - (void)refresh:(UIRefreshControl *)sender
 {
+    if (self.refreshing) {
+        return;
+    }
+    
+    self.refreshing = YES;
+    
+    [(SCAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
+    
     [[SCAPIClient sharedInstance] fetchFerryServiceStatusesWithCompletion:^(NSArray *serviceStatuses, NSError *error) {
         if (error) {
             [[[UIAlertView alloc] initWithTitle:@"Whoops" message:@"There was a problem fetching the latest disruption details. Please check your connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
@@ -171,7 +201,10 @@
             [self.tableView reloadData];
         }
         
-        [sender endRefreshing];
+        [self.refreshControl endRefreshing];
+        [(SCAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
+        
+        self.refreshing = NO;
     }];
 }
 

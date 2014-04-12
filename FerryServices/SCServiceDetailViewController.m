@@ -9,6 +9,7 @@
 #import "SCServiceDetailViewController.h"
 
 #import "SCAPIClient.h"
+#import "SCAppDelegate.h"
 #import "SCDisruptionDetails.h"
 #import "SCLocation.h"
 #import "SCRouteDetails.h"
@@ -149,6 +150,8 @@
 {
     NSLog(@"Refreshing data for route ID: %ld", (long)self.serviceStatus.routeId);
     
+    [(SCAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
+    
     [self toggleDisruptionHidden:YES];
     self.labelNoDisruptions.hidden = YES;
     self.labelDisruptionDetails.text = nil;
@@ -234,7 +237,10 @@
         }
         
         [sender endRefreshing];
+        [(SCAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
+        
         [self.activityViewLoadingDisruptions stopAnimating];
+        
         [self.tableView reloadData];
     }];
 }

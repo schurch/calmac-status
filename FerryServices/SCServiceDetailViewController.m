@@ -228,7 +228,7 @@
                     self.labelLastUpdated.text = [NSString stringWithFormat:@"Last updated %@", updatedValue];
                 }
                 else {
-                    self.labelLastUpdated.text = @"Last updated not available";
+                    self.labelLastUpdated.text = @"Last updated N/A";
                 }
                 
                 [self toggleDisruptionHidden:NO];

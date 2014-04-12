@@ -10,6 +10,7 @@
 
 @interface SCServiceStatusCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTitleLeadingSpace;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewStatus;
 @property (weak, nonatomic) IBOutlet UILabel *labelSubtitle;
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;

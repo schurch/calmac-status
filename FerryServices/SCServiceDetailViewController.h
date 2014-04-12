@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityViewLoadingDisruptions;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewDisruption;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTopSpaceImageViewDisruption;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintDisruptionMessageLeadingSpace;
 @property (weak, nonatomic) IBOutlet UILabel *labelDisruptionDetails;
 @property (weak, nonatomic) IBOutlet UILabel *labelEndTime;
 @property (weak, nonatomic) IBOutlet UILabel *labelEndTimeTitle;

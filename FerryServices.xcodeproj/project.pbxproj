@@ -22,6 +22,7 @@
 		FD49916B18C1856C0061D661 /* SCTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = FD49916A18C1856C0061D661 /* SCTrip.m */; };
 		FD6D819818C305DB00856955 /* ferry_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6D819618C305DB00856955 /* ferry_icon@2x.png */; };
 		FD6D819918C305DB00856955 /* train_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6D819718C305DB00856955 /* train_icon@2x.png */; };
+		FD76679418F0F17200C82D64 /* services.json in Resources */ = {isa = PBXBuildFile; fileRef = FD76679318F0F17200C82D64 /* services.json */; };
 		FD7B6797186891F50034EF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6796186891F50034EF00 /* Foundation.framework */; };
 		FD7B6799186891F50034EF00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B6798186891F50034EF00 /* CoreGraphics.framework */; };
 		FD7B679B186891F50034EF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B679A186891F50034EF00 /* UIKit.framework */; };
@@ -63,6 +64,7 @@
 		FD49916A18C1856C0061D661 /* SCTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTrip.m; sourceTree = "<group>"; };
 		FD6D819618C305DB00856955 /* ferry_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ferry_icon@2x.png"; sourceTree = "<group>"; };
 		FD6D819718C305DB00856955 /* train_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "train_icon@2x.png"; sourceTree = "<group>"; };
+		FD76679318F0F17200C82D64 /* services.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = services.json; sourceTree = "<group>"; };
 		FD7B6793186891F50034EF00 /* FerryServices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FerryServices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7B6796186891F50034EF00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7B6798186891F50034EF00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,6 +114,7 @@
 		FD1E2BC118698B6300B33431 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD76679318F0F17200C82D64 /* services.json */,
 				FD6D819618C305DB00856955 /* ferry_icon@2x.png */,
 				FD6D819718C305DB00856955 /* train_icon@2x.png */,
 				FD1E2BC318698B6300B33431 /* green@2x.png */,
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD7B67B2186891F50034EF00 /* Images.xcassets in Resources */,
+				FD76679418F0F17200C82D64 /* services.json in Resources */,
 				FD6D819918C305DB00856955 /* train_icon@2x.png in Resources */,
 				FD7B67A1186891F50034EF00 /* InfoPlist.strings in Resources */,
 				FD1E2BCB18698B6300B33431 /* amber@2x.png in Resources */,

@@ -15,6 +15,8 @@
 
 #define MIN_FAVOURITE_COUNT 2
 #define TAP_COUNT_KEY @"com.ferryservices.userdefaultkeys.tapcount"
+#define TITLE_LEADING_SPACE_WITH_IMAGE 42
+#define TITLE_LEADING_SPACE_MINUS_IMAGE 11
 
 @interface SCServicesViewController ()
 
@@ -47,6 +49,30 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
+    
+    if ([self.arrayServiceStatuses count] == 0) {
+        NSString *defaultServicesFilePath = [[NSBundle mainBundle] pathForResource:@"services" ofType:@"json"];
+        NSData *servicesData = [NSData dataWithContentsOfFile:defaultServicesFilePath];
+
+        NSError *error = nil;
+        NSDictionary *serviceStatusData = [NSJSONSerialization JSONObjectWithData:servicesData options:kNilOptions error:&error];
+        
+        if (!error) {
+            NSArray *serviceStatuses = serviceStatusData[@"ServiceStatuses"];
+            
+            NSMutableArray *arrayOfStatuses = [[NSMutableArray alloc] init];
+            [serviceStatuses enumerateObjectsUsingBlock:^(NSDictionary *serviceStatusData, NSUInteger idx, BOOL *stop) {
+                SCServiceStatus *serviceStatus = [[SCServiceStatus alloc] initWithData:serviceStatusData];
+                [arrayOfStatuses addObject:serviceStatus];
+            }];
+            
+            self.arrayServiceStatuses = arrayOfStatuses;
+            
+            [self generateFavourites];
+            [self updateEditButtonVisiblity];
+            [self.tableView reloadData];
+        }
+    }
     
     [self refresh:nil];
 }
@@ -136,7 +162,7 @@
 {
     [[SCAPIClient sharedInstance] fetchFerryServiceStatusesWithCompletion:^(NSArray *serviceStatuses, NSError *error) {
         if (error) {
-            [[[UIAlertView alloc] initWithTitle:@"Oops" message:@"There was an error. Please check your connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"Whoops" message:@"There was a problem fetching the latest disruption details. Please check your connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
         else {
             self.arrayServiceStatuses = serviceStatuses;
@@ -246,10 +272,20 @@
         case SCDisruptionStatusSailingsCancelled:
             cell.imageViewStatus.image = [UIImage imageNamed:@"red.png"];
             break;
+        case SCDisruptionStatusUnknown:
+            cell.imageViewStatus.image = nil;
+            break;
         default:
             cell.imageViewStatus.image = nil;
             NSLog(@"Unrecognised disruption status!");
             break;
+    }
+    
+    if (serviceStatus.disruptionStatus == SCDisruptionStatusUnknown) {
+        cell.constraintTitleLeadingSpace.constant = TITLE_LEADING_SPACE_MINUS_IMAGE;
+    }
+    else {
+        cell.constraintTitleLeadingSpace.constant = TITLE_LEADING_SPACE_WITH_IMAGE;
     }
     
     return cell;

@@ -10,6 +10,7 @@
 #define CalMac_SCDisruptionStatus_h
 
 typedef NS_ENUM(NSInteger, SCDisruptionStatus) {
+    SCDisruptionStatusUnknown = -99,
     SCDisruptionStatusNormal = -1,
     SCDisruptionStatusSailingsAffected = 1,
     SCDisruptionStatusSailingsCancelled = 2

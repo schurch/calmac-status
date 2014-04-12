@@ -18,6 +18,8 @@
 
 #define IMAGE_VIEW_TOP_SPACE 29
 #define IMAGE_VIEW_TOP_SPACE_REDUCED 17
+#define DISRUPTION_DEFAULT_LEADING_SPACE 51
+#define DISRUPTION_MINUS_IMAGE_LEADING_SPACE 13
 
 @interface SCServiceDetailViewController ()
 
@@ -160,61 +162,75 @@
     // Fetch the detailed information
     [[SCAPIClient sharedInstance] fetchDisruptionDetailsForFerryServiceId:self.serviceStatus.routeId completion:^(SCDisruptionDetails *disruptionDetails, SCRouteDetails *routeDetails, NSError *error) {
         
-        if (disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusNormal || disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusInformation) {
-            self.imageViewDisruption.image = [UIImage imageNamed:@"green.png"];
-            self.labelNoDisruptions.text = @"There are currently no disruptions with this service.";
+        if (error) {
+            self.imageViewDisruption.image = nil;
+            self.labelNoDisruptions.text = @"Unable to fetch the disruption status for this service.";
             
             self.constraintTopSpaceImageViewDisruption.constant = IMAGE_VIEW_TOP_SPACE_REDUCED;
+            self.constraintDisruptionMessageLeadingSpace.constant = DISRUPTION_MINUS_IMAGE_LEADING_SPACE;
             
-            self.imageViewDisruption.hidden = NO;
+            self.imageViewDisruption.hidden = YES;
             self.labelNoDisruptions.hidden = NO;
         }
         else {
-            self.labelDisruptionDetails.text = disruptionDetails.details;
+            self.constraintDisruptionMessageLeadingSpace.constant = DISRUPTION_DEFAULT_LEADING_SPACE;
             
-            switch (disruptionDetails.disruptionStatus) {
-                case SCDisruptionDetailsStatusSailingsAffected:
-                    self.imageViewDisruption.image = [UIImage imageNamed:@"amber.png"];
-                    break;
-                case SCDisruptionDetailsStatusSailingsCancelled:
-                    self.imageViewDisruption.image = [UIImage imageNamed:@"red.png"];
-                    break;
-                default:
-                    self.imageViewDisruption.image = nil;
-                    NSLog(@"Unrecognised disruption status!");
-                    break;
-            }
-            
-            self.labelReason.text = [disruptionDetails.reason capitalizedString];
-            self.labelEndTime.text = [[SCServiceDetailViewController dateFormatter] stringFromDate:disruptionDetails.disruptionEndDate];
-            
-            if (disruptionDetails.updatedDate) {
-                NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-                NSDateComponents *components = [calendar components:NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit
-                                                           fromDate:disruptionDetails.updatedDate
-                                                             toDate:[NSDate date]
-                                                            options:0];
+            if (disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusNormal || disruptionDetails.disruptionStatus == SCDisruptionDetailsStatusInformation) {
+                self.imageViewDisruption.image = [UIImage imageNamed:@"green.png"];
+                self.labelNoDisruptions.text = @"There are currently no disruptions with this service.";
                 
-                NSString *updatedValue;
+                self.constraintTopSpaceImageViewDisruption.constant = IMAGE_VIEW_TOP_SPACE_REDUCED;
                 
-                if (components.day > 0) {
-                    NSString *daysString = components.day == 1 ? @"day" : @"days";
-                    updatedValue = [NSString stringWithFormat:@"%ld %@ ago", (long)components.day, daysString];
-                } else if (components.hour > 0) {
-                    NSString *hoursString = components.day == 1 ? @"hour" : @"hours";
-                    updatedValue = [NSString stringWithFormat:@"%ld %@ ago", (long)components.hour, hoursString];
-                } else {
-                    NSString *minutesString = components.day == 1 ? @"minute" : @"minutes";
-                    updatedValue = [NSString stringWithFormat:@"%ld %@ ago", (long)components.minute, minutesString];
-                }
-                
-                self.labelLastUpdated.text = [NSString stringWithFormat:@"Last updated %@", updatedValue];
+                self.imageViewDisruption.hidden = NO;
+                self.labelNoDisruptions.hidden = NO;
             }
             else {
-                self.labelLastUpdated.text = @"Last updated not available";
+                self.labelDisruptionDetails.text = disruptionDetails.details;
+                
+                switch (disruptionDetails.disruptionStatus) {
+                    case SCDisruptionDetailsStatusSailingsAffected:
+                        self.imageViewDisruption.image = [UIImage imageNamed:@"amber.png"];
+                        break;
+                    case SCDisruptionDetailsStatusSailingsCancelled:
+                        self.imageViewDisruption.image = [UIImage imageNamed:@"red.png"];
+                        break;
+                    default:
+                        self.imageViewDisruption.image = nil;
+                        NSLog(@"Unrecognised disruption status!");
+                        break;
+                }
+                
+                self.labelReason.text = [disruptionDetails.reason capitalizedString];
+                self.labelEndTime.text = [[SCServiceDetailViewController dateFormatter] stringFromDate:disruptionDetails.disruptionEndDate];
+                
+                if (disruptionDetails.updatedDate) {
+                    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+                    NSDateComponents *components = [calendar components:NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit
+                                                               fromDate:disruptionDetails.updatedDate
+                                                                 toDate:[NSDate date]
+                                                                options:0];
+                    
+                    NSString *updatedValue;
+                    
+                    if (components.day > 0) {
+                        NSString *daysString = components.day == 1 ? @"day" : @"days";
+                        updatedValue = [NSString stringWithFormat:@"%ld %@ ago", (long)components.day, daysString];
+                    } else if (components.hour > 0) {
+                        NSString *hoursString = components.day == 1 ? @"hour" : @"hours";
+                        updatedValue = [NSString stringWithFormat:@"%ld %@ ago", (long)components.hour, hoursString];
+                    } else {
+                        NSString *minutesString = components.day == 1 ? @"minute" : @"minutes";
+                        updatedValue = [NSString stringWithFormat:@"%ld %@ ago", (long)components.minute, minutesString];
+                    }
+                    
+                    self.labelLastUpdated.text = [NSString stringWithFormat:@"Last updated %@", updatedValue];
+                }
+                else {
+                    self.labelLastUpdated.text = @"Last updated not available";
+                }
+                
+                [self toggleDisruptionHidden:NO];
             }
-            
-            [self toggleDisruptionHidden:NO];
         }
         
         [sender endRefreshing];

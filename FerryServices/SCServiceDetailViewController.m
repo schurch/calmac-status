@@ -45,7 +45,6 @@
     return formatter;
 }
 
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad

@@ -358,6 +358,7 @@
         
         if ([self.arrayFavourites count] == 0) {
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            self.tableView.editing = NO;
         }
         else {
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];

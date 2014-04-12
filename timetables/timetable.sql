@@ -1359,6 +1359,7 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (25, "Tiree"
 -- Routes
 INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (20, 1, 24, 25, 16);
 INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (21, 1, 25, 24, 16);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (22, 1, 25, 19, 16);
 
 
 
@@ -1368,12 +1369,12 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (27, "Port A
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (28, "Kennacraig", 55.806700, -5.483400);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (22, 1, 19, 26, 10);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (23, 1, 28, 27, 10);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (24, 1, 27, 28, 10);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (25, 1, 26, 27, 10);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (26, 1, 26, 19, 10);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (27, 1, 27, 28, 10);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (23, 1, 19, 26, 10);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (24, 1, 28, 27, 10);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (25, 1, 27, 28, 10);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (26, 1, 26, 27, 10);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (27, 1, 26, 19, 10);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (28, 1, 27, 28, 10);
 
 
 -- Locations
@@ -1381,8 +1382,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (15, "Tarber
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (29, "Portavadie", 55.876490, -5.316540);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (28, 1, 15, 29, 2);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (29, 1, 29, 15, 2);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (29, 1, 15, 29, 2);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (30, 1, 29, 15, 2);
 
 
 -- Calendars
@@ -1468,8 +1469,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (11, "Largs"
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (12, "Cumbrae Slip", 55.786710, -4.898246);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (30, 1, 11, 12, 7);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (31, 1, 12, 11, 7);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (31, 1, 11, 12, 7);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (32, 1, 12, 11, 7);
 
 
 -- Calendars
@@ -2296,8 +2297,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (30, "Tayinl
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (31, "Gigha", 55.678637, -5.733597);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (32, 1, 30, 31, 8);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (33, 1, 31, 30, 8);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (33, 1, 30, 31, 8);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (34, 1, 31, 30, 8);
 
 
 
@@ -2306,8 +2307,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (32, "Uig", 
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (33, "Tarbert", 57.896848, -6.798668);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (34, 1, 32, 33, 24);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (35, 1, 33, 32, 24);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (35, 1, 32, 33, 24);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (36, 1, 33, 32, 24);
 
 
 -- Calendars
@@ -2470,8 +2471,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (34, "Fionnp
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (35, "Iona", 56.330225, -6.392257);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (36, 1, 34, 35, 13);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (37, 1, 35, 34, 13);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (37, 1, 34, 35, 13);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (38, 1, 35, 34, 13);
 
 
 
@@ -2479,10 +2480,10 @@ INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, Servi
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (36, "Port Ellen", 55.627810, -6.189810);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (38, 1, 28, 36, 9);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (39, 1, 28, 27, 9);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (40, 1, 27, 28, 9);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (41, 1, 36, 28, 9);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (39, 1, 28, 36, 9);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (40, 1, 28, 27, 9);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (41, 1, 27, 28, 9);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (42, 1, 36, 28, 9);
 
 
 -- Calendars
@@ -2687,8 +2688,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (9, "Stornow
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (10, "Ullapool Bay", 57.894939, -5.160442);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (42, 1, 9, 10, 25);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (43, 1, 10, 9, 25);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (43, 1, 9, 10, 25);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (44, 1, 10, 9, 25);
 
 
 
@@ -2839,8 +2840,8 @@ INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (69, 1046);
 -- Locations
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (44, 1, 9, 10, 35);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (45, 1, 10, 9, 35);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (45, 1, 9, 10, 35);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (46, 1, 10, 9, 35);
 
 
 
@@ -2848,8 +2849,8 @@ INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, Servi
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (37, "Lismore", 56.511159, -5.492068);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (46, 1, 19, 37, 15);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (47, 1, 37, 19, 15);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (47, 1, 19, 37, 15);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (48, 1, 37, 19, 15);
 
 
 
@@ -2857,8 +2858,8 @@ INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, Servi
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (38, "Craignure", 56.470740, -5.706290);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (48, 1, 19, 38, 11);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (49, 1, 38, 19, 11);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (49, 1, 19, 38, 11);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (50, 1, 38, 19, 11);
 
 
 -- Calendars
@@ -3055,8 +3056,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (50, "Lochal
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (51, "Fishnish", 56.514720, -5.810320);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (50, 1, 50, 51, 12);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (51, 1, 51, 50, 12);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (51, 1, 50, 51, 12);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (52, 1, 51, 50, 12);
 
 
 -- Calendars
@@ -3178,8 +3179,8 @@ INSERT INTO CalendarTrip (CalendarId, TripId) VALUES (81, 1156);
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (39, "Lochmaddy", 57.596518, -7.157672);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (52, 1, 32, 39, 22);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (53, 1, 39, 32, 22);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (53, 1, 32, 39, 22);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (54, 1, 39, 32, 22);
 
 
 -- Calendars
@@ -3341,8 +3342,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (40, "Berner
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (41, "Leverburgh", 57.766540, -7.025258);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (54, 1, 40, 41, 23);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (55, 1, 41, 40, 23);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (55, 1, 40, 41, 23);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (56, 1, 41, 40, 23);
 
 
 
@@ -3351,8 +3352,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (42, "Sconse
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (43, "Raasay", 57.351034, -6.082454);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (56, 1, 42, 43, 17);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (57, 1, 43, 42, 17);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (57, 1, 42, 43, 17);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (58, 1, 43, 42, 17);
 
 
 -- Locations
@@ -3360,8 +3361,8 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (44, "Mallai
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (45, "Armadale", 57.064596, -5.894743);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (58, 1, 44, 45, 18);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (59, 1, 45, 44, 18);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (59, 1, 44, 45, 18);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (60, 1, 45, 44, 18);
 
 
 
@@ -3372,17 +3373,17 @@ INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (48, "Rum", 
 INSERT INTO Location (LocationId, Name, Latitude, Longitude) VALUES (49, "Canna", 57.056171, -6.490296);
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (60, 1, 44, 46, 19);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (61, 1, 44, 47, 19);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (62, 1, 44, 48, 19);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (63, 1, 48, 49, 19);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (61, 1, 44, 46, 19);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (62, 1, 44, 47, 19);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (63, 1, 44, 48, 19);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (64, 1, 48, 49, 19);
 
 
 
 -- Locations
 
 -- Routes
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (64, 1, 44, 21, 37);
-INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (65, 1, 21, 44, 37);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (65, 1, 44, 21, 37);
+INSERT INTO Route (RouteId, Type, SourceLocationId, DestinationLocationId, ServiceId) VALUES (66, 1, 21, 44, 37);
 
 

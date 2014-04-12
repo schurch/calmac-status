@@ -1,6 +1,6 @@
 //
 //  SCMasterViewController.m
-//  CalMac
+//  FerryServices
 //
 //  Created by Stefan Church on 23/12/2013.
 //  Copyright (c) 2013 Stefan Church. All rights reserved.
@@ -153,7 +153,7 @@
 
 - (void)incrementTapCountForRouteId:(NSInteger)routeId
 {
-    NSString *routeIdKey = [NSString stringWithFormat:@"%d", routeId];
+    NSString *routeIdKey = [NSString stringWithFormat:@"%ld", (long)routeId];
     NSInteger count = [self.dictionaryTapCount[routeIdKey] integerValue];
     count += 1;
     NSNumber *newCount = [NSNumber numberWithInteger:count];

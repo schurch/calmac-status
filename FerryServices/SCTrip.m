@@ -1,6 +1,6 @@
 //
 //  SCTrip.m
-//  CalMac
+//  FerryServices
 //
 //  Created by Stefan Church on 01/03/2014.
 //  Copyright (c) 2014 Stefan Church. All rights reserved.
@@ -38,7 +38,7 @@
     NSString *query = [NSString stringWithFormat:@"SELECT COUNT(*)\n"
                                                   "FROM Route r\n"
                                                   "INNER JOIN Trip t ON r.RouteId = t.RouteId\n"
-                                                  "WHERE r.ServiceId = %d", routeId];
+                                                  "WHERE r.ServiceId = %ld", (long)routeId];
     
     NSUInteger tripCount = [database intForQuery:query];
     

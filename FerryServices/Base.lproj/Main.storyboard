@@ -316,7 +316,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="1HC-yj-tIE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="1HC-yj-tIE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -460,9 +460,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <outlet property="delegate" destination="8ra-Mi-Ip9" id="tIU-bw-5X0"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bhi-d1-Rzk">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhi-d1-Rzk">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Yz1-d1-Xeb"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem width="62" style="plain" systemItem="fixedSpace" id="uab-JN-Zd3"/>
                                     <barButtonItem style="plain" id="7Xr-rT-gAV">
@@ -482,6 +485,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bhi-d1-Rzk" firstAttribute="top" secondItem="1HC-yj-tIE" secondAttribute="bottom" id="706-TI-KFS"/>
+                            <constraint firstItem="1HC-yj-tIE" firstAttribute="top" secondItem="sa9-Wa-Rh0" secondAttribute="top" id="9rl-hw-2du"/>
+                            <constraint firstAttribute="trailing" secondItem="Bhi-d1-Rzk" secondAttribute="trailing" id="PIa-OM-wmu"/>
+                            <constraint firstItem="1HC-yj-tIE" firstAttribute="leading" secondItem="sa9-Wa-Rh0" secondAttribute="leading" id="Ube-6t-bC0"/>
+                            <constraint firstAttribute="trailing" secondItem="1HC-yj-tIE" secondAttribute="trailing" id="h5T-tk-n15"/>
+                            <constraint firstItem="NG4-2p-6DD" firstAttribute="top" secondItem="Bhi-d1-Rzk" secondAttribute="bottom" id="i59-HL-ghS"/>
+                            <constraint firstItem="Bhi-d1-Rzk" firstAttribute="leading" secondItem="sa9-Wa-Rh0" secondAttribute="leading" id="rob-mO-ChI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l6B-y8-AOq"/>
                     <connections>
